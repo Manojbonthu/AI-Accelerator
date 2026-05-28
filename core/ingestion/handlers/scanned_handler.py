@@ -1,394 +1,351 @@
 """
 core/ingestion/handlers/scanned_handler.py
 
-Extracts content from scanned PDFs using:
-- pymupdf: Convert pages to images
-- pytesseract: OCR text extraction
-- unstructured: Accurate layout detection (Text, Table, Figure)
-- Google Gemma: Describe diagrams (via shared Gemma client)
+Simplified handler for scanned PDFs using only PaddleOCR + embedded image extraction.
+- No Unstructured, no torch – avoids Windows DLL issues.
+- Extracts text, groups into paragraphs, detects headings.
+- Extracts embedded images (logos, diagrams) and describes them via Gemma.
+- Builds hierarchical sections identical to digital handler.
 """
 
 import os
 import io
-from typing import List, Optional
+import hashlib
+import numpy as np
+from typing import List, Dict, Any, Tuple, Optional
 from PIL import Image
-import pytesseract
 import fitz  # pymupdf
-from dotenv import load_dotenv
-
-# Load environment variables
-load_dotenv()
+from paddleocr import PaddleOCR
 
 from core.schemas.models import (
-    ContentBlock, TableBlock, ImageBlock,
-    BlockType, NormalizedDocument
+    ContentBlock, TableBlock, ImageBlock, BlockType,
+    NormalizedDocument, Section
 )
 from core.ingestion.gemma_client import describe_image_with_gemma
 
-# ──────────────────────────────────────────────
-# Configuration
-# ──────────────────────────────────────────────
+# ------------------------------------------------------------------
+# Global OCR engine and image registry
+# ------------------------------------------------------------------
+_ocr_engine = None
+_image_registry: Dict[str, ImageBlock] = {}
 
-TESSERACT_PATH = os.getenv("TESSERACT_PATH", r"C:\Program Files\Tesseract-OCR\tesseract.exe")
-if os.path.exists(TESSERACT_PATH):
-    pytesseract.pytesseract.tesseract_cmd = TESSERACT_PATH
+def get_ocr_engine():
+    global _ocr_engine
+    if _ocr_engine is None:
+        _ocr_engine = PaddleOCR(lang='en', use_angle_cls=True, enable_mkldnn=False)
+    return _ocr_engine
 
 
-# ──────────────────────────────────────────────
-# Main Extraction Function
-# ──────────────────────────────────────────────
+def _get_or_create_image(image_bytes: bytes, page_num: int, use_gemma: bool) -> Tuple[str, ImageBlock]:
+    img_hash = hashlib.sha256(image_bytes).hexdigest()
+    if img_hash in _image_registry:
+        return img_hash, _image_registry[img_hash]
+    image_block = ImageBlock(
+        image_bytes=image_bytes,
+        mime_type="image/png",
+        page=page_num,
+        confidence=1.0
+    )
+    if use_gemma:
+        desc = describe_image_with_gemma(image_bytes)
+        if desc:
+            image_block.description = desc
+    _image_registry[img_hash] = image_block
+    return img_hash, image_block
 
+
+# ------------------------------------------------------------------
+# Helper: PDF page to PIL image
+# ------------------------------------------------------------------
+def page_to_pil(page, dpi=200) -> Image.Image:
+    pix = page.get_pixmap(dpi=dpi)
+    img_data = pix.tobytes("png")
+    return Image.open(io.BytesIO(img_data))
+
+
+# ------------------------------------------------------------------
+# Run PaddleOCR and return list of text blocks with bounding boxes
+# ------------------------------------------------------------------
+def run_ocr(img: Image.Image) -> List[Dict]:
+    ocr = get_ocr_engine()
+    img_np = np.array(img)
+    result = ocr.ocr(img_np)
+    blocks = []
+    if result and result[0]:
+        for line in result[0]:
+            bbox = line[0]
+            text = line[1][0]
+            conf = line[1][1]
+            x0 = min(p[0] for p in bbox)
+            y0 = min(p[1] for p in bbox)
+            x1 = max(p[0] for p in bbox)
+            y1 = max(p[1] for p in bbox)
+            blocks.append({
+                "bbox": (x0, y0, x1, y1),
+                "text": text,
+                "confidence": conf
+            })
+    return blocks
+
+
+# ------------------------------------------------------------------
+# Group OCR blocks into paragraphs (by vertical gaps)
+# ------------------------------------------------------------------
+def group_into_paragraphs(blocks: List[Dict]) -> List[Dict]:
+    if not blocks:
+        return []
+    blocks.sort(key=lambda b: (b["bbox"][1], b["bbox"][0]))
+    paragraphs = []
+    current = []
+    last_y = None
+    for b in blocks:
+        y0 = b["bbox"][1]
+        y1 = b["bbox"][3]
+        height = y1 - y0
+        if last_y is None:
+            current.append(b)
+            last_y = y0
+        else:
+            gap = y0 - last_y
+            if gap < height * 1.5:
+                current.append(b)
+            else:
+                if current:
+                    paragraphs.append({
+                        "blocks": current,
+                        "text": " ".join([p["text"] for p in current]),
+                        "bbox": (
+                            min(p["bbox"][0] for p in current),
+                            min(p["bbox"][1] for p in current),
+                            max(p["bbox"][2] for p in current),
+                            max(p["bbox"][3] for p in current)
+                        ),
+                        "avg_height": np.mean([p["bbox"][3] - p["bbox"][1] for p in current])
+                    })
+                current = [b]
+                last_y = y0
+    if current:
+        paragraphs.append({
+            "blocks": current,
+            "text": " ".join([p["text"] for p in current]),
+            "bbox": (min(p["bbox"][0] for p in current),
+                     min(p["bbox"][1] for p in current),
+                     max(p["bbox"][2] for p in current),
+                     max(p["bbox"][3] for p in current)),
+            "avg_height": np.mean([p["bbox"][3] - p["bbox"][1] for p in current])
+        })
+    return paragraphs
+
+
+# ------------------------------------------------------------------
+# Classify paragraph as heading or normal text
+# ------------------------------------------------------------------
+def classify_paragraph(para: Dict) -> str:
+    text = para["text"].strip()
+    avg_height = para["avg_height"]
+    # Heading heuristics: larger font OR short all-caps OR ends with colon OR starts with number
+    if avg_height > 25:
+        return "heading"
+    if len(text) < 100 and (text.isupper() or text.endswith(':') or (text[0].isdigit() and '.' in text[:5])):
+        return "heading"
+    return "text"
+
+
+# ------------------------------------------------------------------
+# Convert paragraphs to ContentBlocks
+# ------------------------------------------------------------------
+def paragraphs_to_blocks(paragraphs: List[Dict], page_num: int, doc_name: str) -> List[ContentBlock]:
+    blocks = []
+    for para in paragraphs:
+        if classify_paragraph(para) == "heading":
+            blocks.append(ContentBlock(
+                type=BlockType.HEADING,
+                text=para["text"],
+                level=2,  # could be refined by avg_height
+                page=page_num,
+                metadata={"source": "ocr", "avg_font_height": para["avg_height"]}
+            ))
+        else:
+            blocks.append(ContentBlock(
+                type=BlockType.PARAGRAPH,
+                text=para["text"],
+                page=page_num,
+                metadata={"source": "ocr", "avg_font_height": para["avg_height"]}
+            ))
+    return blocks
+
+
+# ------------------------------------------------------------------
+# Extract embedded raster images from a PDF page
+# ------------------------------------------------------------------
+def extract_embedded_images(page, page_num: int, doc: fitz.Document, use_gemma: bool) -> List[ContentBlock]:
+    image_blocks = []
+    img_list = page.get_images(full=True)
+    for img in img_list:
+        xref = img[0]
+        try:
+            base_image = doc.extract_image(xref)
+            image_bytes = base_image["image"]
+            # Get image rectangle(s) – usually one
+            rects = page.get_image_rects(img)
+            bbox = rects[0] if rects else (0, 0, 0, 0)
+            img_hash, img_block = _get_or_create_image(image_bytes, page_num, use_gemma)
+            image_blocks.append(ContentBlock(
+                type=BlockType.IMAGE,
+                text=img_block.description or "",
+                page=page_num,
+                image=img_block,
+                metadata={"document_name": doc.name, "bbox": bbox}
+            ))
+        except Exception:
+            continue
+    return image_blocks
+
+
+# ------------------------------------------------------------------
+# Build section tree (identical to digital handler)
+# ------------------------------------------------------------------
+def build_sections(blocks: List[ContentBlock], total_pages: int) -> List[Section]:
+    sections = []
+    section_stack = []
+
+    current_section = Section(
+        title="Cover",
+        level=0,
+        section_path=["Cover"],
+        page_start=1,
+        page_end=1,
+        content="",
+        tables=[],
+        figures=[]
+    )
+    section_stack.append(current_section)
+
+    current_content_parts = []
+    current_tables = []
+    current_figures = []
+
+    for block in blocks:
+        if block.type == BlockType.HEADING:
+            level = block.level or 2
+            heading_text = block.text
+
+            # Finalize previous section
+            if current_section is not None:
+                current_section.content = "\n".join(current_content_parts).strip()
+                current_section.tables = current_tables[:]
+                current_section.figures = current_figures[:]
+                current_section.page_end = block.page
+                if len(section_stack) > 1:
+                    section_stack[-2].children.append(current_section)
+                else:
+                    sections.append(current_section)
+
+            # Start new section
+            current_section = Section(
+                title=heading_text,
+                level=level,
+                section_path=[heading_text],
+                page_start=block.page,
+                page_end=block.page,
+                content="",
+                tables=[],
+                figures=[]
+            )
+            current_content_parts = []
+            current_tables = []
+            current_figures = []
+
+            while len(section_stack) > 0 and section_stack[-1].level >= level:
+                section_stack.pop()
+            section_stack.append(current_section)
+            current_section.section_path = [s.title for s in section_stack]
+        else:
+            if block.type == BlockType.PARAGRAPH:
+                current_content_parts.append(block.text)
+            elif block.type == BlockType.TABLE and block.table:
+                current_tables.append(block.table)
+                current_content_parts.append(block.text)
+            elif block.type == BlockType.IMAGE and block.image:
+                # Deduplicate within section (by bytes)
+                if not any(f.image_bytes == block.image.image_bytes for f in current_figures):
+                    current_figures.append(block.image)
+                    if block.image.description:
+                        current_content_parts.append(f"[Image: {block.image.description}]")
+                    elif block.image.caption:
+                        current_content_parts.append(f"[Image: {block.image.caption}]")
+                    else:
+                        current_content_parts.append("[Image]")
+
+    # Finalize last section
+    if current_section is not None:
+        current_section.content = "\n".join(current_content_parts).strip()
+        current_section.tables = current_tables[:]
+        current_section.figures = current_figures[:]
+        current_section.page_end = total_pages
+        if len(section_stack) > 1:
+            section_stack[-2].children.append(current_section)
+        else:
+            sections.append(current_section)
+
+    return sections
+
+
+# ------------------------------------------------------------------
+# Main extraction function
+# ------------------------------------------------------------------
 def extract_scanned(file_path: str, use_gemma: bool = True) -> NormalizedDocument:
-    """
-    Extract content from a scanned PDF.
-    """
-    file_name = os.path.basename(file_path)
+    # Reset image registry for this document
+    global _image_registry
+    _image_registry = {}
+
     doc = fitz.open(file_path)
+    file_name = os.path.basename(file_path)
     total_pages = len(doc)
-    print(f"  Converting PDF pages to images... {total_pages} pages")
 
     all_blocks = []
 
     for page_num in range(total_pages):
         page = doc[page_num]
-        pix = page.get_pixmap(dpi=300)
-        page_image = Image.open(io.BytesIO(pix.tobytes("png")))
         page_number = page_num + 1
-        print(f"  Processing page {page_number}/{total_pages}...")
+
+        # Render page to image for OCR
+        pil_img = page_to_pil(page)
+
+        # 1. OCR and paragraph grouping
+        ocr_blocks = run_ocr(pil_img)
+        paragraphs = group_into_paragraphs(ocr_blocks)
+        text_blocks = paragraphs_to_blocks(paragraphs, page_number, file_name)
+
+        # 2. Extract embedded images
+        image_blocks = extract_embedded_images(page, page_number, doc, use_gemma)
+
+        # 3. Merge text and image blocks (preserve reading order? images are separate)
+        # For simplicity, add all text blocks first, then images after (or interlace by y-coordinate if needed)
+        # To keep order, we can sort all blocks by their bounding box y-position (for images, use bbox)
+        # But images from get_images have bbox, so we can combine and sort.
+        combined = text_blocks + image_blocks
+        # Sort by page, then by bbox y (images have bbox)
+        combined.sort(key=lambda b: (b.page, b.metadata.get("bbox", (0,0,0,0))[1] if b.type == BlockType.IMAGE else 0))
+        all_blocks.extend(combined)
 
         # Add page break marker
         all_blocks.append(ContentBlock(
             type=BlockType.PAGE_BREAK,
             text=f"--- Page {page_number} ---",
-            page=page_number
+            page=page_number,
+            metadata={"document_name": file_name}
         ))
 
-        # Step 1: Layout analysis using unstructured (Text, Table, Figure)
-        layout_blocks = analyze_layout(page_image, page_number)
-
-        # Step 2: OCR text for regions marked as Text
-        ocr_text_blocks = extract_text_with_ocr(page_image, page_number)
-
-        # Step 3: Merge layout info with OCR text
-        merged_blocks = merge_layout_and_ocr(layout_blocks, ocr_text_blocks, page_number)
-
-        # Step 4: For Figure/Image blocks, optionally call Gemma
-        for block in merged_blocks:
-            if block.type == BlockType.IMAGE and block.image and use_gemma:
-                if block.image.image_bytes:
-                    print(f"    Sending diagram to Gemma...")
-                    description = describe_image_with_gemma(block.image.image_bytes)
-                    if description:
-                        block.image.description = description
-                        block.text = description
-                        print(f"    Gemma description: {description[:100]}...")
-
-        all_blocks.extend(merged_blocks)
-
     doc.close()
+
+    # Build section hierarchy
+    sections = build_sections(all_blocks, total_pages)
+
     return NormalizedDocument(
         file_name=file_name,
         total_pages=total_pages,
         pdf_type="scanned",
+        sections=sections,
         blocks=all_blocks
     )
-
-
-# ──────────────────────────────────────────────
-# Layout Analysis with unstructured
-# ──────────────────────────────────────────────
-
-def _safe_get_coordinates(el) -> Optional[tuple]:
-    """
-    Safely extract (x1, y1, x2, y2) from an unstructured element's metadata.
-    Handles both tuple/list and CoordinatesMetadata objects.
-    """
-    if not hasattr(el.metadata, 'coordinates'):
-        return None
-    c = el.metadata.coordinates
-    if c is None:
-        return None
-    # If it's already a sequence of 4 numbers
-    if isinstance(c, (list, tuple)) and len(c) == 4:
-        return tuple(c)
-    # If it's a CoordinatesMetadata object with .points
-    if hasattr(c, 'points') and hasattr(c.points, 'x1'):
-        pts = c.points
-        return (pts.x1, pts.y1, pts.x2, pts.y2)
-    # fallback: try to convert to tuple if it's iterable
-    try:
-        return tuple(c)
-    except Exception:
-        return None
-
-
-def analyze_layout(image: Image.Image, page_num: int) -> List[ContentBlock]:
-    """
-    Use unstructured to detect layout regions (Text, Table, Figure).
-    Falls back to gap detection if unstructured is not available.
-    """
-    try:
-        from unstructured.partition.image import partition_image
-        from unstructured.documents.elements import ElementType
-
-        img_bytes = io.BytesIO()
-        image.save(img_bytes, format='PNG')
-        img_bytes.seek(0)
-
-        elements = partition_image(
-            file=img_bytes,
-            include_page_breaks=False,
-            strategy="hi_res",
-        )
-
-        blocks = []
-        for el in elements:
-            el_type = el.category
-            coords = _safe_get_coordinates(el)
-
-            if el_type == ElementType.TABLE:
-                blocks.append(ContentBlock(
-                    type=BlockType.TABLE,
-                    text=el.text,
-                    page=page_num,
-                    table=TableBlock(
-                        headers=[],
-                        rows=[],
-                        page=page_num
-                    ),
-                    metadata={"source": "unstructured", "bbox": str(coords)}
-                ))
-            elif el_type in (ElementType.IMAGE, ElementType.FIGURE):
-                if coords:
-                    x1, y1, x2, y2 = coords
-                    cropped = image.crop((x1, y1, x2, y2))
-                    buf = io.BytesIO()
-                    cropped.save(buf, format='PNG')
-                    blocks.append(ContentBlock(
-                        type=BlockType.IMAGE,
-                        text="",
-                        page=page_num,
-                        image=ImageBlock(
-                            image_bytes=buf.getvalue(),
-                            mime_type="image/png",
-                            page=page_num
-                        ),
-                        metadata={"source": "unstructured", "bbox": str(coords)}
-                    ))
-            else:
-                blocks.append(ContentBlock(
-                    type=BlockType.PARAGRAPH,
-                    text=el.text,
-                    page=page_num,
-                    metadata={"source": "unstructured", "bbox": str(coords)}
-                ))
-        return blocks
-
-    except ImportError:
-        print("  WARNING: 'unstructured' not installed. Falling back to gap detection.")
-        return detect_and_describe_diagrams_fallback(image, page_num, use_gemma=False)
-
-
-def merge_layout_and_ocr(
-    layout_blocks: List[ContentBlock],
-    ocr_text_blocks: List[ContentBlock],
-    page_num: int
-) -> List[ContentBlock]:
-    """Replace layout TEXT blocks with high‑quality OCR text."""
-    ocr_idx = 0
-    merged = []
-    for block in layout_blocks:
-        if block.type == BlockType.PARAGRAPH:
-            if ocr_idx < len(ocr_text_blocks):
-                merged.append(ocr_text_blocks[ocr_idx])
-                ocr_idx += 1
-            else:
-                merged.append(block)
-        else:
-            merged.append(block)
-    return merged
-
-
-# ──────────────────────────────────────────────
-# OCR Text Extraction
-# ──────────────────────────────────────────────
-
-def extract_text_with_ocr(image: Image.Image, page_num: int) -> List[ContentBlock]:
-    """Run OCR on a page image and return text blocks grouped into paragraphs."""
-    ocr_data = pytesseract.image_to_data(
-        image,
-        output_type=pytesseract.Output.DICT,
-        config='--psm 6'
-    )
-
-    blocks = []
-    current_paragraph = []
-    current_confidences = []
-    last_y = -1
-    last_bottom = -1
-    paragraph_gap_threshold = 30
-
-    for i in range(len(ocr_data['text'])):
-        text = ocr_data['text'][i].strip()
-        conf = int(ocr_data['conf'][i]) if ocr_data['conf'][i] != '-1' else 0
-
-        if not text or conf < 10:
-            if current_paragraph and last_bottom > 0:
-                current_y = ocr_data['top'][i]
-                gap = current_y - last_bottom
-                if gap > paragraph_gap_threshold:
-                    combined_text = " ".join(current_paragraph)
-                    avg_confidence = (sum(current_confidences) / len(current_confidences)
-                                      if current_confidences else 0)
-                    blocks.append(ContentBlock(
-                        type=BlockType.PARAGRAPH,
-                        text=combined_text,
-                        page=page_num,
-                        metadata={
-                            "ocr_confidence": round(avg_confidence, 2),
-                            "source": "ocr"
-                        }
-                    ))
-                    current_paragraph = []
-                    current_confidences = []
-                    last_y = -1
-                    last_bottom = -1
-            continue
-
-        y = ocr_data['top'][i]
-        h = ocr_data['height'][i]
-        bottom = y + h
-
-        if current_paragraph and last_y != -1:
-            y_gap = abs(y - last_y)
-            if y_gap > paragraph_gap_threshold:
-                combined_text = " ".join(current_paragraph)
-                avg_confidence = (sum(current_confidences) / len(current_confidences)
-                                  if current_confidences else 0)
-                blocks.append(ContentBlock(
-                    type=BlockType.PARAGRAPH,
-                    text=combined_text,
-                    page=page_num,
-                    metadata={
-                        "ocr_confidence": round(avg_confidence, 2),
-                        "source": "ocr"
-                    }
-                ))
-                current_paragraph = []
-                current_confidences = []
-
-        current_paragraph.append(text)
-        current_confidences.append(conf)
-        last_y = y
-        last_bottom = bottom
-
-    if current_paragraph:
-        combined_text = " ".join(current_paragraph)
-        avg_confidence = (sum(current_confidences) / len(current_confidences)
-                          if current_confidences else 0)
-        blocks.append(ContentBlock(
-            type=BlockType.PARAGRAPH,
-            text=combined_text,
-            page=page_num,
-            metadata={
-                "ocr_confidence": round(avg_confidence, 2),
-                "source": "ocr"
-            }
-        ))
-
-    return blocks
-
-
-# ──────────────────────────────────────────────
-# Fallback Gap Detection
-# ──────────────────────────────────────────────
-
-def detect_and_describe_diagrams_fallback(
-    image: Image.Image,
-    page_num: int,
-    use_gemma: bool = True
-) -> List[ContentBlock]:
-    """Original gap‑based detection, used as fallback."""
-    blocks = []
-    ocr_data = pytesseract.image_to_data(image, output_type=pytesseract.Output.DICT, config='--psm 6')
-    image_width = image.width
-
-    text_regions = []
-    for i in range(len(ocr_data['text'])):
-        if ocr_data['text'][i].strip() and int(ocr_data['conf'][i]) > 30:
-            text_regions.append({
-                'x': ocr_data['left'][i],
-                'y': ocr_data['top'][i],
-                'width': ocr_data['width'][i],
-                'height': ocr_data['height'][i],
-                'text': ocr_data['text'][i].strip()
-            })
-
-    if len(text_regions) >= 2:
-        text_regions.sort(key=lambda r: r['y'])
-        for i in range(len(text_regions) - 1):
-            current_bottom = text_regions[i]['y'] + text_regions[i]['height']
-            next_top = text_regions[i + 1]['y']
-            gap = next_top - current_bottom
-            if gap > 100:
-                diagram_region = image.crop((0, current_bottom + 5, image_width, next_top - 5))
-                if has_content(diagram_region):
-                    img_bytes = io.BytesIO()
-                    diagram_region.save(img_bytes, format='PNG')
-                    img_bytes = img_bytes.getvalue()
-                    caption = find_nearby_caption(text_regions, i)
-                    description = None
-                    if use_gemma:
-                        description = describe_image_with_gemma(img_bytes)
-                    blocks.append(ContentBlock(
-                        type=BlockType.IMAGE,
-                        text=description or caption or "[Diagram found on page]",
-                        page=page_num,
-                        image=ImageBlock(
-                            image_bytes=img_bytes,
-                            mime_type="image/png",
-                            caption=caption,
-                            description=description,
-                            page=page_num
-                        ),
-                        metadata={"source": "gap_detection", "gap_size": gap}
-                    ))
-    return blocks
-
-
-def has_content(image: Image.Image) -> bool:
-    import numpy as np
-    img_array = np.array(image.convert('L'))
-    return np.std(img_array) > 20
-
-
-def find_nearby_caption(text_regions: List[dict], diagram_index: int) -> Optional[str]:
-    if diagram_index + 1 < len(text_regions):
-        next_text = text_regions[diagram_index + 1]['text']
-        if next_text.lower().startswith(('fig', 'figure', 'table', 'image', 'diagram')):
-            return next_text
-    return None
-
-
-# ──────────────────────────────────────────────
-# Helper: Test Gemma Connection
-# ──────────────────────────────────────────────
-
-def test_gemma_connection() -> bool:
-    """Test if Gemma API is accessible with current key."""
-    try:
-        from google import genai
-        api_key = os.getenv("GOOGLE_API_KEY")
-        if not api_key:
-            print("❌ GOOGLE_API_KEY not set in .env")
-            return False
-        client = genai.Client(api_key=api_key)
-        response = client.models.generate_content(
-            model=os.getenv("GEMMA_MODEL", "gemma-2-flash"),
-            contents="Say 'API connection successful' if you can read this."
-        )
-        print(f"✅ Gemma API connected! Response: {response.text[:50]}")
-        return True
-    except Exception as e:
-        print(f"❌ Gemma API connection failed: {e}")
-        return False

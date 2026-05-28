@@ -11,7 +11,7 @@ import fitz  # pymupdf
 from typing import Tuple, List
 
 
-def detect_pdf_type(file_path: str, text_threshold: int = 50) -> Tuple[str, List[str]]:
+def detect_pdf_type(file_path: str, text_threshold: int = 1) -> Tuple[str, List[str]]:
     """
     Analyze a PDF and determine its type.
     
@@ -30,8 +30,6 @@ def detect_pdf_type(file_path: str, text_threshold: int = 50) -> Tuple[str, List
     for page_num in range(len(doc)):
         page = doc[page_num]
         text = page.get_text().strip()
-        
-        # Count actual characters (ignore whitespace-only)
         char_count = len(text)
         
         if char_count >= text_threshold:

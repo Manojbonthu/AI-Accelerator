@@ -11,12 +11,7 @@ from enum import Enum
 import uuid
 
 
-# ──────────────────────────────────────────────
-# 1. ENUMS
-# ──────────────────────────────────────────────
-
 class BlockType(str, Enum):
-    """Types of content that can appear in a document."""
     PARAGRAPH = "paragraph"
     HEADING = "heading"
     TABLE = "table"
@@ -26,20 +21,14 @@ class BlockType(str, Enum):
 
 
 class ChunkType(str, Enum):
-    """Types of chunks produced after chunking."""
     PARAGRAPH = "paragraph"
     TABLE = "table"
     IMAGE_DESCRIPTION = "image_description"
     MIXED = "mixed"
 
 
-# ──────────────────────────────────────────────
-# 2. CONTENT BLOCKS (from extraction)
-# ──────────────────────────────────────────────
-
 @dataclass
 class TableBlock:
-    """Structured table extracted from a PDF."""
     headers: List[str]
     rows: List[List[str]]
     caption: Optional[str] = None
@@ -49,122 +38,122 @@ class TableBlock:
 
 @dataclass
 class ImageBlock:
-    """Image extracted from a PDF page."""
     image_bytes: Optional[bytes] = None
     image_path: Optional[str] = None
     mime_type: str = "image/png"
     caption: Optional[str] = None
-    description: Optional[str] = None  # Gemma-generated description
+    description: Optional[str] = None
     page: int = 1
-    confidence: float = 1.0  # 1.0 for digital, OCR confidence for scanned
+    confidence: float = 1.0
 
 
 @dataclass
 class ContentBlock:
-    """
-    A single piece of content from a PDF page.
-    Can be text, heading, table, image, etc.
-    """
     type: BlockType
     text: str = ""
-    level: Optional[int] = None        # Heading level (1, 2, 3...)
+    level: Optional[int] = None
     page: int = 1
-    section_id: Optional[str] = None   # Links to parent heading
+    section_id: Optional[str] = None
     table: Optional[TableBlock] = None
     image: Optional[ImageBlock] = None
     metadata: Dict[str, Any] = field(default_factory=dict)
 
 
-# ──────────────────────────────────────────────
-# 3. NORMALIZED DOCUMENT (output of handlers)
-# ──────────────────────────────────────────────
+@dataclass
+class Section:
+    title: str
+    level: int
+    section_path: List[str]
+    page_start: int
+    page_end: int
+    content: str = ""
+    tables: List[TableBlock] = field(default_factory=list)
+    figures: List[ImageBlock] = field(default_factory=list)
+    children: List['Section'] = field(default_factory=list)
+
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "title": self.title,
+            "level": self.level,
+            "section_path": self.section_path,
+            "page_start": self.page_start,
+            "page_end": self.page_end,
+            "content": self.content,
+            "tables": [t.__dict__ for t in self.tables],
+            "figures": [f.__dict__ for f in self.figures],
+            "children": [c.to_dict() for c in self.children]
+        }
+
 
 @dataclass
 class NormalizedDocument:
-    """
-    The complete, structured output after extraction.
-    Same shape regardless of PDF type (digital/scanned/mixed).
-    """
     file_name: str
     total_pages: int
-    pdf_type: str                     # "digital", "scanned", or "mixed"
+    pdf_type: str
     blocks: List[ContentBlock] = field(default_factory=list)
+    sections: List[Section] = field(default_factory=list)
     metadata: Dict[str, Any] = field(default_factory=dict)
 
-
-# ──────────────────────────────────────────────
-# 4. CHUNK (output of chunker, ready for Qdrant)
-# ──────────────────────────────────────────────
 
 @dataclass
 class Chunk:
-    """
-    A chunk ready for embedding and Qdrant storage.
-    Self-contained with all context needed for accurate retrieval.
-    """
     chunk_id: str
     chunk_index: int
+    document_id: str
     document_name: str
-    section_path: str                 # "Section > Subsection"
-    chunk_type: str                   # "paragraph", "table", "image_description", "mixed"
-    content: str                      # Raw content (text or markdown table)
-    embedding_text: str               # Content + context headers (THIS gets embedded)
-    page_start: int
-    page_end: int
+    document_type: str
+    domain: str = "general"
+    section: str = "(No Heading)"
+    subsection: str = ""
+    section_level: int = 1
+    chunk_type: str = "paragraph"
+    chunk_title: str = "(No Heading)"
+    content: str = ""
+    embedding_text: str = ""
+    page_start: int = 1
+    page_end: int = 1
+    tables: List[Dict[str, Any]] = field(default_factory=list)
+    figures: List[Dict[str, Any]] = field(default_factory=list)
+    token_count: Optional[int] = None
     metadata: Dict[str, Any] = field(default_factory=dict)
-    
+    relationships: Dict[str, Any] = field(default_factory=lambda: {
+        "parent_chunk_id": None,
+        "previous_chunk_id": None,
+        "next_chunk_id": None
+    })
+
     def to_dict(self) -> Dict[str, Any]:
-        """Convert chunk to dictionary for JSON/Qdrant payload."""
-        return {
+        def clean(obj):
+            if isinstance(obj, bytes):
+                return None
+            elif isinstance(obj, dict):
+                return {k: clean(v) for k, v in obj.items()}
+            elif isinstance(obj, list):
+                return [clean(v) for v in obj]
+            elif isinstance(obj, tuple):
+                return tuple(clean(v) for v in obj)
+            else:
+                return obj
+
+        return clean({
+            "document_id": self.document_id,
+            "document_name": self.document_name,
+            "document_type": self.document_type,
+            "domain": self.domain,
             "chunk_id": self.chunk_id,
             "chunk_index": self.chunk_index,
-            "document_name": self.document_name,
-            "section_path": self.section_path,
+            "section": self.section,
+            "subsection": self.subsection,
+            "section_level": self.section_level,
             "chunk_type": self.chunk_type,
+            "chunk_title": self.chunk_title,
             "content": self.content,
             "embedding_text": self.embedding_text,
             "page_start": self.page_start,
             "page_end": self.page_end,
-            "metadata": self.metadata
-        }
-
-
-# ──────────────────────────────────────────────
-# 5. HELPER FUNCTIONS
-# ──────────────────────────────────────────────
-
-def create_chunk(
-    chunk_index: int,
-    document_name: str,
-    section_path: str,
-    chunk_type: str,
-    content: str,
-    page_start: int,
-    page_end: int,
-    metadata: Optional[Dict[str, Any]] = None
-) -> Chunk:
-    """
-    Factory function to create a Chunk with auto-generated ID
-    and properly formatted embedding_text.
-    """
-    chunk_id = str(uuid.uuid4())
-    
-    # Build embedding text with context headers
-    embedding_text = f"""Document: {document_name}
-Section: {section_path}
-Pages: {page_start}-{page_end}
-
-{content}"""
-    
-    return Chunk(
-        chunk_id=chunk_id,
-        chunk_index=chunk_index,
-        document_name=document_name,
-        section_path=section_path,
-        chunk_type=chunk_type,
-        content=content,
-        embedding_text=embedding_text,
-        page_start=page_start,
-        page_end=page_end,
-        metadata=metadata or {}
-    )
+            "tables": self.tables,
+            "figures": self.figures,
+            "token_count": self.token_count,
+            "metadata": self.metadata,
+            "relationships": self.relationships
+        })

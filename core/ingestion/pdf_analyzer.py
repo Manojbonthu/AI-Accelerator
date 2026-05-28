@@ -2,18 +2,16 @@
 core/ingestion/pdf_analyzer.py
 
 Analyzes a PDF and produces:
-- NormalizedDocument with described images (Gemini/Gemma)
+- NormalizedDocument with described images (Gemini)
 - Detailed per‑page classification (text, images, tables, blank)
 - Aggregated summary text
-- All image descriptions are included in the page description
-- Uses layout model (unstructured) for digital pages too, to reliably detect images/tables.
+- Chunks in the new detailed JSON format (with document_id, section, tables, etc.)
 """
 
 import os
-import io
-from typing import Dict, List, Any
-from PIL import Image
-import fitz
+import uuid
+import hashlib
+from typing import Dict, List, Any, Optional
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -23,211 +21,181 @@ from core.schemas.models import (
     BlockType, NormalizedDocument, Chunk
 )
 from core.ingestion.pdf_detector import detect_pdf_type
-from core.ingestion.handlers.digital_handler import (
-    process_text_block, process_image_block, extract_tables_from_page
-)
-from core.ingestion.handlers.scanned_handler import (
-    analyze_layout, merge_layout_and_ocr,
-    extract_text_with_ocr
-)
+from core.ingestion.handlers.digital_handler import extract_digital
+from core.ingestion.handlers.scanned_handler import extract_scanned
 from core.ingestion.gemma_client import describe_image_with_gemma
 from core.ingestion.chunker import chunk_document
 
+_gemma_cache: Dict[str, str] = {}
 
-def analyze_pdf(file_path: str, use_gemma: bool = False) -> Dict[str, Any]:
+
+def _get_image_hash(image_bytes: bytes) -> str:
+    return hashlib.sha256(image_bytes).hexdigest()
+
+
+def _describe_image_cached(image_bytes: bytes) -> Optional[str]:
+    img_hash = _get_image_hash(image_bytes)
+    if img_hash in _gemma_cache:
+        print("      (cached) Using previously obtained description")
+        return _gemma_cache[img_hash]
+    desc = describe_image_with_gemma(image_bytes)
+    if desc:
+        _gemma_cache[img_hash] = desc
+    return desc
+
+
+def analyze_pdf(
+    file_path: str,
+    use_gemma: bool = False,
+    document_id: Optional[str] = None,
+    domain: str = "general"
+) -> Dict[str, Any]:
     """
-    Full analysis: returns extracted document, chunks, detailed per‑page classification and summary text.
+    Analyze a PDF and return structured results.
+
+    Args:
+        file_path: Path to the PDF file.
+        use_gemma: Whether to generate image descriptions via Gemini.
+        document_id: Unique ID for the document (generated if not provided).
+        domain: Domain label (default "general").
+
+    Returns:
+        Dictionary with keys: file_name, pdf_type, total_pages, total_chunks,
+        detailed_summary, summary_text, chunks.
     """
     file_name = os.path.basename(file_path)
     pdf_type, page_types = detect_pdf_type(file_path)
-    doc = fitz.open(file_path)
-    total_pages = len(page_types)
 
-    all_blocks = []
+    if not document_id:
+        document_id = str(uuid.uuid4())
+
+    # Route to appropriate handler
+    if pdf_type == "digital":
+        normalized_doc = extract_digital(file_path, use_gemma=use_gemma)
+    elif pdf_type == "scanned":
+        normalized_doc = extract_scanned(file_path, use_gemma=use_gemma)
+    else:  # mixed
+        # TODO: implement mixed handler
+        normalized_doc = None
+
+    if normalized_doc is None:
+        # Return empty result if unsupported type
+        return {
+            "file_name": file_name,
+            "pdf_type": pdf_type,
+            "total_pages": 0,
+            "total_chunks": 0,
+            "detailed_summary": [],
+            "summary_text": "Unsupported PDF type",
+            "chunks": []
+        }
+
+    # ------------------------------------------------------------------
+    # Build detailed page summary from the NormalizedDocument
+    # Supports both new sections‑based and legacy blocks‑based documents
+    # and includes production‑level metrics from page break blocks.
+    # ------------------------------------------------------------------
+    page_text_flags = {}
+    page_image_flags = {}
+    page_table_flags = {}
+    page_descriptions = {}
+    page_metrics = {}   # page_num -> dict of metrics
+
+    # Helper to process a section tree (for text/image/table flags)
+    def process_section(section):
+        # Tables
+        for tbl in section.tables:
+            p = tbl.page
+            page_table_flags[p] = True
+            if p not in page_descriptions:
+                page_descriptions[p] = f"Table: {', '.join(tbl.headers)}"
+        # Figures (images)
+        for fig in section.figures:
+            p = fig.page
+            page_image_flags[p] = True
+            if p not in page_descriptions:
+                desc = fig.description or fig.caption or "Image"
+                page_descriptions[p] = desc[:200]
+        # Text content (approximate: assume content spans from page_start to page_end)
+        if section.content:
+            for p in range(section.page_start, section.page_end + 1):
+                page_text_flags[p] = True
+                if p not in page_descriptions:
+                    page_descriptions[p] = section.content[:200]
+        # Recurse into children
+        for child in section.children:
+            process_section(child)
+
+    # Process sections if present
+    if normalized_doc.sections:
+        for section in normalized_doc.sections:
+            process_section(section)
+
+    # Also process legacy blocks (fallback)
+    for block in normalized_doc.blocks:
+        p = block.page
+        if block.type in (BlockType.PARAGRAPH, BlockType.HEADING):
+            page_text_flags[p] = True
+            if p not in page_descriptions:
+                page_descriptions[p] = block.text[:200]
+        elif block.type == BlockType.IMAGE:
+            page_image_flags[p] = True
+            if block.text and p not in page_descriptions:
+                page_descriptions[p] = block.text[:200]
+        elif block.type == BlockType.TABLE:
+            page_table_flags[p] = True
+            if p not in page_descriptions:
+                page_descriptions[p] = "Table: " + (block.text[:100] if block.text else "")
+        elif block.type == BlockType.PAGE_BREAK:
+            # Extract production metrics from page break metadata (if present)
+            meta = block.metadata
+            if meta:
+                page_metrics[p] = {
+                    "has_text": meta.get("has_text", False),
+                    "text_length": meta.get("text_length", 0),
+                    "raster_images": meta.get("raster_images", 0),
+                    "vector_drawings": meta.get("vector_drawings", 0),
+                    "annotations": meta.get("annotations", 0),
+                    "links": meta.get("links", 0),
+                    "image_coverage_ratio": meta.get("image_coverage_ratio", 0.0)
+                }
+
+    # Build the detailed summary list for each page
     detailed_summary = []
+    for page_num in range(1, normalized_doc.total_pages + 1):
+        metrics = page_metrics.get(page_num, {})
+        summary_entry = {
+            "page": page_num,
+            "type": pdf_type,   # use actual PDF type (digital, scanned, mixed)
+            "digital_text": "✅" if page_text_flags.get(page_num) else "❌",
+            "image": "✅" if page_image_flags.get(page_num) else "❌",
+            "table": "✅" if page_table_flags.get(page_num) else "❌",
+            "blank": "❌" if (page_text_flags.get(page_num) or page_image_flags.get(page_num) or page_table_flags.get(page_num)) else "✅",
+            "description": page_descriptions.get(page_num, "")
+        }
+        # Add production metrics if available
+        if metrics:
+            summary_entry["raster_images"] = metrics.get("raster_images", 0)
+            summary_entry["vector_drawings"] = metrics.get("vector_drawings", 0)
+            summary_entry["image_coverage_ratio"] = metrics.get("image_coverage_ratio", 0.0)
+            summary_entry["text_length"] = metrics.get("text_length", 0)
+            summary_entry["annotations"] = metrics.get("annotations", 0)
+            summary_entry["links"] = metrics.get("links", 0)
+        detailed_summary.append(summary_entry)
 
-    for page_num in range(total_pages):
-        page = doc[page_num]
-        page_number = page_num + 1
-        page_type = page_types[page_num]
-
-        has_text = False
-        has_image = False
-        has_table = False
-        is_blank = True
-        page_headings = []
-        page_paragraphs = []
-        gemma_descriptions = []
-
-        all_blocks.append(ContentBlock(
-            type=BlockType.PAGE_BREAK,
-            text=f"--- Page {page_number} ---",
-            page=page_number
-        ))
-
-        if page_type == "digital":
-            # ---------- 1. Text extraction via PyMuPDF ----------
-            blocks_data = page.get_text("dict")["blocks"]
-            for block in blocks_data:
-                if block["type"] == 0:  # text
-                    text_blocks = process_text_block(block, page_number, 0)
-                    for tb in text_blocks:
-                        if tb.text.strip():
-                            has_text = True
-                            is_blank = False
-                            if tb.type == BlockType.HEADING:
-                                page_headings.append(tb.text)
-                            else:
-                                page_paragraphs.append(tb.text)
-                        all_blocks.append(tb)
-                # We ignore block["type"] == 1 (images) because we'll use the layout model later
-
-            # ---------- 2. Tables via PyMuPDF (fallback) ----------
-            table_blocks = extract_tables_from_page(doc, page_num)
-            if table_blocks:
-                has_table = True
-                is_blank = False
-                all_blocks.extend(table_blocks)
-
-            # ---------- 3. Layout model for images & tables ----------
-            pix = page.get_pixmap(dpi=200)   # moderate DPI for speed
-            page_image = Image.open(io.BytesIO(pix.tobytes("png")))
-
-            layout_elements = analyze_layout(page_image, page_number)
-            for lb in layout_elements:
-                if lb.type == BlockType.TABLE:
-                    # Add only if no table was already detected by PyMuPDF
-                    if not table_blocks:
-                        has_table = True
-                        is_blank = False
-                        all_blocks.append(lb)
-                elif lb.type == BlockType.IMAGE:
-                    has_image = True
-                    is_blank = False
-                    if lb.image and use_gemma:
-                        if lb.image.image_bytes and not lb.image.description:
-                            desc = describe_image_with_gemma(lb.image.image_bytes)
-                            if desc:
-                                lb.image.description = desc
-                                lb.text = desc
-                                gemma_descriptions.append(desc)
-                    all_blocks.append(lb)
-
-            # ---------- 4. Fallback: all embedded images via page.get_images() ----------
-            page_images = page.get_images()
-            if page_images:
-                has_image = True
-                is_blank = False
-                processed_xrefs = set()
-                for img_info in page_images:
-                    xref = img_info[0]
-                    if xref in processed_xrefs:
-                        continue
-                    processed_xrefs.add(xref)
-                    try:
-                        base_image = doc.extract_image(xref)
-                        img_bytes = base_image["image"]
-                        mime = f"image/{base_image['ext']}"
-                    except Exception:
-                        continue
-
-                    # Avoid duplicates (simple check by comparing first 20 bytes)
-                    already = False
-                    for blk in all_blocks:
-                        if blk.type == BlockType.IMAGE and blk.image and blk.image.image_bytes:
-                            if blk.image.image_bytes[:20] == img_bytes[:20]:
-                                already = True
-                                break
-                    if not already:
-                        description = None
-                        if use_gemma:
-                            description = describe_image_with_gemma(img_bytes)
-                        if description:
-                            gemma_descriptions.append(description)
-                        image_block = ImageBlock(
-                            image_bytes=img_bytes,
-                            mime_type=mime,
-                            description=description,
-                            page=page_number
-                        )
-                        all_blocks.append(ContentBlock(
-                            type=BlockType.IMAGE,
-                            text=description or "",
-                            page=page_number,
-                            image=image_block
-                        ))
-
-        else:  # scanned page
-            pix = page.get_pixmap(dpi=300)
-            page_image = Image.open(io.BytesIO(pix.tobytes("png")))
-
-            layout_blocks = analyze_layout(page_image, page_number)
-            ocr_text_blocks = extract_text_with_ocr(page_image, page_number)
-            merged = merge_layout_and_ocr(layout_blocks, ocr_text_blocks, page_number)
-
-            for block in merged:
-                if block.type == BlockType.PARAGRAPH and block.text.strip():
-                    has_text = True
-                    is_blank = False
-                    page_paragraphs.append(block.text)
-                elif block.type == BlockType.TABLE:
-                    has_table = True
-                    is_blank = False
-                elif block.type == BlockType.IMAGE:
-                    has_image = True
-                    is_blank = False
-                    if block.image and block.image.description:
-                        gemma_descriptions.append(block.image.description)
-                all_blocks.append(block)
-
-        # Build page description
-        description = ""
-        if gemma_descriptions:
-            description = "\n---\n".join(gemma_descriptions)
-        elif has_text:
-            first_heading = page_headings[0].strip() if page_headings else ""
-            unique_paragraphs = [p for p in page_paragraphs if p.strip() != first_heading]
-            if unique_paragraphs:
-                description = unique_paragraphs[0][:200]
-            elif page_paragraphs:
-                description = page_paragraphs[0][:200]
-            else:
-                description = "Text content"
-        elif has_image:
-            description = "Image(s) detected"
-        elif has_table:
-            description = "Table(s) detected"
-        elif is_blank:
-            description = "Blank page"
-        else:
-            description = "No content"
-
-        detailed_summary.append({
-            "page": page_number,
-            "type": page_type,
-            "digital_text": "✅" if has_text else "❌",
-            "image": "✅" if has_image else "❌",
-            "table": "✅" if has_table else "❌",
-            "blank": "✅" if is_blank else "❌",
-            "description": description
-        })
-
-    doc.close()
-
-    normalized_doc = NormalizedDocument(
-        file_name=file_name,
-        total_pages=total_pages,
-        pdf_type=pdf_type,
-        blocks=all_blocks
+    # Chunk the document using the new chunker (which handles sections)
+    chunks = chunk_document(
+        normalized_doc,
+        document_id=document_id,
+        domain=domain
     )
 
-    chunks = chunk_document(normalized_doc)
     summary_text = generate_summary(detailed_summary)
 
     return {
         "file_name": file_name,
         "pdf_type": pdf_type,
-        "total_pages": total_pages,
+        "total_pages": normalized_doc.total_pages,
         "total_chunks": len(chunks),
         "detailed_summary": detailed_summary,
         "summary_text": summary_text,
@@ -236,24 +204,11 @@ def analyze_pdf(file_path: str, use_gemma: bool = False) -> Dict[str, Any]:
 
 
 def generate_summary(page_data: List[Dict]) -> str:
-    """Create a formatted summary string (aggregated ranges)."""
-    digital_pages = []
-    scanned_pages = []
-    image_pages = []
-    table_pages = []
-    blank_pages = []
-
-    for p in page_data:
-        if p["type"] == "digital":
-            digital_pages.append(p["page"])
-        elif p["type"] == "scanned":
-            scanned_pages.append(p["page"])
-        if p["image"] == "✅":
-            image_pages.append(p["page"])
-        if p["table"] == "✅":
-            table_pages.append(p["page"])
-        if p["blank"] == "✅":
-            blank_pages.append(p["page"])
+    digital_pages = [p["page"] for p in page_data if p["type"] == "digital"]
+    scanned_pages = [p["page"] for p in page_data if p["type"] == "scanned"]
+    image_pages = [p["page"] for p in page_data if p["image"] == "✅"]
+    table_pages = [p["page"] for p in page_data if p["table"] == "✅"]
+    blank_pages = [p["page"] for p in page_data if p["blank"] == "✅"]
 
     def format_ranges(pages):
         if not pages:
