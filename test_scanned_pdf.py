@@ -11,58 +11,139 @@ sys.path.insert(0, '.')
 
 from core.ingestion.pdf_analyzer import analyze_pdf
 
+
 # ─── Configuration ─────────────────────────
-pdf_path = "tests/sample_docs/PublicWaterMassMailing.pdf"
-use_gemma = True        # set False if no Gemini API key
-output_json = "all_chunks_watermass.json"
-domain = "general"
+pdf_path    = "tests/sample_docs/PublicWaterMassMailing.pdf"
+use_gemma   = True        # set True only after OCR works correctly
+output_json = "new_water_new.json"
+domain      = "general"
 # ────────────────────────────────────────────
 
-print(f"Analyzing {pdf_path} (use_gemma={use_gemma})...")
-t_start = time.time()
-result = analyze_pdf(pdf_path, use_gemma=use_gemma, domain=domain)
-t_total = time.time() - t_start
 
-# Document Stats
-total_tables = sum(1 for c in result['chunks'] if c.get('tables'))
-total_figures = sum(1 for c in result['chunks'] if c.get('figures'))
+def make_serializable(obj):
+    """
+    Recursively convert any non-serializable objects
+    (Pydantic models, dataclasses, custom objects) to dicts.
+    Handles nested lists and dicts.
+    """
+    if isinstance(obj, dict):
+        return {k: make_serializable(v) for k, v in obj.items()}
 
-print(f"\nTotal analysis time: {t_total:.2f}s")
-print("--- Document Stats ---")
-print(f"File: {result['file_name']}")
-print(f"Type: {result['pdf_type']}")
-print(f"Pages: {result['total_pages']}")
-print(f"Total chunks: {result['total_chunks']}")
-print(f"Chunks with tables: {total_tables}")
-print(f"Chunks with figures: {total_figures}")
+    if isinstance(obj, list):
+        return [make_serializable(i) for i in obj]
 
-# Per‑page summary
-print("\n" + result["summary_text"])
+    if isinstance(obj, bytes):
+        return "<bytes>"
 
-# Save all chunks to JSON
-with open(output_json, "w", encoding="utf-8") as f:
-    json.dump(result["chunks"], f, indent=2, ensure_ascii=False)
-print(f"\n✅ All {len(result['chunks'])} chunks saved to {output_json}")
+    if hasattr(obj, '__dict__'):
+        return make_serializable(vars(obj))
 
-# Print first 3 chunks as preview
-print("\n" + "="*60)
-print("FIRST 3 CHUNKS (of {})".format(len(result['chunks'])))
-print("="*60)
-for i, chunk in enumerate(result['chunks'][:3]):
-    print(f"\n--- Chunk {i} ---")
-    print(f"  Type: {chunk['chunk_type']}, Section: {chunk['section']}, Pages: {chunk['page_start']}-{chunk['page_end']}")
-    content_preview = chunk.get('content', '')[:120].replace('\n', ' ') if chunk.get('content') else ''
-    print(f"  Content (first 120 chars): {content_preview}...")
-    if chunk.get('tables'):
-        print(f"  📊 Tables: {len(chunk['tables'])}")
-    if chunk.get('figures'):
-        print(f"  🖼️ Figures: {len(chunk['figures'])}")
-        for j, fig in enumerate(chunk['figures']):
-            desc = (fig.get('description') or '')[:80]
-            print(f"    Figure {j+1}: {desc}...")
-    rel = chunk.get('relationships', {})
-    print(f"  ⛓️ Previous chunk: {rel.get('previous_chunk_id', 'None')}")
-    print(f"  ⛓️ Next chunk: {rel.get('next_chunk_id', 'None')}")
+    return obj
 
-if len(result['chunks']) > 3:
-    print(f"\n... and {len(result['chunks'])-3} more chunks (see {output_json})")
+
+def print_chunk_preview(chunks: list, n: int = 3):
+    print("\n" + "=" * 60)
+    print(f"FIRST {n} CHUNKS (of {len(chunks)})")
+    print("=" * 60)
+
+    for i, chunk in enumerate(chunks[:n]):
+        print(f"\n--- Chunk {i} ---")
+        print(
+            f"  Type    : {chunk.get('chunk_type', 'N/A')}\n"
+            f"  Section : {chunk.get('section', 'N/A')}\n"
+            f"  Pages   : {chunk.get('page_start', '?')}"
+            f"-{chunk.get('page_end', '?')}"
+        )
+
+        content = chunk.get('content', '') or ''
+        preview = content[:120].replace('\n', ' ')
+        print(f"  Content : {preview}...")
+
+        tables = chunk.get('tables') or []
+        if tables:
+            print(f"  Tables  : {len(tables)}")
+
+        figures = chunk.get('figures') or []
+        if figures:
+            print(f"  Figures : {len(figures)}")
+            for j, fig in enumerate(figures):
+                if isinstance(fig, dict):
+                    desc = (fig.get('description') or '')[:80]
+                else:
+                    desc = str(fig)[:80]
+                print(f"    Figure {j + 1}: {desc}...")
+
+        rel = chunk.get('relationships') or {}
+        print(f"  Prev    : {rel.get('previous_chunk_id', 'None')}")
+        print(f"  Next    : {rel.get('next_chunk_id', 'None')}")
+
+    if len(chunks) > n:
+        print(f"\n... and {len(chunks) - n} more chunks (see {output_json})")
+
+
+def run_test():
+    print(f"Analyzing: {pdf_path}")
+    print(f"Gemma    : {use_gemma}")
+    print(f"Domain   : {domain}\n")
+
+    t_start = time.time()
+
+    try:
+        result = analyze_pdf(
+            pdf_path,
+            use_gemma=use_gemma,
+            domain=domain
+        )
+    except Exception as e:
+        print(f"ERROR during analyze_pdf: {e}")
+        raise
+
+    t_total = time.time() - t_start
+
+    # ── Validate result keys ──────────────────────────────
+    required_keys = [
+        'chunks', 'file_name', 'pdf_type',
+        'total_pages', 'total_chunks', 'summary_text'
+    ]
+    missing = [k for k in required_keys if k not in result]
+    if missing:
+        print(f"WARNING: result missing keys: {missing}")
+
+    chunks = result.get('chunks') or []
+
+    # ── Stats ─────────────────────────────────────────────
+    total_tables  = sum(1 for c in chunks if c.get('tables'))
+    total_figures = sum(1 for c in chunks if c.get('figures'))
+
+    print(f"Total time    : {t_total:.2f}s")
+    print("─" * 40)
+    print(f"File          : {result.get('file_name', 'N/A')}")
+    print(f"Type          : {result.get('pdf_type', 'N/A')}")
+    print(f"Pages         : {result.get('total_pages', 'N/A')}")
+    print(f"Total chunks  : {result.get('total_chunks', len(chunks))}")
+    print(f"With tables   : {total_tables}")
+    print(f"With figures  : {total_figures}")
+
+    summary = result.get('summary_text', '')
+    if summary:
+        print(f"\n{summary}")
+
+    # ── Serialize & Save ──────────────────────────────────
+    try:
+        serializable_chunks = make_serializable(chunks)
+
+        with open(output_json, "w", encoding="utf-8") as f:
+            json.dump(serializable_chunks, f, indent=2, ensure_ascii=False)
+
+        print(f"\nSaved {len(chunks)} chunks → {output_json}")
+
+    except Exception as e:
+        print(f"ERROR saving JSON: {e}")
+        raise
+
+    # ── Preview ───────────────────────────────────────────
+    print_chunk_preview(chunks, n=3)
+
+
+if __name__ == "__main__":
+    run_test()

@@ -3,6 +3,7 @@ core/ingestion/gemma_client.py
 
 Shared Gemini API client for describing images.
 Uses Gemma 4 (free tier) with automatic retry on rate limits.
+Now accepts custom prompts for full page extraction.
 """
 
 import os
@@ -17,8 +18,12 @@ load_dotenv()
 GEMMA_MODEL = os.getenv("GEMMA_MODEL", "gemma-4-26b-a4b-it")
 
 
-def describe_image_with_gemma(image_bytes: bytes) -> Optional[str]:
-    """Send image to Gemini and return a text description. Retries on 429 errors."""
+def describe_image_with_gemma(image_bytes: bytes, prompt: Optional[str] = None) -> Optional[str]:
+    """
+    Send image to Gemini and return a text description.
+    If prompt is None, uses the default diagram description prompt.
+    Retries on 429 errors.
+    """
     try:
         from google import genai
         from google.genai import types
@@ -30,17 +35,19 @@ def describe_image_with_gemma(image_bytes: bytes) -> Optional[str]:
 
         client = genai.Client(api_key=api_key)
 
-        prompt = """
-        Describe this technical diagram or image in detail. Include:
-        - All visible labels, annotations, and text
-        - The relationship between different components
-        - Any numerical values, units, or specifications shown
-        - The overall purpose or system being illustrated
+        # Use custom prompt if provided, else default diagram prompt
+        if prompt is None:
+            prompt = """
+            Describe this technical diagram or image in detail. Include:
+            - All visible labels, annotations, and text
+            - The relationship between different components
+            - Any numerical values, units, or specifications shown
+            - The overall purpose or system being illustrated
 
-        If this is not a diagram but a photo or logo, describe what you see.
-        If the image is blank or unreadable, say so.
-        Keep the description under 500 words.
-        """
+            If this is not a diagram but a photo or logo, describe what you see.
+            If the image is blank or unreadable, say so.
+            Keep the description under 500 words.
+            """
 
         image_part = types.Part.from_bytes(data=image_bytes, mime_type="image/png")
 

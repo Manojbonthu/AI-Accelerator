@@ -1,0 +1,1343 @@
+[
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "f18aa952-6b0c-4a26-87b6-a6ff264029f2",
+    "chunk_index": 0,
+    "section": "Cover",
+    "subsection": "",
+    "section_level": 0,
+    "chunk_type": "child",
+    "chunk_title": "Cover (part 1)",
+    "content": "[Diagram: Page 1 has 2 detected image region(s). Gemma analysis pending.]\nMissouri Department of Health and Senior Services",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover\nPages: 1–1\n\n[Diagram: Page 1 has 2 detected image region(s). Gemma analysis pending.]\nMissouri Department of Health and Senior Services",
+    "page_start": 1,
+    "page_end": 1,
+    "tables": [],
+    "figures": [
+      {
+        "description": "Page 1 has 2 detected image region(s). Gemma analysis pending.",
+        "caption": null,
+        "page": 1,
+        "mime_type": "image/png",
+        "confidence": 1.0
+      }
+    ],
+    "token_count": 28,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "49ca85e0-ea7c-4161-a395-5e8bac603e2b",
+      "previous_chunk_id": null,
+      "next_chunk_id": "49ca85e0-ea7c-4161-a395-5e8bac603e2b"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "49ca85e0-ea7c-4161-a395-5e8bac603e2b",
+    "chunk_index": 0,
+    "section": "Cover",
+    "subsection": "",
+    "section_level": 0,
+    "chunk_type": "parent",
+    "chunk_title": "Cover",
+    "content": "[Diagram: Page 1 has 2 detected image region(s). Gemma analysis pending.]\nMissouri Department of Health and Senior Services",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover\nPages: 1–1\n\n[Diagram: Page 1 has 2 detected image region(s). Gemma analysis pending.]\nMissouri Department of Health and Senior Services",
+    "page_start": 1,
+    "page_end": 1,
+    "tables": [],
+    "figures": [
+      {
+        "description": "Page 1 has 2 detected image region(s). Gemma analysis pending.",
+        "caption": null,
+        "page": 1,
+        "mime_type": "image/png",
+        "confidence": 1.0
+      }
+    ],
+    "token_count": 28,
+    "metadata": {
+      "section_path": [
+        "Cover"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "f18aa952-6b0c-4a26-87b6-a6ff264029f2",
+      "next_chunk_id": "5d94fd6a-1909-4828-bfef-3edc862380a8"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "5d94fd6a-1909-4828-bfef-3edc862380a8",
+    "chunk_index": 0,
+    "section": "DHSS",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "DHSS (part 1)",
+    "content": "P.O.Box 570Jefferson CityMO 65102-0570Phone573-751-6400",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > DHSS\nPages: 1–1\n\nP.O.Box 570Jefferson CityMO 65102-0570Phone573-751-6400",
+    "page_start": 1,
+    "page_end": 1,
+    "tables": [],
+    "figures": [],
+    "token_count": 22,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "43c3d756-7fe4-4796-b3d8-55d5fa1023ef",
+      "previous_chunk_id": "49ca85e0-ea7c-4161-a395-5e8bac603e2b",
+      "next_chunk_id": "43c3d756-7fe4-4796-b3d8-55d5fa1023ef"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "43c3d756-7fe4-4796-b3d8-55d5fa1023ef",
+    "chunk_index": 1,
+    "section": "DHSS",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "DHSS",
+    "content": "P.O.Box 570Jefferson CityMO 65102-0570Phone573-751-6400",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > DHSS\nPages: 1–1\n\nP.O.Box 570Jefferson CityMO 65102-0570Phone573-751-6400",
+    "page_start": 1,
+    "page_end": 1,
+    "tables": [],
+    "figures": [],
+    "token_count": 22,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "DHSS"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "5d94fd6a-1909-4828-bfef-3edc862380a8",
+      "next_chunk_id": "4f708fad-8e7f-4a01-83a6-ea9e35d545b1"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "4f708fad-8e7f-4a01-83a6-ea9e35d545b1",
+    "chunk_index": 0,
+    "section": "FAX:573-751-6010",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "FAX:573-751-6010 (part 1)",
+    "content": "RELAY MISSOURI for Hearing and Speech Impaired 1-800-735-2966 VOICE 1-800-735-2466\nPeter Lyskowski\nJeremiah W.(Jay)Nixon\nActing Director\nGovernor\nMissouri Public Water Systems\nNovember10,2015\nDear Public Water System Owners/Operators:\nThe Missouri State Public Health Laboratory (MsPHL) is in the process of implementing a new\nLaboratory Information Management System (LIMS) in its drinking water bacteriology testing\nlaboratory.The OpenELIS (OE) LIMS will provide the laboratory with improved sample management\ncapability, improved data integrity and reduced potential for human data entry error. In addition, the\nsystem will provide improved reporting capabilities, including direct electronic data exchange with the\nMissouri Department of Natural Resources' (MDNR) Safe Drinking Water Information System\n(SDWIS). SDWIS is the computer system MDNR uses to store regulatory water testing data and report\ntesting results to you and the U.S.Environmental Protection Agency. In addition, the new OE LIMS will\nprovide a web portal that MSPHL clients can use to access their own test results in real time. As the MSPHL implements this new computer system, several changes will be made in the way you\ncollect and submit water samples for testing. This letter and information packet will provide you with\ninformation to help educate you on these changes.",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > FAX:573-751-6010\nPages: 1–1\n\nRELAY MISSOURI for Hearing and Speech Impaired 1-800-735-2966 VOICE 1-800-735-2466\nPeter Lyskowski\nJeremiah W.(Jay)Nixon\nActing Director\nGovernor\nMissouri Public Water Systems\nNovember10,2015\nDear Public Water System Owners/Operators:\nThe Missouri State Public Health Laboratory (MsPHL) is in the process of implementing a new\nLaboratory Information Management System (LIMS) in its drinking water bacteriology testing\nlaboratory.The OpenELIS (OE) LIMS will provide the laboratory with improved sample management\ncapability, improved data integrity and reduced potential for human data entry error. In addition, the\nsystem will provide improved reporting capabilities, including direct electronic data exchange with the\nMissouri Department of Natural Resources' (MDNR) Safe Drinking Water Information System\n(SDWIS). SDWIS is the computer system MDNR uses to store regulatory water testing data and report\ntesting results to you and the U.S.Environmental Protection Agency. In addition, the new OE LIMS will\nprovide a web portal that MSPHL clients can use to access their own test results in real time. As the MSPHL implements this new computer system, several changes will be made in the way you\ncollect and submit water samples for testing. This letter and information packet will provide you with\ninformation to help educate you on these changes.",
+    "page_start": 1,
+    "page_end": 1,
+    "tables": [],
+    "figures": [],
+    "token_count": 295,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "dea45752-939b-407a-bd41-c360a4430002",
+      "previous_chunk_id": "43c3d756-7fe4-4796-b3d8-55d5fa1023ef",
+      "next_chunk_id": "dea45752-939b-407a-bd41-c360a4430002"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "dea45752-939b-407a-bd41-c360a4430002",
+    "chunk_index": 2,
+    "section": "FAX:573-751-6010",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "FAX:573-751-6010",
+    "content": "RELAY MISSOURI for Hearing and Speech Impaired 1-800-735-2966 VOICE 1-800-735-2466\nPeter Lyskowski\nJeremiah W.(Jay)Nixon\nActing Director\nGovernor\nMissouri Public Water Systems\nNovember10,2015\nDear Public Water System Owners/Operators:\nThe Missouri State Public Health Laboratory (MsPHL) is in the process of implementing a new\nLaboratory Information Management System (LIMS) in its drinking water bacteriology testing\nlaboratory.The OpenELIS (OE) LIMS will provide the laboratory with improved sample management\ncapability, improved data integrity and reduced potential for human data entry error. In addition, the\nsystem will provide improved reporting capabilities, including direct electronic data exchange with the\nMissouri Department of Natural Resources' (MDNR) Safe Drinking Water Information System\n(SDWIS). SDWIS is the computer system MDNR uses to store regulatory water testing data and report\ntesting results to you and the U.S.Environmental Protection Agency. In addition, the new OE LIMS will\nprovide a web portal that MSPHL clients can use to access their own test results in real time.\nAs the MSPHL implements this new computer system, several changes will be made in the way you\ncollect and submit water samples for testing. This letter and information packet will provide you with\ninformation to help educate you on these changes.",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > FAX:573-751-6010\nPages: 1–1\n\nRELAY MISSOURI for Hearing and Speech Impaired 1-800-735-2966 VOICE 1-800-735-2466\nPeter Lyskowski\nJeremiah W.(Jay)Nixon\nActing Director\nGovernor\nMissouri Public Water Systems\nNovember10,2015\nDear Public Water System Owners/Operators:\nThe Missouri State Public Health Laboratory (MsPHL) is in the process of implementing a new\nLaboratory Information Management System (LIMS) in its drinking water bacteriology testing\nlaboratory.The OpenELIS (OE) LIMS will provide the laboratory with improved sample management\ncapability, improved data integrity and reduced potential for human data entry error. In addition, the\nsystem will provide improved reporting capabilities, including direct electronic data exchange with the\nMissouri Department of Natural Resources' (MDNR) Safe Drinking Water Information System\n(SDWIS). SDWIS is the computer system MDNR uses to store regulatory water testing data and report\ntesting results to you and the U.S.Environmental Protection Agency. In addition, the new OE LIMS will\nprovide a web portal that MSPHL clients can use to access their own test results in real time.\nAs the MSPHL implements this new computer system, several changes will be made in the way you\ncollect and submit water samples for testing. This letter and information packet will provide you with\ninformation to help educate you on these changes.",
+    "page_start": 1,
+    "page_end": 1,
+    "tables": [],
+    "figures": [],
+    "token_count": 295,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "FAX:573-751-6010"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "4f708fad-8e7f-4a01-83a6-ea9e35d545b1",
+      "next_chunk_id": "811cf644-c413-4a6c-babe-e7539ffd7749"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "811cf644-c413-4a6c-babe-e7539ffd7749",
+    "chunk_index": 0,
+    "section": "NEW SAMPLE BOTTLES:",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "NEW SAMPLE BOTTLES: (part 1)",
+    "content": "Beginning in August 2015, the MSPHL began using a larger sample bottle for water bacterial testing. This bottle has a shrink wrap seal and two lines to indicate the proper sample volume.Please read the\nattached \"SAMPLE COLLECTION INSTRUCTIONS\"for details on how to use these new bottles. Sample volume MUST be within the two lines on the bottle (100-120 mL) to be acceptable for\ntesting. You may continue to use your old bottles until the MSPHL can ship you new ones.Once you\nhave received the new bottles, please discard or recycle the old bottles.",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > NEW SAMPLE BOTTLES:\nPages: 1–1\n\nBeginning in August 2015, the MSPHL began using a larger sample bottle for water bacterial testing. This bottle has a shrink wrap seal and two lines to indicate the proper sample volume.Please read the\nattached \"SAMPLE COLLECTION INSTRUCTIONS\"for details on how to use these new bottles. Sample volume MUST be within the two lines on the bottle (100-120 mL) to be acceptable for\ntesting. You may continue to use your old bottles until the MSPHL can ship you new ones.Once you\nhave received the new bottles, please discard or recycle the old bottles.",
+    "page_start": 1,
+    "page_end": 1,
+    "tables": [],
+    "figures": [],
+    "token_count": 116,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "1ff8c9ff-5b43-489d-aabe-2eedba0966ba",
+      "previous_chunk_id": "dea45752-939b-407a-bd41-c360a4430002",
+      "next_chunk_id": "1ff8c9ff-5b43-489d-aabe-2eedba0966ba"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "1ff8c9ff-5b43-489d-aabe-2eedba0966ba",
+    "chunk_index": 3,
+    "section": "NEW SAMPLE BOTTLES:",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "NEW SAMPLE BOTTLES:",
+    "content": "Beginning in August 2015, the MSPHL began using a larger sample bottle for water bacterial testing.\nThis bottle has a shrink wrap seal and two lines to indicate the proper sample volume.Please read the\nattached \"SAMPLE COLLECTION INSTRUCTIONS\"for details on how to use these new bottles.\nSample volume MUST be within the two lines on the bottle (100-120 mL) to be acceptable for\ntesting. You may continue to use your old bottles until the MSPHL can ship you new ones.Once you\nhave received the new bottles, please discard or recycle the old bottles.",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > NEW SAMPLE BOTTLES:\nPages: 1–1\n\nBeginning in August 2015, the MSPHL began using a larger sample bottle for water bacterial testing.\nThis bottle has a shrink wrap seal and two lines to indicate the proper sample volume.Please read the\nattached \"SAMPLE COLLECTION INSTRUCTIONS\"for details on how to use these new bottles.\nSample volume MUST be within the two lines on the bottle (100-120 mL) to be acceptable for\ntesting. You may continue to use your old bottles until the MSPHL can ship you new ones.Once you\nhave received the new bottles, please discard or recycle the old bottles.",
+    "page_start": 1,
+    "page_end": 1,
+    "tables": [],
+    "figures": [],
+    "token_count": 116,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "NEW SAMPLE BOTTLES:"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "811cf644-c413-4a6c-babe-e7539ffd7749",
+      "next_chunk_id": "0491a342-c97f-48cb-afc7-894b1b10f46d"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "0491a342-c97f-48cb-afc7-894b1b10f46d",
+    "chunk_index": 0,
+    "section": "NEW SAMPLE INFORMATION FORMS:",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "NEW SAMPLE INFORMATION FORMS: (part 1)",
+    "content": "The traditional sample information \"card\" that has been used for more than twenty years is being\nreplaced by the Environmental Sample Collection Form.An example form is attached. Please read the\nattached instructions for information on properly completing the new form. Changes to the form include the following:\n1.Form size is expanded to a single 8 /2x 11sheet of paper.The form is no longer in a triplicate\ncarbon copy format. You may choose to photocopy for your records if you prefer. Note: MDNR\ndoes not require a public water system to retain copies of sample collection forms; however, you\nmight utilize them for system inspections. 2.The form is printed by the OE LIMS and will be pre-populated with your Public Water Supply\nID number, PwS name, address and county.Forms should not be shared with other supplies\nwww.health.mo.gov\nHealthy Missourians for life. The Missouri Department of Health and Senior Services will be the leader in promoting.protecting and partnering for health. AN EQUAL OPPORTUNITY IAFFIRMATIVE ACTION EMPLOYER:Services provided on a nondiscriminatory basis. Contract operators will be provided with forms for all the supplies they operate.Blank forms will\nbe available for MDNR Regional Office staff use. 3.The form requires all requested information to be printed by the collector. There are no longer\ncheck boxes for Sample Type or Repeat Location. 4.Facility ID, Sample Collection Point ID and Location for the sampling site MUST be\nprovided by the collector. This information is available from your MDNR approved PWS\nsampling plan.MDNR will be providing all public water systems with a current copy of their\napproved sampling plan.This information is required by SDWIS and is used by MDNR to\nensure regulatory compliance requirements have been met.Failure to complete this information\non the sample collection form may result in a non-compliance report from MDNR. 5.A Collector Signature line has been added. The sample collector must sign the form to attest the\ninformation provided is accurate to the best of their knowledge. The MSPHL will begin shipping the new forms to public water systems in late November or early\nDecember.Please begin using the new forms December 16, 2015. Discard all the old forms (\"cards)\nat that time.",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > NEW SAMPLE INFORMATION FORMS:\nPages: 1–2\n\nThe traditional sample information \"card\" that has been used for more than twenty years is being\nreplaced by the Environmental Sample Collection Form.An example form is attached. Please read the\nattached instructions for information on properly completing the new form. Changes to the form include the following:\n1.Form size is expanded to a single 8 /2x 11sheet of paper.The form is no longer in a triplicate\ncarbon copy format. You may choose to photocopy for your records if you prefer. Note: MDNR\ndoes not require a public water system to retain copies of sample collection forms; however, you\nmight utilize them for system inspections. 2.The form is printed by the OE LIMS and will be pre-populated with your Public Water Supply\nID number, PwS name, address and county.Forms should not be shared with other supplies\nwww.health.mo.gov\nHealthy Missourians for life. The Missouri Department of Health and Senior Services will be the leader in promoting.protecting and partnering for health. AN EQUAL OPPORTUNITY IAFFIRMATIVE ACTION EMPLOYER:Services provided on a nondiscriminatory basis. Contract operators will be provided with forms for all the supplies they operate.Blank forms will\nbe available for MDNR Regional Office staff use. 3.The form requires all requested information to be printed by the collector. There are no longer\ncheck boxes for Sample Type or Repeat Location. 4.Facility ID, Sample Collection Point ID and Location for the sampling site MUST be\nprovided by the collector. This information is available from your MDNR approved PWS\nsampling plan.MDNR will be providing all public water systems with a current copy of their\napproved sampling plan.This information is required by SDWIS and is used by MDNR to\nensure regulatory compliance requirements have been met.Failure to complete this information\non the sample collection form may result in a non-compliance report from MDNR. 5.A Collector Signature line has been added. The sample collector must sign the form to attest the\ninformation provided is accurate to the best of their knowledge. The MSPHL will begin shipping the new forms to public water systems in late November or early\nDecember.Please begin using the new forms December 16, 2015. Discard all the old forms (\"cards)\nat that time.",
+    "page_start": 1,
+    "page_end": 2,
+    "tables": [],
+    "figures": [],
+    "token_count": 470,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "298646a0-7b74-469d-9652-1e72a1653405",
+      "previous_chunk_id": "1ff8c9ff-5b43-489d-aabe-2eedba0966ba",
+      "next_chunk_id": "298646a0-7b74-469d-9652-1e72a1653405"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "298646a0-7b74-469d-9652-1e72a1653405",
+    "chunk_index": 4,
+    "section": "NEW SAMPLE INFORMATION FORMS:",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "NEW SAMPLE INFORMATION FORMS:",
+    "content": "The traditional sample information \"card\" that has been used for more than twenty years is being\nreplaced by the Environmental Sample Collection Form.An example form is attached. Please read the\nattached instructions for information on properly completing the new form.\nChanges to the form include the following:\n1.Form size is expanded to a single 8 /2x 11sheet of paper.The form is no longer in a triplicate\ncarbon copy format. You may choose to photocopy for your records if you prefer. Note: MDNR\ndoes not require a public water system to retain copies of sample collection forms; however, you\nmight utilize them for system inspections.\n2.The form is printed by the OE LIMS and will be pre-populated with your Public Water Supply\nID number, PwS name, address and county.Forms should not be shared with other supplies\nwww.health.mo.gov\nHealthy Missourians for life.\nThe Missouri Department of Health and Senior Services will be the leader in promoting.protecting and partnering for health.\nAN EQUAL OPPORTUNITY IAFFIRMATIVE ACTION EMPLOYER:Services provided on a nondiscriminatory basis.\nContract operators will be provided with forms for all the supplies they operate.Blank forms will\nbe available for MDNR Regional Office staff use.\n3.The form requires all requested information to be printed by the collector. There are no longer\ncheck boxes for Sample Type or Repeat Location.\n4.Facility ID, Sample Collection Point ID and Location for the sampling site MUST be\nprovided by the collector. This information is available from your MDNR approved PWS\nsampling plan.MDNR will be providing all public water systems with a current copy of their\napproved sampling plan.This information is required by SDWIS and is used by MDNR to\nensure regulatory compliance requirements have been met.Failure to complete this information\non the sample collection form may result in a non-compliance report from MDNR.\n5.A Collector Signature line has been added. The sample collector must sign the form to attest the\ninformation provided is accurate to the best of their knowledge.\nThe MSPHL will begin shipping the new forms to public water systems in late November or early\nDecember.Please begin using the new forms December 16, 2015. Discard all the old forms (\"cards)\nat that time.",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > NEW SAMPLE INFORMATION FORMS:\nPages: 1–2\n\nThe traditional sample information \"card\" that has been used for more than twenty years is being\nreplaced by the Environmental Sample Collection Form.An example form is attached. Please read the\nattached instructions for information on properly completing the new form.\nChanges to the form include the following:\n1.Form size is expanded to a single 8 /2x 11sheet of paper.The form is no longer in a triplicate\ncarbon copy format. You may choose to photocopy for your records if you prefer. Note: MDNR\ndoes not require a public water system to retain copies of sample collection forms; however, you\nmight utilize them for system inspections.\n2.The form is printed by the OE LIMS and will be pre-populated with your Public Water Supply\nID number, PwS name, address and county.Forms should not be shared with other supplies\nwww.health.mo.gov\nHealthy Missourians for life.\nThe Missouri Department of Health and Senior Services will be the leader in promoting.protecting and partnering for health.\nAN EQUAL OPPORTUNITY IAFFIRMATIVE ACTION EMPLOYER:Services provided on a nondiscriminatory basis.\nContract operators will be provided with forms for all the supplies they operate.Blank forms will\nbe available for MDNR Regional Office staff use.\n3.The form requires all requested information to be printed by the collector. There are no longer\ncheck boxes for Sample Type or Repeat Location.\n4.Facility ID, Sample Collection Point ID and Location for the sampling site MUST be\nprovided by the collector. This information is available from your MDNR approved PWS\nsampling plan.MDNR will be providing all public water systems with a current copy of their\napproved sampling plan.This information is required by SDWIS and is used by MDNR to\nensure regulatory compliance requirements have been met.Failure to complete this information\non the sample collection form may result in a non-compliance report from MDNR.\n5.A Collector Signature line has been added. The sample collector must sign the form to attest the\ninformation provided is accurate to the best of their knowledge.\nThe MSPHL will begin shipping the new forms to public water systems in late November or early\nDecember.Please begin using the new forms December 16, 2015. Discard all the old forms (\"cards)\nat that time.",
+    "page_start": 1,
+    "page_end": 2,
+    "tables": [],
+    "figures": [],
+    "token_count": 470,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "NEW SAMPLE INFORMATION FORMS:"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "0491a342-c97f-48cb-afc7-894b1b10f46d",
+      "next_chunk_id": "c6f054c6-2135-4786-90d0-0631e3bf49d5"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "c6f054c6-2135-4786-90d0-0631e3bf49d5",
+    "chunk_index": 0,
+    "section": "NEW SAMPLE INSTRUCTIONS:",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "NEW SAMPLE INSTRUCTIONS: (part 1)",
+    "content": "Sample instructions have been revised to include changes to the bottle and sampling form.The\ninstructions include detailed information on how to collect the sample using the new bottle, how to\ncomplete the new sample collection form, how to best ship samples to the MSPHL using the free\nMSPHL courier system, and how to register for the new MSPHL web portal. A copy of these\ninstructions is attached.",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > NEW SAMPLE INSTRUCTIONS:\nPages: 2–2\n\nSample instructions have been revised to include changes to the bottle and sampling form.The\ninstructions include detailed information on how to collect the sample using the new bottle, how to\ncomplete the new sample collection form, how to best ship samples to the MSPHL using the free\nMSPHL courier system, and how to register for the new MSPHL web portal. A copy of these\ninstructions is attached.",
+    "page_start": 2,
+    "page_end": 2,
+    "tables": [],
+    "figures": [],
+    "token_count": 81,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "8f188590-8a10-49ff-a491-f474b41dd9f1",
+      "previous_chunk_id": "298646a0-7b74-469d-9652-1e72a1653405",
+      "next_chunk_id": "8f188590-8a10-49ff-a491-f474b41dd9f1"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "8f188590-8a10-49ff-a491-f474b41dd9f1",
+    "chunk_index": 5,
+    "section": "NEW SAMPLE INSTRUCTIONS:",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "NEW SAMPLE INSTRUCTIONS:",
+    "content": "Sample instructions have been revised to include changes to the bottle and sampling form.The\ninstructions include detailed information on how to collect the sample using the new bottle, how to\ncomplete the new sample collection form, how to best ship samples to the MSPHL using the free\nMSPHL courier system, and how to register for the new MSPHL web portal. A copy of these\ninstructions is attached.",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > NEW SAMPLE INSTRUCTIONS:\nPages: 2–2\n\nSample instructions have been revised to include changes to the bottle and sampling form.The\ninstructions include detailed information on how to collect the sample using the new bottle, how to\ncomplete the new sample collection form, how to best ship samples to the MSPHL using the free\nMSPHL courier system, and how to register for the new MSPHL web portal. A copy of these\ninstructions is attached.",
+    "page_start": 2,
+    "page_end": 2,
+    "tables": [],
+    "figures": [],
+    "token_count": 81,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "NEW SAMPLE INSTRUCTIONS:"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "c6f054c6-2135-4786-90d0-0631e3bf49d5",
+      "next_chunk_id": "461c8187-7867-4f03-9130-7599379b7540"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "461c8187-7867-4f03-9130-7599379b7540",
+    "chunk_index": 0,
+    "section": "NEW WEB PORTAL FOR RESULTS REPORTS",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "NEW WEB PORTAL FOR RESULTS REPORTS (part 1)",
+    "content": "The OE LIMS provides a web portal that may be used by systems to view and print their test result\nreports,check status of samples, download sample information into Excel, and receive automated emails\nwhen samples are received at the laboratory, and when sample results are ready to be viewed. For\ninformation on how to gain access to this portal, please contact Shondra Johnson, LIMS Administrator\nat Shondra.Johnson@health.mo.gov or at 573-751-3334.",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > NEW WEB PORTAL FOR RESULTS REPORTS\nPages: 2–2\n\nThe OE LIMS provides a web portal that may be used by systems to view and print their test result\nreports,check status of samples, download sample information into Excel, and receive automated emails\nwhen samples are received at the laboratory, and when sample results are ready to be viewed. For\ninformation on how to gain access to this portal, please contact Shondra Johnson, LIMS Administrator\nat Shondra.Johnson@health.mo.gov or at 573-751-3334.",
+    "page_start": 2,
+    "page_end": 2,
+    "tables": [],
+    "figures": [],
+    "token_count": 102,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "8ab17d39-ffc0-44bc-982e-20cd51de67d6",
+      "previous_chunk_id": "8f188590-8a10-49ff-a491-f474b41dd9f1",
+      "next_chunk_id": "8ab17d39-ffc0-44bc-982e-20cd51de67d6"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "8ab17d39-ffc0-44bc-982e-20cd51de67d6",
+    "chunk_index": 6,
+    "section": "NEW WEB PORTAL FOR RESULTS REPORTS",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "NEW WEB PORTAL FOR RESULTS REPORTS",
+    "content": "The OE LIMS provides a web portal that may be used by systems to view and print their test result\nreports,check status of samples, download sample information into Excel, and receive automated emails\nwhen samples are received at the laboratory, and when sample results are ready to be viewed. For\ninformation on how to gain access to this portal, please contact Shondra Johnson, LIMS Administrator\nat Shondra.Johnson@health.mo.gov or at 573-751-3334.",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > NEW WEB PORTAL FOR RESULTS REPORTS\nPages: 2–2\n\nThe OE LIMS provides a web portal that may be used by systems to view and print their test result\nreports,check status of samples, download sample information into Excel, and receive automated emails\nwhen samples are received at the laboratory, and when sample results are ready to be viewed. For\ninformation on how to gain access to this portal, please contact Shondra Johnson, LIMS Administrator\nat Shondra.Johnson@health.mo.gov or at 573-751-3334.",
+    "page_start": 2,
+    "page_end": 2,
+    "tables": [],
+    "figures": [],
+    "token_count": 102,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "NEW WEB PORTAL FOR RESULTS REPORTS"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "461c8187-7867-4f03-9130-7599379b7540",
+      "next_chunk_id": "96bbdc49-5a1e-4fa3-9a97-b2b263c3b39a"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "96bbdc49-5a1e-4fa3-9a97-b2b263c3b39a",
+    "chunk_index": 0,
+    "section": "IMPLEMENTATION DATES:",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "IMPLEMENTATION DATES: (part 1)",
+    "content": "The MSPHL intends to implement the OpenELIS LIMS on December 1,2015.There will be a two\nweek testing period in which laboratory staff will run the new LIMS in conjunction with our current\nmanual, paper-based system to ensure the OE LIMS is operating properly.You may continue to submit\nsamples as you currently do, using the old sample information card, throughout this time. On December 16, 2015,the MSPHL plans to \"go-live\"with the new OE LIMS.Samples submitted\nafter that date should be submitted on the new Environmental Sample Collection Form.At that time, the\nMSPHL Test Results Web Portal will also be available to those systems that have been granted access. The MSPHL and MDNR understand that there will be a lot of changes to a system that has been in place\nfor many years.The MSPHL is excited about the added benefits from this new system, and we ask for\nyour patience as we implement the OpenELIS LIMS at the Missouri State Public Health Laboratory. If you have any questions, please contact the MSPHL Environmental Bacteriology Unit at 573-751-\n3334. You may also contact your MDNR Regional Office for additional information on sample\ncollection. Once again, thank you for your patience and understanding as we implement these changes.. atich R San\nPatrick R.Shannon\nManager, Environmental Bacteriology Unit\nMissouri Department of Health and Senior Services\nState Public Health Laboratory\n101 North Chestnut St. P.O.Box570\nJefferson City,MO 65102\nPhone:573-751-3334\nEmail: Pat.Shannon@health.mo.gov\nWeb:www.health.mo.gov/Lab\n[Diagram: Page 4 has 1 detected image region(s). Gemma analysis pending.]\nOrder#:984",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > IMPLEMENTATION DATES:\nPages: 2–4\n\nThe MSPHL intends to implement the OpenELIS LIMS on December 1,2015.There will be a two\nweek testing period in which laboratory staff will run the new LIMS in conjunction with our current\nmanual, paper-based system to ensure the OE LIMS is operating properly.You may continue to submit\nsamples as you currently do, using the old sample information card, throughout this time. On December 16, 2015,the MSPHL plans to \"go-live\"with the new OE LIMS.Samples submitted\nafter that date should be submitted on the new Environmental Sample Collection Form.At that time, the\nMSPHL Test Results Web Portal will also be available to those systems that have been granted access. The MSPHL and MDNR understand that there will be a lot of changes to a system that has been in place\nfor many years.The MSPHL is excited about the added benefits from this new system, and we ask for\nyour patience as we implement the OpenELIS LIMS at the Missouri State Public Health Laboratory. If you have any questions, please contact the MSPHL Environmental Bacteriology Unit at 573-751-\n3334. You may also contact your MDNR Regional Office for additional information on sample\ncollection. Once again, thank you for your patience and understanding as we implement these changes.. atich R San\nPatrick R.Shannon\nManager, Environmental Bacteriology Unit\nMissouri Department of Health and Senior Services\nState Public Health Laboratory\n101 North Chestnut St. P.O.Box570\nJefferson City,MO 65102\nPhone:573-751-3334\nEmail: Pat.Shannon@health.mo.gov\nWeb:www.health.mo.gov/Lab\n[Diagram: Page 4 has 1 detected image region(s). Gemma analysis pending.]\nOrder#:984",
+    "page_start": 2,
+    "page_end": 4,
+    "tables": [],
+    "figures": [
+      {
+        "description": "Page 4 has 1 detected image region(s). Gemma analysis pending.",
+        "caption": null,
+        "page": 4,
+        "mime_type": "image/png",
+        "confidence": 1.0
+      }
+    ],
+    "token_count": 373,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "d5d2c860-be61-4513-a6e1-0ecb962d1649",
+      "previous_chunk_id": "8ab17d39-ffc0-44bc-982e-20cd51de67d6",
+      "next_chunk_id": "d5d2c860-be61-4513-a6e1-0ecb962d1649"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "d5d2c860-be61-4513-a6e1-0ecb962d1649",
+    "chunk_index": 7,
+    "section": "IMPLEMENTATION DATES:",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "IMPLEMENTATION DATES:",
+    "content": "The MSPHL intends to implement the OpenELIS LIMS on December 1,2015.There will be a two\nweek testing period in which laboratory staff will run the new LIMS in conjunction with our current\nmanual, paper-based system to ensure the OE LIMS is operating properly.You may continue to submit\nsamples as you currently do, using the old sample information card, throughout this time.\nOn December 16, 2015,the MSPHL plans to \"go-live\"with the new OE LIMS.Samples submitted\nafter that date should be submitted on the new Environmental Sample Collection Form.At that time, the\nMSPHL Test Results Web Portal will also be available to those systems that have been granted access.\nThe MSPHL and MDNR understand that there will be a lot of changes to a system that has been in place\nfor many years.The MSPHL is excited about the added benefits from this new system, and we ask for\nyour patience as we implement the OpenELIS LIMS at the Missouri State Public Health Laboratory.\nIf you have any questions, please contact the MSPHL Environmental Bacteriology Unit at 573-751-\n3334. You may also contact your MDNR Regional Office for additional information on sample\ncollection.\nOnce again, thank you for your patience and understanding as we implement these changes..\natich R San\nPatrick R.Shannon\nManager, Environmental Bacteriology Unit\nMissouri Department of Health and Senior Services\nState Public Health Laboratory\n101 North Chestnut St.\nP.O.Box570\nJefferson City,MO 65102\nPhone:573-751-3334\nEmail: Pat.Shannon@health.mo.gov\nWeb:www.health.mo.gov/Lab\n[Diagram: Page 4 has 1 detected image region(s). Gemma analysis pending.]\nOrder#:984",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > IMPLEMENTATION DATES:\nPages: 2–4\n\nThe MSPHL intends to implement the OpenELIS LIMS on December 1,2015.There will be a two\nweek testing period in which laboratory staff will run the new LIMS in conjunction with our current\nmanual, paper-based system to ensure the OE LIMS is operating properly.You may continue to submit\nsamples as you currently do, using the old sample information card, throughout this time.\nOn December 16, 2015,the MSPHL plans to \"go-live\"with the new OE LIMS.Samples submitted\nafter that date should be submitted on the new Environmental Sample Collection Form.At that time, the\nMSPHL Test Results Web Portal will also be available to those systems that have been granted access.\nThe MSPHL and MDNR understand that there will be a lot of changes to a system that has been in place\nfor many years.The MSPHL is excited about the added benefits from this new system, and we ask for\nyour patience as we implement the OpenELIS LIMS at the Missouri State Public Health Laboratory.\nIf you have any questions, please contact the MSPHL Environmental Bacteriology Unit at 573-751-\n3334. You may also contact your MDNR Regional Office for additional information on sample\ncollection.\nOnce again, thank you for your patience and understanding as we implement these changes..\natich R San\nPatrick R.Shannon\nManager, Environmental Bacteriology Unit\nMissouri Department of Health and Senior Services\nState Public Health Laboratory\n101 North Chestnut St.\nP.O.Box570\nJefferson City,MO 65102\nPhone:573-751-3334\nEmail: Pat.Shannon@health.mo.gov\nWeb:www.health.mo.gov/Lab\n[Diagram: Page 4 has 1 detected image region(s). Gemma analysis pending.]\nOrder#:984",
+    "page_start": 2,
+    "page_end": 4,
+    "tables": [],
+    "figures": [
+      {
+        "description": "Page 4 has 1 detected image region(s). Gemma analysis pending.",
+        "caption": null,
+        "page": 4,
+        "mime_type": "image/png",
+        "confidence": 1.0
+      }
+    ],
+    "token_count": 373,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "IMPLEMENTATION DATES:"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "96bbdc49-5a1e-4fa3-9a97-b2b263c3b39a",
+      "next_chunk_id": "b250ccaf-cbfd-450c-9ecf-727857005bad"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "b250ccaf-cbfd-450c-9ecf-727857005bad",
+    "chunk_index": 0,
+    "section": "BILL TO:",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "BILL TO: (part 1)",
+    "content": "Pages in Order1 of\n65\n82\nContainers in Order:1",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > BILL TO:\nPages: 4–4\n\nPages in Order1 of\n65\n82\nContainers in Order:1",
+    "page_start": 4,
+    "page_end": 4,
+    "tables": [],
+    "figures": [],
+    "token_count": 15,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "2a104dc4-033d-43f5-bc85-05ab22442f3c",
+      "previous_chunk_id": "d5d2c860-be61-4513-a6e1-0ecb962d1649",
+      "next_chunk_id": "2a104dc4-033d-43f5-bc85-05ab22442f3c"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "2a104dc4-033d-43f5-bc85-05ab22442f3c",
+    "chunk_index": 8,
+    "section": "BILL TO:",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "BILL TO:",
+    "content": "Pages in Order1 of\n65\n82\nContainers in Order:1",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > BILL TO:\nPages: 4–4\n\nPages in Order1 of\n65\n82\nContainers in Order:1",
+    "page_start": 4,
+    "page_end": 4,
+    "tables": [],
+    "figures": [],
+    "token_count": 15,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "BILL TO:"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "b250ccaf-cbfd-450c-9ecf-727857005bad",
+      "next_chunk_id": "1182d1bb-b6e4-4880-b92e-400f22ddfad2"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "1182d1bb-b6e4-4880-b92e-400f22ddfad2",
+    "chunk_index": 0,
+    "section": "JEFFERSON CITY,MO 65102",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "JEFFERSON CITY,MO 65102 (part 1)",
+    "content": "Requested Analyses/Tests",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > JEFFERSON CITY,MO 65102\nPages: 4–4\n\nRequested Analyses/Tests",
+    "page_start": 4,
+    "page_end": 4,
+    "tables": [],
+    "figures": [],
+    "token_count": 5,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "516d0764-1314-464e-a962-4bae7ec84b3d",
+      "previous_chunk_id": "2a104dc4-033d-43f5-bc85-05ab22442f3c",
+      "next_chunk_id": "516d0764-1314-464e-a962-4bae7ec84b3d"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "516d0764-1314-464e-a962-4bae7ec84b3d",
+    "chunk_index": 9,
+    "section": "JEFFERSON CITY,MO 65102",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "JEFFERSON CITY,MO 65102",
+    "content": "Requested Analyses/Tests",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > JEFFERSON CITY,MO 65102\nPages: 4–4\n\nRequested Analyses/Tests",
+    "page_start": 4,
+    "page_end": 4,
+    "tables": [],
+    "figures": [],
+    "token_count": 5,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "JEFFERSON CITY,MO 65102"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "1182d1bb-b6e4-4880-b92e-400f22ddfad2",
+      "next_chunk_id": "f254182e-18e1-4624-9215-12aefdd7903d"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "f254182e-18e1-4624-9215-12aefdd7903d",
+    "chunk_index": 0,
+    "section": "PUBLIC DRINKING WATER BACTERIAL ANALYSIS",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "PUBLIC DRINKING WATER BACTERIAL ANALYSIS (part 1)",
+    "content": "Total Coliform Bacteria and E.coli (Present/Absent Test)\nSample Collection Form\nPRINT LEGIBLY. Instructions for completing form are supplied in the Collection Kit. For compliance monitoring questions, contact the\nMissouri Department of Natural Resources-Public Drinking Water Branch at (573751-5331 or your regional office. For laboratory test\nEnvironmental\nresults or testing questions.contact the Missouri State Public Health Laboratory at (573)751-3334\nComplete or correct the following information\nCollected Date:\nCollected Time:",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > PUBLIC DRINKING WATER BACTERIAL ANALYSIS\nPages: 4–4\n\nTotal Coliform Bacteria and E.coli (Present/Absent Test)\nSample Collection Form\nPRINT LEGIBLY. Instructions for completing form are supplied in the Collection Kit. For compliance monitoring questions, contact the\nMissouri Department of Natural Resources-Public Drinking Water Branch at (573751-5331 or your regional office. For laboratory test\nEnvironmental\nresults or testing questions.contact the Missouri State Public Health Laboratory at (573)751-3334\nComplete or correct the following information\nCollected Date:\nCollected Time:",
+    "page_start": 4,
+    "page_end": 4,
+    "tables": [],
+    "figures": [],
+    "token_count": 108,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "97750d11-e649-4670-bc25-8191de4fad84",
+      "previous_chunk_id": "516d0764-1314-464e-a962-4bae7ec84b3d",
+      "next_chunk_id": "97750d11-e649-4670-bc25-8191de4fad84"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "97750d11-e649-4670-bc25-8191de4fad84",
+    "chunk_index": 10,
+    "section": "PUBLIC DRINKING WATER BACTERIAL ANALYSIS",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "PUBLIC DRINKING WATER BACTERIAL ANALYSIS",
+    "content": "Total Coliform Bacteria and E.coli (Present/Absent Test)\nSample Collection Form\nPRINT LEGIBLY. Instructions for completing form are supplied in the Collection Kit. For compliance monitoring questions, contact the\nMissouri Department of Natural Resources-Public Drinking Water Branch at (573751-5331 or your regional office. For laboratory test\nEnvironmental\nresults or testing questions.contact the Missouri State Public Health Laboratory at (573)751-3334\nComplete or correct the following information\nCollected Date:\nCollected Time:",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > PUBLIC DRINKING WATER BACTERIAL ANALYSIS\nPages: 4–4\n\nTotal Coliform Bacteria and E.coli (Present/Absent Test)\nSample Collection Form\nPRINT LEGIBLY. Instructions for completing form are supplied in the Collection Kit. For compliance monitoring questions, contact the\nMissouri Department of Natural Resources-Public Drinking Water Branch at (573751-5331 or your regional office. For laboratory test\nEnvironmental\nresults or testing questions.contact the Missouri State Public Health Laboratory at (573)751-3334\nComplete or correct the following information\nCollected Date:\nCollected Time:",
+    "page_start": 4,
+    "page_end": 4,
+    "tables": [],
+    "figures": [],
+    "token_count": 108,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "PUBLIC DRINKING WATER BACTERIAL ANALYSIS"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "f254182e-18e1-4624-9215-12aefdd7903d",
+      "next_chunk_id": "a37a2448-1097-42cb-8d0b-eb94f361b8d5"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "a37a2448-1097-42cb-8d0b-eb94f361b8d5",
+    "chunk_index": 0,
+    "section": "-ARRK",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "-ARRK (part 1)",
+    "content": "24 hour format hh.mm\nPWS Id:MO1010001\nFacility ld:DS",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > -ARRK\nPages: 4–4\n\n24 hour format hh.mm\nPWS Id:MO1010001\nFacility ld:DS",
+    "page_start": 4,
+    "page_end": 4,
+    "tables": [],
+    "figures": [],
+    "token_count": 20,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "e8ebc94e-4458-49d2-9517-17b04c139dec",
+      "previous_chunk_id": "97750d11-e649-4670-bc25-8191de4fad84",
+      "next_chunk_id": "e8ebc94e-4458-49d2-9517-17b04c139dec"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "e8ebc94e-4458-49d2-9517-17b04c139dec",
+    "chunk_index": 11,
+    "section": "-ARRK",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "-ARRK",
+    "content": "24 hour format hh.mm\nPWS Id:MO1010001\nFacility ld:DS",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > -ARRK\nPages: 4–4\n\n24 hour format hh.mm\nPWS Id:MO1010001\nFacility ld:DS",
+    "page_start": 4,
+    "page_end": 4,
+    "tables": [],
+    "figures": [],
+    "token_count": 20,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "-ARRK"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "a37a2448-1097-42cb-8d0b-eb94f361b8d5",
+      "next_chunk_id": "a849d918-1b7e-4e52-93d8-2b1cd0873100"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "a849d918-1b7e-4e52-93d8-2b1cd0873100",
+    "chunk_index": 0,
+    "section": "MO######",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "MO###### (part 1)",
+    "content": "Sample Type:\nSample Collection Point\nLocation:\nCollector:\naddress or name of sampling point\nlastname,firstname\nCollector Phone:\nSample Category: Bacterial\n000/111-2222\nRepeat Location:\nBottle Number:\nupstream.downstream.original.source.other\nFree Chlorine:\nTotal Chlorine:\nmg/L\nmg/i\nCollector Signature:\nCounty:BATES\nattest the information provided is accurate\nMissour County\nSenior Services\nMissouri Department of Health &\nState Public Health Laboratory\nJefferson City,MO 65102\nFor Laboratory Use Only --Please do not write below this line\nReceived By\npH:\n101 N.Chestnut\nEvidence of Tampering:\nYes\nNo\nEvidence of CoolingYes\nNo\nDate Printed:2015-11-06\nPO Box 570\nTemperature(Celsius):\nBottles Received:\nThermometer ID:",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > MO######\nPages: 4–4\n\nSample Type:\nSample Collection Point\nLocation:\nCollector:\naddress or name of sampling point\nlastname,firstname\nCollector Phone:\nSample Category: Bacterial\n000/111-2222\nRepeat Location:\nBottle Number:\nupstream.downstream.original.source.other\nFree Chlorine:\nTotal Chlorine:\nmg/L\nmg/i\nCollector Signature:\nCounty:BATES\nattest the information provided is accurate\nMissour County\nSenior Services\nMissouri Department of Health &\nState Public Health Laboratory\nJefferson City,MO 65102\nFor Laboratory Use Only --Please do not write below this line\nReceived By\npH:\n101 N.Chestnut\nEvidence of Tampering:\nYes\nNo\nEvidence of CoolingYes\nNo\nDate Printed:2015-11-06\nPO Box 570\nTemperature(Celsius):\nBottles Received:\nThermometer ID:",
+    "page_start": 4,
+    "page_end": 4,
+    "tables": [],
+    "figures": [],
+    "token_count": 179,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "2608da6f-12db-46ea-996f-2514208b010e",
+      "previous_chunk_id": "e8ebc94e-4458-49d2-9517-17b04c139dec",
+      "next_chunk_id": "2608da6f-12db-46ea-996f-2514208b010e"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "2608da6f-12db-46ea-996f-2514208b010e",
+    "chunk_index": 12,
+    "section": "MO######",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "MO######",
+    "content": "Sample Type:\nSample Collection Point\nLocation:\nCollector:\naddress or name of sampling point\nlastname,firstname\nCollector Phone:\nSample Category: Bacterial\n000/111-2222\nRepeat Location:\nBottle Number:\nupstream.downstream.original.source.other\nFree Chlorine:\nTotal Chlorine:\nmg/L\nmg/i\nCollector Signature:\nCounty:BATES\nattest the information provided is accurate\nMissour County\nSenior Services\nMissouri Department of Health &\nState Public Health Laboratory\nJefferson City,MO 65102\nFor Laboratory Use Only --Please do not write below this line\nReceived By\npH:\n101 N.Chestnut\nEvidence of Tampering:\nYes\nNo\nEvidence of CoolingYes\nNo\nDate Printed:2015-11-06\nPO Box 570\nTemperature(Celsius):\nBottles Received:\nThermometer ID:",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > MO######\nPages: 4–4\n\nSample Type:\nSample Collection Point\nLocation:\nCollector:\naddress or name of sampling point\nlastname,firstname\nCollector Phone:\nSample Category: Bacterial\n000/111-2222\nRepeat Location:\nBottle Number:\nupstream.downstream.original.source.other\nFree Chlorine:\nTotal Chlorine:\nmg/L\nmg/i\nCollector Signature:\nCounty:BATES\nattest the information provided is accurate\nMissour County\nSenior Services\nMissouri Department of Health &\nState Public Health Laboratory\nJefferson City,MO 65102\nFor Laboratory Use Only --Please do not write below this line\nReceived By\npH:\n101 N.Chestnut\nEvidence of Tampering:\nYes\nNo\nEvidence of CoolingYes\nNo\nDate Printed:2015-11-06\nPO Box 570\nTemperature(Celsius):\nBottles Received:\nThermometer ID:",
+    "page_start": 4,
+    "page_end": 4,
+    "tables": [],
+    "figures": [],
+    "token_count": 179,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "MO######"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "a849d918-1b7e-4e52-93d8-2b1cd0873100",
+      "next_chunk_id": "1571f4ec-de51-4112-a152-8dd649ae9d24"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "1571f4ec-de51-4112-a152-8dd649ae9d24",
+    "chunk_index": 0,
+    "section": "SD062015",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "SD062015 (part 1)",
+    "content": "[Diagram: Page 5 has 2 detected image region(s). Gemma analysis pending.]",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > SD062015\nPages: 4–5\n\n[Diagram: Page 5 has 2 detected image region(s). Gemma analysis pending.]",
+    "page_start": 4,
+    "page_end": 5,
+    "tables": [],
+    "figures": [
+      {
+        "description": "Page 5 has 2 detected image region(s). Gemma analysis pending.",
+        "caption": null,
+        "page": 5,
+        "mime_type": "image/png",
+        "confidence": 1.0
+      }
+    ],
+    "token_count": 19,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "7f34ab0c-46e3-4c05-afd8-139618f88aec",
+      "previous_chunk_id": "2608da6f-12db-46ea-996f-2514208b010e",
+      "next_chunk_id": "7f34ab0c-46e3-4c05-afd8-139618f88aec"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "7f34ab0c-46e3-4c05-afd8-139618f88aec",
+    "chunk_index": 13,
+    "section": "SD062015",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "SD062015",
+    "content": "[Diagram: Page 5 has 2 detected image region(s). Gemma analysis pending.]",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > SD062015\nPages: 4–5\n\n[Diagram: Page 5 has 2 detected image region(s). Gemma analysis pending.]",
+    "page_start": 4,
+    "page_end": 5,
+    "tables": [],
+    "figures": [
+      {
+        "description": "Page 5 has 2 detected image region(s). Gemma analysis pending.",
+        "caption": null,
+        "page": 5,
+        "mime_type": "image/png",
+        "confidence": 1.0
+      }
+    ],
+    "token_count": 19,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "SD062015"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "1571f4ec-de51-4112-a152-8dd649ae9d24",
+      "next_chunk_id": "8c6126f8-9950-4a57-b4b8-73bb4a2acd86"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "8c6126f8-9950-4a57-b4b8-73bb4a2acd86",
+    "chunk_index": 0,
+    "section": "MISSOURI",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "MISSOURI (part 1)",
+    "content": "PUBLIC DRINKING WATER for COLIFORM BACTERIA ANALYSIS",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > MISSOURI\nPages: 5–5\n\nPUBLIC DRINKING WATER for COLIFORM BACTERIA ANALYSIS",
+    "page_start": 5,
+    "page_end": 5,
+    "tables": [],
+    "figures": [],
+    "token_count": 13,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "8d9aa95e-d970-48a9-b19d-17e72c9df648",
+      "previous_chunk_id": "7f34ab0c-46e3-4c05-afd8-139618f88aec",
+      "next_chunk_id": "8d9aa95e-d970-48a9-b19d-17e72c9df648"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "8d9aa95e-d970-48a9-b19d-17e72c9df648",
+    "chunk_index": 14,
+    "section": "MISSOURI",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "MISSOURI",
+    "content": "PUBLIC DRINKING WATER for COLIFORM BACTERIA ANALYSIS",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > MISSOURI\nPages: 5–5\n\nPUBLIC DRINKING WATER for COLIFORM BACTERIA ANALYSIS",
+    "page_start": 5,
+    "page_end": 5,
+    "tables": [],
+    "figures": [],
+    "token_count": 13,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "MISSOURI"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "8c6126f8-9950-4a57-b4b8-73bb4a2acd86",
+      "next_chunk_id": "0c15639a-5c5f-4a02-a888-5d33109faee9"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "0c15639a-5c5f-4a02-a888-5d33109faee9",
+    "chunk_index": 0,
+    "section": "NATURAL RESOURCES",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "NATURAL RESOURCES (part 1)",
+    "content": "This sample kit and collection method is for public drinking water regulatory compliance and special samples. Only samples collected in bottles supplied by the Missouri State Public Health Laboratory (MSPHL) and collected\nin accordance with these instructions will be accepted for testing.PLEASE READ THESE INSTRUCTIONS",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > NATURAL RESOURCES\nPages: 5–5\n\nThis sample kit and collection method is for public drinking water regulatory compliance and special samples. Only samples collected in bottles supplied by the Missouri State Public Health Laboratory (MSPHL) and collected\nin accordance with these instructions will be accepted for testing.PLEASE READ THESE INSTRUCTIONS",
+    "page_start": 5,
+    "page_end": 5,
+    "tables": [],
+    "figures": [],
+    "token_count": 54,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "b4d04b0e-88e5-4ad2-8e4d-6dfc7f309c58",
+      "previous_chunk_id": "8d9aa95e-d970-48a9-b19d-17e72c9df648",
+      "next_chunk_id": "b4d04b0e-88e5-4ad2-8e4d-6dfc7f309c58"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "b4d04b0e-88e5-4ad2-8e4d-6dfc7f309c58",
+    "chunk_index": 15,
+    "section": "NATURAL RESOURCES",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "NATURAL RESOURCES",
+    "content": "This sample kit and collection method is for public drinking water regulatory compliance and special samples.\nOnly samples collected in bottles supplied by the Missouri State Public Health Laboratory (MSPHL) and collected\nin accordance with these instructions will be accepted for testing.PLEASE READ THESE INSTRUCTIONS",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > NATURAL RESOURCES\nPages: 5–5\n\nThis sample kit and collection method is for public drinking water regulatory compliance and special samples.\nOnly samples collected in bottles supplied by the Missouri State Public Health Laboratory (MSPHL) and collected\nin accordance with these instructions will be accepted for testing.PLEASE READ THESE INSTRUCTIONS",
+    "page_start": 5,
+    "page_end": 5,
+    "tables": [],
+    "figures": [],
+    "token_count": 54,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "NATURAL RESOURCES"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "0c15639a-5c5f-4a02-a888-5d33109faee9",
+      "next_chunk_id": "b7a17766-b781-4d05-b38c-442b47fd46af"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "b7a17766-b781-4d05-b38c-442b47fd46af",
+    "chunk_index": 0,
+    "section": "COMPLETELY BEFORE COLLECTING SAMPLES.",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "COMPLETELY BEFORE COLLECTING SAMPLES. (part 1)",
+    "content": "Sample Containers:\nSample bottles from the MSPHL contain a chlorine neutralizer that is present in powder or liquid form. The bottles. are sterile and ready for use when shipped.Do not rinse the contents from the container and keep the bottle\nclosed until it is to be filled\nShrink Wrap Seal:\nRemove the seal by pulling down on the red strip\nand pealing shrink wrap from both the cap and\nbottle.Discard all shrink wrap.Do not attempt to\nreseal lid with shrink wrap still attached. Two Fill Lines:\nMax.fill line\nFill the bottle until the water sample level is\n-Min.fill line\nBETWEEN THE TWO LINES.Place the bottle\non a level surface to check the sample level. Samples below the 100 mL (lower) line WILL\nNOT BE TESTED due to insufficient sample\nvolume.Samples above the 120 mL (upper) line\nWILL NOT BE TESTED due to overfilled\nbottle. Technical protocol and EPA requirements\ndictate that bottles must have sufficient air space\nto add testing reagents and to mix the sample\nproperly. If the bottle is overfilled past the 120 mL line,\nFor More Information, please contact:\npour off water until the sample volume is between\nMissouri Department of Health and Senior Services\nthe two lines before shipping to MSPHL.MSPHL\nState Public Health Laboratory\nWILL NOT adjust sample volume once the\nEnvironmental Bacteriology Unit\nsample is received at the lab. 101 North Chestnut St.,P.O.Box 570\nJefferson City,MO 65102\nNo Paper Label:\nPhone:\n573-751-3334\nThere is no longer a label to record sample",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > COMPLETELY BEFORE COLLECTING SAMPLES.\nPages: 5–5\n\nSample Containers:\nSample bottles from the MSPHL contain a chlorine neutralizer that is present in powder or liquid form. The bottles. are sterile and ready for use when shipped.Do not rinse the contents from the container and keep the bottle\nclosed until it is to be filled\nShrink Wrap Seal:\nRemove the seal by pulling down on the red strip\nand pealing shrink wrap from both the cap and\nbottle.Discard all shrink wrap.Do not attempt to\nreseal lid with shrink wrap still attached. Two Fill Lines:\nMax.fill line\nFill the bottle until the water sample level is\n-Min.fill line\nBETWEEN THE TWO LINES.Place the bottle\non a level surface to check the sample level. Samples below the 100 mL (lower) line WILL\nNOT BE TESTED due to insufficient sample\nvolume.Samples above the 120 mL (upper) line\nWILL NOT BE TESTED due to overfilled\nbottle. Technical protocol and EPA requirements\ndictate that bottles must have sufficient air space\nto add testing reagents and to mix the sample\nproperly. If the bottle is overfilled past the 120 mL line,\nFor More Information, please contact:\npour off water until the sample volume is between\nMissouri Department of Health and Senior Services\nthe two lines before shipping to MSPHL.MSPHL\nState Public Health Laboratory\nWILL NOT adjust sample volume once the\nEnvironmental Bacteriology Unit\nsample is received at the lab. 101 North Chestnut St.,P.O.Box 570\nJefferson City,MO 65102\nNo Paper Label:\nPhone:\n573-751-3334\nThere is no longer a label to record sample",
+    "page_start": 5,
+    "page_end": 5,
+    "tables": [],
+    "figures": [],
+    "token_count": 346,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "b957d61c-2c0e-4a61-a2f3-28e40a95c5dc",
+      "previous_chunk_id": "b4d04b0e-88e5-4ad2-8e4d-6dfc7f309c58",
+      "next_chunk_id": "b957d61c-2c0e-4a61-a2f3-28e40a95c5dc"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "b957d61c-2c0e-4a61-a2f3-28e40a95c5dc",
+    "chunk_index": 16,
+    "section": "COMPLETELY BEFORE COLLECTING SAMPLES.",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "COMPLETELY BEFORE COLLECTING SAMPLES.",
+    "content": "Sample Containers:\nSample bottles from the MSPHL contain a chlorine neutralizer that is present in powder or liquid form. The bottles.\nare sterile and ready for use when shipped.Do not rinse the contents from the container and keep the bottle\nclosed until it is to be filled\nShrink Wrap Seal:\nRemove the seal by pulling down on the red strip\nand pealing shrink wrap from both the cap and\nbottle.Discard all shrink wrap.Do not attempt to\nreseal lid with shrink wrap still attached.\nTwo Fill Lines:\nMax.fill line\nFill the bottle until the water sample level is\n-Min.fill line\nBETWEEN THE TWO LINES.Place the bottle\non a level surface to check the sample level.\nSamples below the 100 mL (lower) line WILL\nNOT BE TESTED due to insufficient sample\nvolume.Samples above the 120 mL (upper) line\nWILL NOT BE TESTED due to overfilled\nbottle. Technical protocol and EPA requirements\ndictate that bottles must have sufficient air space\nto add testing reagents and to mix the sample\nproperly.\nIf the bottle is overfilled past the 120 mL line,\nFor More Information, please contact:\npour off water until the sample volume is between\nMissouri Department of Health and Senior Services\nthe two lines before shipping to MSPHL.MSPHL\nState Public Health Laboratory\nWILL NOT adjust sample volume once the\nEnvironmental Bacteriology Unit\nsample is received at the lab.\n101 North Chestnut St.,P.O.Box 570\nJefferson City,MO 65102\nNo Paper Label:\nPhone:\n573-751-3334\nThere is no longer a label to record sample",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > COMPLETELY BEFORE COLLECTING SAMPLES.\nPages: 5–5\n\nSample Containers:\nSample bottles from the MSPHL contain a chlorine neutralizer that is present in powder or liquid form. The bottles.\nare sterile and ready for use when shipped.Do not rinse the contents from the container and keep the bottle\nclosed until it is to be filled\nShrink Wrap Seal:\nRemove the seal by pulling down on the red strip\nand pealing shrink wrap from both the cap and\nbottle.Discard all shrink wrap.Do not attempt to\nreseal lid with shrink wrap still attached.\nTwo Fill Lines:\nMax.fill line\nFill the bottle until the water sample level is\n-Min.fill line\nBETWEEN THE TWO LINES.Place the bottle\non a level surface to check the sample level.\nSamples below the 100 mL (lower) line WILL\nNOT BE TESTED due to insufficient sample\nvolume.Samples above the 120 mL (upper) line\nWILL NOT BE TESTED due to overfilled\nbottle. Technical protocol and EPA requirements\ndictate that bottles must have sufficient air space\nto add testing reagents and to mix the sample\nproperly.\nIf the bottle is overfilled past the 120 mL line,\nFor More Information, please contact:\npour off water until the sample volume is between\nMissouri Department of Health and Senior Services\nthe two lines before shipping to MSPHL.MSPHL\nState Public Health Laboratory\nWILL NOT adjust sample volume once the\nEnvironmental Bacteriology Unit\nsample is received at the lab.\n101 North Chestnut St.,P.O.Box 570\nJefferson City,MO 65102\nNo Paper Label:\nPhone:\n573-751-3334\nThere is no longer a label to record sample",
+    "page_start": 5,
+    "page_end": 5,
+    "tables": [],
+    "figures": [],
+    "token_count": 346,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "COMPLETELY BEFORE COLLECTING SAMPLES."
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "b7a17766-b781-4d05-b38c-442b47fd46af",
+      "next_chunk_id": "92167797-c9f4-42a4-94cd-890cc437d45c"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "92167797-c9f4-42a4-94cd-890cc437d45c",
+    "chunk_index": 0,
+    "section": "FAX:",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "FAX: (part 1)",
+    "content": "573-522-4032\ninformation on the bottle.DO NOT WRITE ON\nEmail:\nlabweb1@health.mo.gov\nTHE BOTTLE.Please complete a sample\ninformation form for each sample submitted for\nWebsite:\nwww.health.mo.gov/Lab\ntesting.DATE AND TIME OF SAMPLE\nCOLLECTION and the BOTTLE NUMBER\n(from sticker on bottle) ARE REQUIRED.A form\nfor each bottle is included in this sample kit. Page1of4\nLAB 34 Public Water (R10-2015)\n[Diagram: Page 6 has 9 detected image region(s). Gemma analysis pending.]\nBacteriological Sample Collection Procedures\nAssemble all of the sampling supplies. Before you begin, wash your hands\nthoroughly before handling supplies. Go to the sampling location(s) specified\nin your Missouri Department of Natural Resources (MDNR) approved\nsampling site plan. The sample should be taken from a clean, smooth-nosed cold\nwater faucet if possible.Avoid drinking fountains, leaky faucets,hot/cold\nmixing faucets and frost-proof yard hydrants since it is not practical to\nsterilize these fixtures.If possible, remove any aerators, strainers or hoses\nthat are present because they may harbor bacteria. Follow the procedures below\nwhen collecting the sample. Instructions for completing the environmental\nsampling form are on the following page. 1.Open the cold water tap for about 3 minutes before collecting the sample. This should adequately flush the water line of any debris. 2.Flame-sterilize the tap and/or chemically disinfect the tap.Do not flame-\nFill sample bottle until water level is\nbetween the two lines on the bottle. sterilize if tap is plastic or if aerators are attached.Disinfect tap by\nthoroughly rinsing both the inside and outside of the tap with a mixture of 50%\nhouse-hold bleach (NaOCl) and 50% tap water. Take extreme care with strong\nbleach (oxidizing) solutions. 3.Flush the tap for an additional 3 minutes with cold water,and then reduce\nto a gentle flow to about the width of a pencil. Do not change the water flow\nonce you have started sampling as this could dislodge contaminants in the tap.",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > FAX:\nPages: 5–6\n\n573-522-4032\ninformation on the bottle.DO NOT WRITE ON\nEmail:\nlabweb1@health.mo.gov\nTHE BOTTLE.Please complete a sample\ninformation form for each sample submitted for\nWebsite:\nwww.health.mo.gov/Lab\ntesting.DATE AND TIME OF SAMPLE\nCOLLECTION and the BOTTLE NUMBER\n(from sticker on bottle) ARE REQUIRED.A form\nfor each bottle is included in this sample kit. Page1of4\nLAB 34 Public Water (R10-2015)\n[Diagram: Page 6 has 9 detected image region(s). Gemma analysis pending.]\nBacteriological Sample Collection Procedures\nAssemble all of the sampling supplies. Before you begin, wash your hands\nthoroughly before handling supplies. Go to the sampling location(s) specified\nin your Missouri Department of Natural Resources (MDNR) approved\nsampling site plan. The sample should be taken from a clean, smooth-nosed cold\nwater faucet if possible.Avoid drinking fountains, leaky faucets,hot/cold\nmixing faucets and frost-proof yard hydrants since it is not practical to\nsterilize these fixtures.If possible, remove any aerators, strainers or hoses\nthat are present because they may harbor bacteria. Follow the procedures below\nwhen collecting the sample. Instructions for completing the environmental\nsampling form are on the following page. 1.Open the cold water tap for about 3 minutes before collecting the sample. This should adequately flush the water line of any debris. 2.Flame-sterilize the tap and/or chemically disinfect the tap.Do not flame-\nFill sample bottle until water level is\nbetween the two lines on the bottle. sterilize if tap is plastic or if aerators are attached.Disinfect tap by\nthoroughly rinsing both the inside and outside of the tap with a mixture of 50%\nhouse-hold bleach (NaOCl) and 50% tap water. Take extreme care with strong\nbleach (oxidizing) solutions. 3.Flush the tap for an additional 3 minutes with cold water,and then reduce\nto a gentle flow to about the width of a pencil. Do not change the water flow\nonce you have started sampling as this could dislodge contaminants in the tap.",
+    "page_start": 5,
+    "page_end": 6,
+    "tables": [],
+    "figures": [
+      {
+        "description": "Page 6 has 9 detected image region(s). Gemma analysis pending.",
+        "caption": null,
+        "page": 6,
+        "mime_type": "image/png",
+        "confidence": 1.0
+      }
+    ],
+    "token_count": 467,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "025a25b7-3c6d-40fc-90ac-022d9c734da0",
+      "previous_chunk_id": "b957d61c-2c0e-4a61-a2f3-28e40a95c5dc",
+      "next_chunk_id": "8d115610-3cef-433a-8dbc-ba57389a8935"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "8d115610-3cef-433a-8dbc-ba57389a8935",
+    "chunk_index": 1,
+    "section": "FAX:",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "FAX: (part 2)",
+    "content": "Do not change the water flow\nonce you have started sampling as this could dislodge contaminants in the tap. 4.Remove the plastic shrink wrap seal by pulling down on the red strip and\npealing the shrink wrap from both the cap and bottle.Discard the shrink\nwrap.Do not attempt to reseal the lid with shrink wrap still attached. 5.Grasp cap along top edge and remove carefully.Do not touch the inside\nwith your fingers. Hold the bottle in one hand and the cap in the other.Do not\n3\nlay the cap down or put it in a pocket! Also, take care not to contaminate the\nsterile bottle or cap with your fingers or permit the faucet to touch the inside of\nthe bottle. Bottle is clean and sterile,",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > FAX:\nPages: 5–6\n\nDo not change the water flow\nonce you have started sampling as this could dislodge contaminants in the tap. 4.Remove the plastic shrink wrap seal by pulling down on the red strip and\npealing the shrink wrap from both the cap and bottle.Discard the shrink\nwrap.Do not attempt to reseal the lid with shrink wrap still attached. 5.Grasp cap along top edge and remove carefully.Do not touch the inside\nwith your fingers. Hold the bottle in one hand and the cap in the other.Do not\n3\nlay the cap down or put it in a pocket! Also, take care not to contaminate the\nsterile bottle or cap with your fingers or permit the faucet to touch the inside of\nthe bottle. Bottle is clean and sterile,",
+    "page_start": 5,
+    "page_end": 6,
+    "tables": [],
+    "figures": [
+      {
+        "description": "Page 6 has 9 detected image region(s). Gemma analysis pending.",
+        "caption": null,
+        "page": 6,
+        "mime_type": "image/png",
+        "confidence": 1.0
+      }
+    ],
+    "token_count": 159,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "025a25b7-3c6d-40fc-90ac-022d9c734da0",
+      "previous_chunk_id": "92167797-c9f4-42a4-94cd-890cc437d45c",
+      "next_chunk_id": "025a25b7-3c6d-40fc-90ac-022d9c734da0"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "025a25b7-3c6d-40fc-90ac-022d9c734da0",
+    "chunk_index": 17,
+    "section": "FAX:",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "FAX:",
+    "content": "573-522-4032\ninformation on the bottle.DO NOT WRITE ON\nEmail:\nlabweb1@health.mo.gov\nTHE BOTTLE.Please complete a sample\ninformation form for each sample submitted for\nWebsite:\nwww.health.mo.gov/Lab\ntesting.DATE AND TIME OF SAMPLE\nCOLLECTION and the BOTTLE NUMBER\n(from sticker on bottle) ARE REQUIRED.A form\nfor each bottle is included in this sample kit.\nPage1of4\nLAB 34 Public Water (R10-2015)\n[Diagram: Page 6 has 9 detected image region(s). Gemma analysis pending.]\nBacteriological Sample Collection Procedures\nAssemble all of the sampling supplies. Before you begin, wash your hands\nthoroughly before handling supplies. Go to the sampling location(s) specified\nin your Missouri Department of Natural Resources (MDNR) approved\nsampling site plan. The sample should be taken from a clean, smooth-nosed cold\nwater faucet if possible.Avoid drinking fountains, leaky faucets,hot/cold\nmixing faucets and frost-proof yard hydrants since it is not practical to\nsterilize these fixtures.If possible, remove any aerators, strainers or hoses\nthat are present because they may harbor bacteria. Follow the procedures below\nwhen collecting the sample. Instructions for completing the environmental\nsampling form are on the following page.\n1.Open the cold water tap for about 3 minutes before collecting the sample.\nThis should adequately flush the water line of any debris.\n2.Flame-sterilize the tap and/or chemically disinfect the tap.Do not flame-\nFill sample bottle until water level is\nbetween the two lines on the bottle.\nsterilize if tap is plastic or if aerators are attached.Disinfect tap by\nthoroughly rinsing both the inside and outside of the tap with a mixture of 50%\nhouse-hold bleach (NaOCl) and 50% tap water. Take extreme care with strong\nbleach (oxidizing) solutions.\n3.Flush the tap for an additional 3 minutes with cold water,and then reduce\nto a gentle flow to about the width of a pencil. Do not change the water flow\nonce you have started sampling as this could dislodge contaminants in the tap.\n4.Remove the plastic shrink wrap seal by pulling down on the red strip and\npealing the shrink wrap from both the cap and bottle.Discard the shrink\nwrap.Do not attempt to reseal the lid with shrink wrap still attached.\n5.Grasp cap along top edge and remove carefully.Do not touch the inside\nwith your fingers. Hold the bottle in one hand and the cap in the other.Do not\n3\nlay the cap down or put it in a pocket! Also, take care not to contaminate the\nsterile bottle or cap with your fingers or permit the faucet to touch the inside of\nthe bottle.\nBottle is clean and sterile,",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > FAX:\nPages: 5–6\n\n573-522-4032\ninformation on the bottle.DO NOT WRITE ON\nEmail:\nlabweb1@health.mo.gov\nTHE BOTTLE.Please complete a sample\ninformation form for each sample submitted for\nWebsite:\nwww.health.mo.gov/Lab\ntesting.DATE AND TIME OF SAMPLE\nCOLLECTION and the BOTTLE NUMBER\n(from sticker on bottle) ARE REQUIRED.A form\nfor each bottle is included in this sample kit.\nPage1of4\nLAB 34 Public Water (R10-2015)\n[Diagram: Page 6 has 9 detected image region(s). Gemma analysis pending.]\nBacteriological Sample Collection Procedures\nAssemble all of the sampling supplies. Before you begin, wash your hands\nthoroughly before handling supplies. Go to the sampling location(s) specified\nin your Missouri Department of Natural Resources (MDNR) approved\nsampling site plan. The sample should be taken from a clean, smooth-nosed cold\nwater faucet if possible.Avoid drinking fountains, leaky faucets,hot/cold\nmixing faucets and frost-proof yard hydrants since it is not practical to\nsterilize these fixtures.If possible, remove any aerators, strainers or hoses\nthat are present because they may harbor bacteria. Follow the procedures below\nwhen collecting the sample. Instructions for completing the environmental\nsampling form are on the following page.\n1.Open the cold water tap for about 3 minutes before collecting the sample.\nThis should adequately flush the water line of any debris.\n2.Flame-sterilize the tap and/or chemically disinfect the tap.Do not flame-\nFill sample bottle until water level is\nbetween the two lines on the bottle.\nsterilize if tap is plastic or if aerators are attached.Disinfect tap by\nthoroughly rinsing both the inside and outside of the tap with a mixture of 50%\nhouse-hold bleach (NaOCl) and 50% tap water. Take extreme care with strong\nbleach (oxidizing) solutions.\n3.Flush the tap for an additional 3 minutes with cold water,and then reduce\nto a gentle flow to about the width of a pencil. Do not change the water flow\nonce you have started sampling as this could dislodge contaminants in the tap.\n4.Remove the plastic shrink wrap seal by pulling down on the red strip and\npealing the shrink wrap from both the cap and bottle.Discard the shrink\nwrap.Do not attempt to reseal the lid with shrink wrap still attached.\n5.Grasp cap along top edge and remove carefully.Do not touch the inside\nwith your fingers. Hold the bottle in one hand and the cap in the other.Do not\n3\nlay the cap down or put it in a pocket! Also, take care not to contaminate the\nsterile bottle or cap with your fingers or permit the faucet to touch the inside of\nthe bottle.\nBottle is clean and sterile,",
+    "page_start": 5,
+    "page_end": 6,
+    "tables": [],
+    "figures": [
+      {
+        "description": "Page 6 has 9 detected image region(s). Gemma analysis pending.",
+        "caption": null,
+        "page": 6,
+        "mime_type": "image/png",
+        "confidence": 1.0
+      }
+    ],
+    "token_count": 603,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "FAX:"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "8d115610-3cef-433a-8dbc-ba57389a8935",
+      "next_chunk_id": "c72c318f-36f6-49c5-a326-18685d2909dd"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "c72c318f-36f6-49c5-a326-18685d2909dd",
+    "chunk_index": 0,
+    "section": "FROST-PROOF HYDRANT",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "FROST-PROOF HYDRANT (part 1)",
+    "content": "ready for sample\n6.Hold the bottle so that water entering the bottle will not come in contact with\nRemove and discard plastic seal)\nyour hands or the outside of the bottle. 7.Fill the bottle until the water sample level is BETWEEN THE TWO\nMin.Fill Line\nLINES on the bottle 100-120 ml).Preferably,the sample level should be at\nor just slightly above the 100 ml line.Sample levels below the 100 ml (lower)\nline WILL NOT BE TESTED due to insufficient sample volume.Sample\nlevels above the 120 ml (upper) line WILL NOT BE TESTED due to\noverfilled bottle. If the bottle is overfilled, you may pour off any excess water\nto get the sample level between the two lines.Place the cap on the bottle and\nscrew it down tightly. 8. Fill out the Missouri Department of Health and Senior Services (DHSS)\nState Public Health Lab (SPHL) Environmental Sample Collection Form\nusing waterproof ink.See attached document for instructions on properly\ncompleting the sample collection form and for shipping instructions. 9.For single samples, neatly fold the sample collection form into thirds (standard\nletter fold), roll around the bottle and place in the shipping box.For multiple\nsamples, fold the forms once or more as needed, and place in the shipping box\nalongside the samples. If needed, use bubble pack or folded paper to fill space. Do not use shredded paper. Seal the box with a single strip of shipping tape and\naffix the return address label to the top of the box. Page2of4\nLAB 34 Public Water R10-2015)",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > FROST-PROOF HYDRANT\nPages: 6–7\n\nready for sample\n6.Hold the bottle so that water entering the bottle will not come in contact with\nRemove and discard plastic seal)\nyour hands or the outside of the bottle. 7.Fill the bottle until the water sample level is BETWEEN THE TWO\nMin.Fill Line\nLINES on the bottle 100-120 ml).Preferably,the sample level should be at\nor just slightly above the 100 ml line.Sample levels below the 100 ml (lower)\nline WILL NOT BE TESTED due to insufficient sample volume.Sample\nlevels above the 120 ml (upper) line WILL NOT BE TESTED due to\noverfilled bottle. If the bottle is overfilled, you may pour off any excess water\nto get the sample level between the two lines.Place the cap on the bottle and\nscrew it down tightly. 8. Fill out the Missouri Department of Health and Senior Services (DHSS)\nState Public Health Lab (SPHL) Environmental Sample Collection Form\nusing waterproof ink.See attached document for instructions on properly\ncompleting the sample collection form and for shipping instructions. 9.For single samples, neatly fold the sample collection form into thirds (standard\nletter fold), roll around the bottle and place in the shipping box.For multiple\nsamples, fold the forms once or more as needed, and place in the shipping box\nalongside the samples. If needed, use bubble pack or folded paper to fill space. Do not use shredded paper. Seal the box with a single strip of shipping tape and\naffix the return address label to the top of the box. Page2of4\nLAB 34 Public Water R10-2015)",
+    "page_start": 6,
+    "page_end": 7,
+    "tables": [],
+    "figures": [],
+    "token_count": 337,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "3dacacbb-4954-4b5b-b8da-4c7c87384dbf",
+      "previous_chunk_id": "025a25b7-3c6d-40fc-90ac-022d9c734da0",
+      "next_chunk_id": "3dacacbb-4954-4b5b-b8da-4c7c87384dbf"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "3dacacbb-4954-4b5b-b8da-4c7c87384dbf",
+    "chunk_index": 18,
+    "section": "FROST-PROOF HYDRANT",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "FROST-PROOF HYDRANT",
+    "content": "ready for sample\n6.Hold the bottle so that water entering the bottle will not come in contact with\nRemove and discard plastic seal)\nyour hands or the outside of the bottle.\n7.Fill the bottle until the water sample level is BETWEEN THE TWO\nMin.Fill Line\nLINES on the bottle 100-120 ml).Preferably,the sample level should be at\nor just slightly above the 100 ml line.Sample levels below the 100 ml (lower)\nline WILL NOT BE TESTED due to insufficient sample volume.Sample\nlevels above the 120 ml (upper) line WILL NOT BE TESTED due to\noverfilled bottle. If the bottle is overfilled, you may pour off any excess water\nto get the sample level between the two lines.Place the cap on the bottle and\nscrew it down tightly.\n8. Fill out the Missouri Department of Health and Senior Services (DHSS)\nState Public Health Lab (SPHL) Environmental Sample Collection Form\nusing waterproof ink.See attached document for instructions on properly\ncompleting the sample collection form and for shipping instructions.\n9.For single samples, neatly fold the sample collection form into thirds (standard\nletter fold), roll around the bottle and place in the shipping box.For multiple\nsamples, fold the forms once or more as needed, and place in the shipping box\nalongside the samples. If needed, use bubble pack or folded paper to fill space.\nDo not use shredded paper. Seal the box with a single strip of shipping tape and\naffix the return address label to the top of the box.\nPage2of4\nLAB 34 Public Water R10-2015)",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > FROST-PROOF HYDRANT\nPages: 6–7\n\nready for sample\n6.Hold the bottle so that water entering the bottle will not come in contact with\nRemove and discard plastic seal)\nyour hands or the outside of the bottle.\n7.Fill the bottle until the water sample level is BETWEEN THE TWO\nMin.Fill Line\nLINES on the bottle 100-120 ml).Preferably,the sample level should be at\nor just slightly above the 100 ml line.Sample levels below the 100 ml (lower)\nline WILL NOT BE TESTED due to insufficient sample volume.Sample\nlevels above the 120 ml (upper) line WILL NOT BE TESTED due to\noverfilled bottle. If the bottle is overfilled, you may pour off any excess water\nto get the sample level between the two lines.Place the cap on the bottle and\nscrew it down tightly.\n8. Fill out the Missouri Department of Health and Senior Services (DHSS)\nState Public Health Lab (SPHL) Environmental Sample Collection Form\nusing waterproof ink.See attached document for instructions on properly\ncompleting the sample collection form and for shipping instructions.\n9.For single samples, neatly fold the sample collection form into thirds (standard\nletter fold), roll around the bottle and place in the shipping box.For multiple\nsamples, fold the forms once or more as needed, and place in the shipping box\nalongside the samples. If needed, use bubble pack or folded paper to fill space.\nDo not use shredded paper. Seal the box with a single strip of shipping tape and\naffix the return address label to the top of the box.\nPage2of4\nLAB 34 Public Water R10-2015)",
+    "page_start": 6,
+    "page_end": 7,
+    "tables": [],
+    "figures": [],
+    "token_count": 336,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "FROST-PROOF HYDRANT"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "c72c318f-36f6-49c5-a326-18685d2909dd",
+      "next_chunk_id": "c1e416f9-5a3b-41d6-8181-4cee325488de"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "c1e416f9-5a3b-41d6-8181-4cee325488de",
+    "chunk_index": 0,
+    "section": "INSTRUCTIONS FOR COMPLETING ENVIRONMENTAL SAMPLE COLLECTION FORM",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "INSTRUCTIONS FOR COMPLETING ENVIRONMENTAL SAMPLE COLLECTION FORM (part 1)",
+    "content": "Public Drinking Water Bacterial Analysis\nPRINT LEGIBLY using water proof ink. A standard ink pen is sufficient.Complete ALL sample information lines on the form. Some sections of the form may already be completed by the laboratory computer system when the forms are printed.To make\ncorrections, please draw a single line through the inaccurate information and print the corrected information behind it.The\nsections of the form and directions for completing each line are as follows:\nforms and sample bottles shipped in the sample kit order. REPORT TO:Public water system's name and shipping address on file with Missouri Department of Natural Resources (MDNR). Please review and correct if necessary. Result reports will be mailed to this address. BILL TO: Section defaulted to the MDNR.There are no charges for public water testing at the MSPHL. Requested Analysis/Tests:\nThis section will state PUBLIC DRINKING WATER BACTERIAL ANALYSIS. If it does not, you may have the wrong collection\nform.Please contact the MSPHL or MDNR for the proper form.Do not use forms from a local county health agency as those forms are\nfor private well water samples.Your MDNR Regional Office can provide blank forms for your use. Complete or correct the following information:\nAll lines are considered required information. Failure to complete a line may result in an invalid sample. Collected Date: Enter the date of sample collection in the format YYYY-MM-DD.Use 4 digits for year and 2 digits for month and date\nNovember 1,2015 would be written as 2015-11-01. Collected Time: Enter the time of sample collection using 24-hour military format hh:mm. PWS ID:If blank, enter your 7-digit Public Water System ID number as assigned by MDNR MO####. Facility ID:Defaulted to DS (Distribution System) for routine samples.If submitting a sample type other than Routine, enter the Facility\nID number from your system's MDNR approved sample site plan (for example DS#, WL#, WT#). Sample Type: Enter one of the following options:\nRoutine-Regular monthly monitoring samples. Repeat-A series of 3 or 4 repeat samples (4 if you only take 1 routine per month) must be taken for each routine sample that tests\npositive (Present) for coliform bacteria.All repeats must be taken on the same day, within 24 hours of being notified of the\ncoliform positive sample.Site locations are based on the approved site sampling plan.",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > INSTRUCTIONS FOR COMPLETING ENVIRONMENTAL SAMPLE COLLECTION FORM\nPages: 7–8\n\nPublic Drinking Water Bacterial Analysis\nPRINT LEGIBLY using water proof ink. A standard ink pen is sufficient.Complete ALL sample information lines on the form. Some sections of the form may already be completed by the laboratory computer system when the forms are printed.To make\ncorrections, please draw a single line through the inaccurate information and print the corrected information behind it.The\nsections of the form and directions for completing each line are as follows:\nforms and sample bottles shipped in the sample kit order. REPORT TO:Public water system's name and shipping address on file with Missouri Department of Natural Resources (MDNR). Please review and correct if necessary. Result reports will be mailed to this address. BILL TO: Section defaulted to the MDNR.There are no charges for public water testing at the MSPHL. Requested Analysis/Tests:\nThis section will state PUBLIC DRINKING WATER BACTERIAL ANALYSIS. If it does not, you may have the wrong collection\nform.Please contact the MSPHL or MDNR for the proper form.Do not use forms from a local county health agency as those forms are\nfor private well water samples.Your MDNR Regional Office can provide blank forms for your use. Complete or correct the following information:\nAll lines are considered required information. Failure to complete a line may result in an invalid sample. Collected Date: Enter the date of sample collection in the format YYYY-MM-DD.Use 4 digits for year and 2 digits for month and date\nNovember 1,2015 would be written as 2015-11-01. Collected Time: Enter the time of sample collection using 24-hour military format hh:mm. PWS ID:If blank, enter your 7-digit Public Water System ID number as assigned by MDNR MO####. Facility ID:Defaulted to DS (Distribution System) for routine samples.If submitting a sample type other than Routine, enter the Facility\nID number from your system's MDNR approved sample site plan (for example DS#, WL#, WT#). Sample Type: Enter one of the following options:\nRoutine-Regular monthly monitoring samples. Repeat-A series of 3 or 4 repeat samples (4 if you only take 1 routine per month) must be taken for each routine sample that tests\npositive (Present) for coliform bacteria.All repeats must be taken on the same day, within 24 hours of being notified of the\ncoliform positive sample.Site locations are based on the approved site sampling plan.",
+    "page_start": 7,
+    "page_end": 8,
+    "tables": [],
+    "figures": [],
+    "token_count": 500,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "206f507a-c917-4472-8450-93e2c2b83c3e",
+      "previous_chunk_id": "3dacacbb-4954-4b5b-b8da-4c7c87384dbf",
+      "next_chunk_id": "4635b999-c8c8-43d9-801d-91870d80ab8f"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "4635b999-c8c8-43d9-801d-91870d80ab8f",
+    "chunk_index": 1,
+    "section": "INSTRUCTIONS FOR COMPLETING ENVIRONMENTAL SAMPLE COLLECTION FORM",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "INSTRUCTIONS FOR COMPLETING ENVIRONMENTAL SAMPLE COLLECTION FORM (part 2)",
+    "content": "Typically these samples will consist of one\nfrom the site of the original unsafe sample location, one within 5 service connections upstream, one within 5 service connections\ndownstream, and one from a location specified or approved by MDNR.If your system is a ground water system serving less than\n1,000 people without 4 log virus inactivation, one repeat sample (the fourth repeat) may be collected from the source/well prior to\ntreatment.See Repeat Location below. Replacement-All samples which are not tested because they were invalid, incomplete information, outdated, broken in transit,\nfrozen, etc., must be replaced with a single sample from the same location within 24 hours of being notified. Source/Well-If your system is a ground water system without chlorine contact time (4 log virus inactivation or removal), one\nsample must be collected from each well/source, prior to any treatment, active at the time of the positive sample(s). Special-Any sample that does not count for compliance.These may include samples to check disinfection practices on repairs or\nnew construction or for seasonal public water systems prior to serving water to the public. Sample Collection Point ID: Enter the sampling point ID number from your system's MDNR approved sample site plan.This number is\nrequired.DO NOT LEAVE BLANK.If you have questions about your Sample Collection Point ID, please contact the MDNR. Location: Enter the address or name of the collection location associated with the Sample Collection Point ID above. (Important Note:\nThe Location is tied to the Sample Collection Point ID from the approved site sampling plan and will be the location printed on\nthe final analysis report. If the location entered on the collection form does not match the final report, contact MDNR.)\nCollector: Enter your last name, first name. Collector Phone: Enter your 10-digit day time phone number. Sample Category: This will always be Bacterial and is already filled out for you. other.If other, please describe the location. Bottle Number: Enter the number from the label on the bottle. This is used to match collection forms to samples. Free Chlorine: Enter the free chlorine test level in mg/L (if your system is chlorinated)\nTotal Chlorine: Enter the total chlorine test level in mg/L (if your system is chlorinated). Collector Signature: By signing you attest that the information provided is accurate to the best of your knowledge.",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > INSTRUCTIONS FOR COMPLETING ENVIRONMENTAL SAMPLE COLLECTION FORM\nPages: 7–8\n\nTypically these samples will consist of one\nfrom the site of the original unsafe sample location, one within 5 service connections upstream, one within 5 service connections\ndownstream, and one from a location specified or approved by MDNR.If your system is a ground water system serving less than\n1,000 people without 4 log virus inactivation, one repeat sample (the fourth repeat) may be collected from the source/well prior to\ntreatment.See Repeat Location below. Replacement-All samples which are not tested because they were invalid, incomplete information, outdated, broken in transit,\nfrozen, etc., must be replaced with a single sample from the same location within 24 hours of being notified. Source/Well-If your system is a ground water system without chlorine contact time (4 log virus inactivation or removal), one\nsample must be collected from each well/source, prior to any treatment, active at the time of the positive sample(s). Special-Any sample that does not count for compliance.These may include samples to check disinfection practices on repairs or\nnew construction or for seasonal public water systems prior to serving water to the public. Sample Collection Point ID: Enter the sampling point ID number from your system's MDNR approved sample site plan.This number is\nrequired.DO NOT LEAVE BLANK.If you have questions about your Sample Collection Point ID, please contact the MDNR. Location: Enter the address or name of the collection location associated with the Sample Collection Point ID above. (Important Note:\nThe Location is tied to the Sample Collection Point ID from the approved site sampling plan and will be the location printed on\nthe final analysis report. If the location entered on the collection form does not match the final report, contact MDNR.)\nCollector: Enter your last name, first name. Collector Phone: Enter your 10-digit day time phone number. Sample Category: This will always be Bacterial and is already filled out for you. other.If other, please describe the location. Bottle Number: Enter the number from the label on the bottle. This is used to match collection forms to samples. Free Chlorine: Enter the free chlorine test level in mg/L (if your system is chlorinated)\nTotal Chlorine: Enter the total chlorine test level in mg/L (if your system is chlorinated). Collector Signature: By signing you attest that the information provided is accurate to the best of your knowledge.",
+    "page_start": 7,
+    "page_end": 8,
+    "tables": [],
+    "figures": [],
+    "token_count": 492,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "206f507a-c917-4472-8450-93e2c2b83c3e",
+      "previous_chunk_id": "c1e416f9-5a3b-41d6-8181-4cee325488de",
+      "next_chunk_id": "5446db5e-c22f-494d-9ee6-6bf5678fb714"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "5446db5e-c22f-494d-9ee6-6bf5678fb714",
+    "chunk_index": 2,
+    "section": "INSTRUCTIONS FOR COMPLETING ENVIRONMENTAL SAMPLE COLLECTION FORM",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "INSTRUCTIONS FOR COMPLETING ENVIRONMENTAL SAMPLE COLLECTION FORM (part 3)",
+    "content": "Collector Signature: By signing you attest that the information provided is accurate to the best of your knowledge. County: Enter the county name for the collection point if it is not already filled out for you. All other sections of the Environmental Sample Collection Form are for MsPHL use only. If you have any questions, please contact the\nMSPHL Environmental Bacteriology Unit at (573)751-3334 or your local MDNR Regional Office (see next page for phone numbers). Page 3 of4\nLAB34 Public Water (R10-2015)\nShipping Instructions\nPer U.S.Environmental Protection Agency requirements, public water samples must be received by the laboratory and tested\nwithin 30 hours of the date and time of collection.The MSPHL and MDNR recommend you use the free Department of Health\nand Senior Services (DHsS) contract courier for overnight delivery to the MSPHL. This courier picks up at most local public health\nagency offices and hospitals (Note: Not all hospitals will accept water samples for courier pick up).For sample drop off locations and\ntimes, please go to http://www.health.mo.gov/lab/courierservices.php and click on the interactive map or the listing of drop off locations\nby county;or you may call the MSPHL courier liaison at (573 751-4830,or the MDNR Public Drinking Water Branch (PDwB) at (573)\n526-1124. Please note the courier is allowed to pick up samples within one hour of the scheduled time (before or after). The earliest pick up\ntime is at 10:30 a.m.To ensure your samples meet the transit time requirement of 30 hours, it is important that you collect your samples in\nthe morning and have them dropped off at the courier pickup point one hour prior to the scheduled time. Use of the U.S.Postal Service or other commercial carriers such as Fed Ex or UPS will require additional charges and may not meet the\n30 hour transit time requirement.",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > INSTRUCTIONS FOR COMPLETING ENVIRONMENTAL SAMPLE COLLECTION FORM\nPages: 7–8\n\nCollector Signature: By signing you attest that the information provided is accurate to the best of your knowledge. County: Enter the county name for the collection point if it is not already filled out for you. All other sections of the Environmental Sample Collection Form are for MsPHL use only. If you have any questions, please contact the\nMSPHL Environmental Bacteriology Unit at (573)751-3334 or your local MDNR Regional Office (see next page for phone numbers). Page 3 of4\nLAB34 Public Water (R10-2015)\nShipping Instructions\nPer U.S.Environmental Protection Agency requirements, public water samples must be received by the laboratory and tested\nwithin 30 hours of the date and time of collection.The MSPHL and MDNR recommend you use the free Department of Health\nand Senior Services (DHsS) contract courier for overnight delivery to the MSPHL. This courier picks up at most local public health\nagency offices and hospitals (Note: Not all hospitals will accept water samples for courier pick up).For sample drop off locations and\ntimes, please go to http://www.health.mo.gov/lab/courierservices.php and click on the interactive map or the listing of drop off locations\nby county;or you may call the MSPHL courier liaison at (573 751-4830,or the MDNR Public Drinking Water Branch (PDwB) at (573)\n526-1124. Please note the courier is allowed to pick up samples within one hour of the scheduled time (before or after). The earliest pick up\ntime is at 10:30 a.m.To ensure your samples meet the transit time requirement of 30 hours, it is important that you collect your samples in\nthe morning and have them dropped off at the courier pickup point one hour prior to the scheduled time. Use of the U.S.Postal Service or other commercial carriers such as Fed Ex or UPS will require additional charges and may not meet the\n30 hour transit time requirement.",
+    "page_start": 7,
+    "page_end": 8,
+    "tables": [],
+    "figures": [],
+    "token_count": 407,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "206f507a-c917-4472-8450-93e2c2b83c3e",
+      "previous_chunk_id": "4635b999-c8c8-43d9-801d-91870d80ab8f",
+      "next_chunk_id": "8236b547-8303-4274-ad36-64de4e5331d6"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "8236b547-8303-4274-ad36-64de4e5331d6",
+    "chunk_index": 3,
+    "section": "INSTRUCTIONS FOR COMPLETING ENVIRONMENTAL SAMPLE COLLECTION FORM",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "INSTRUCTIONS FOR COMPLETING ENVIRONMENTAL SAMPLE COLLECTION FORM (part 4)",
+    "content": "Use of the U.S.Postal Service or other commercial carriers such as Fed Ex or UPS will require additional charges and may not meet the\n30 hour transit time requirement. Samples should not be en route to the laboratory over a weekend or state holiday (New Year's Day Martin Luther King Day,\nLincoln's Birthday,Washington's Birthday, Truman's Birthday,Memorial Day, Independence Day, Labor Day, Columbus Day, Veteran's\nDay, Thanksgiving Day,and Christmas.)\nPublic water supplies may use the new MsPHL Test Results Web Portal to retrieve preliminary test results on-line.For information on\nhow to register as a user for the web portal and to receive email notifications, please contact the MSPHL LIMS Administrator at\nshondra.johnson@health.mo.gov or call 573-751-3334. These preliminary test results are for informational purposes only. Official test\nresults are available on-line within 2 or 3 business days at the MDNR Drinking Water Watch website http:/dnr.mo.gov/Dww/\nIn addition, the official bacteriological sample reports will be mailed by MDNR within 4 or 5 business days. Additional sample bottles can be ordered on-line at http://www.health.mo.gov/lab/specimentestforms.php or by calling the MsPHL\nCentral Services Unit at (573)751-4830. Sometimes in spite of taking all of the precautions you may get a call from MDNR or results by mail notifying you that coliform or\nE. coli bacteria are present in your water.You will be given specific instructions that may include collection of repeat samples to confirm\nthat the first routine sample was not a sampling error.Please call the MDNR Regional Office staff and they will discuss the procedure\nwith you. See contact information below.",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > INSTRUCTIONS FOR COMPLETING ENVIRONMENTAL SAMPLE COLLECTION FORM\nPages: 7–8\n\nUse of the U.S.Postal Service or other commercial carriers such as Fed Ex or UPS will require additional charges and may not meet the\n30 hour transit time requirement. Samples should not be en route to the laboratory over a weekend or state holiday (New Year's Day Martin Luther King Day,\nLincoln's Birthday,Washington's Birthday, Truman's Birthday,Memorial Day, Independence Day, Labor Day, Columbus Day, Veteran's\nDay, Thanksgiving Day,and Christmas.)\nPublic water supplies may use the new MsPHL Test Results Web Portal to retrieve preliminary test results on-line.For information on\nhow to register as a user for the web portal and to receive email notifications, please contact the MSPHL LIMS Administrator at\nshondra.johnson@health.mo.gov or call 573-751-3334. These preliminary test results are for informational purposes only. Official test\nresults are available on-line within 2 or 3 business days at the MDNR Drinking Water Watch website http:/dnr.mo.gov/Dww/\nIn addition, the official bacteriological sample reports will be mailed by MDNR within 4 or 5 business days. Additional sample bottles can be ordered on-line at http://www.health.mo.gov/lab/specimentestforms.php or by calling the MsPHL\nCentral Services Unit at (573)751-4830. Sometimes in spite of taking all of the precautions you may get a call from MDNR or results by mail notifying you that coliform or\nE. coli bacteria are present in your water.You will be given specific instructions that may include collection of repeat samples to confirm\nthat the first routine sample was not a sampling error.Please call the MDNR Regional Office staff and they will discuss the procedure\nwith you. See contact information below.",
+    "page_start": 7,
+    "page_end": 8,
+    "tables": [],
+    "figures": [],
+    "token_count": 360,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "206f507a-c917-4472-8450-93e2c2b83c3e",
+      "previous_chunk_id": "5446db5e-c22f-494d-9ee6-6bf5678fb714",
+      "next_chunk_id": "928594d9-0caf-4a52-acbd-f152396cf348"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "928594d9-0caf-4a52-acbd-f152396cf348",
+    "chunk_index": 4,
+    "section": "INSTRUCTIONS FOR COMPLETING ENVIRONMENTAL SAMPLE COLLECTION FORM",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "INSTRUCTIONS FOR COMPLETING ENVIRONMENTAL SAMPLE COLLECTION FORM (part 5)",
+    "content": "See contact information below. For more information about public water systems, contact the MDNR Public Drinking Water Branch at (573)751-5331 or your MDNR\nRegional Office (counties within each region are listed at http://dnr.mo.gov/regions/index.html) or visit www.dnr.mo.gov/env/wpp/dw-\nindex.html:\nMissouri Department of Natural Resources\nDivision of Environmental Quality\nWater Protection Program\nPublic Drinking Water Branch\nP.O.Box 176\nJefferson CityMissouri 65102\n573-751-5331\nKansas City Regional Office\nNortheast Regional Office\nSoutheast Regional Office\nDepartment of Natural Resources\nDepartment of Natural Resources\nDepartment of Natural Resources\n500 NE Colbern Road\n1709 Prospect Drive\n2155 North Westwood Blvd. Lee's Summit,MO64086-4710\nMacon,MO63552-1930\nPoplar Bluff,MO 63901-1420\n816)251-0700\n660385-6000\n(573840-9750\nSouthwest Regional Office\nSt. Louis Regional Office\nDepartment of Natural Resources\nDepartment of Natural Resources\n2040 West Woodland\n7545 South Lindbergh,Suite 210\nSpringfield,MO65807-5912\nSt. Louis,MO 63125\n417891-4300\n314)416-2960\nPage4of4\nLAB 34 Public Water (R10-2015)",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > INSTRUCTIONS FOR COMPLETING ENVIRONMENTAL SAMPLE COLLECTION FORM\nPages: 7–8\n\nSee contact information below. For more information about public water systems, contact the MDNR Public Drinking Water Branch at (573)751-5331 or your MDNR\nRegional Office (counties within each region are listed at http://dnr.mo.gov/regions/index.html) or visit www.dnr.mo.gov/env/wpp/dw-\nindex.html:\nMissouri Department of Natural Resources\nDivision of Environmental Quality\nWater Protection Program\nPublic Drinking Water Branch\nP.O.Box 176\nJefferson CityMissouri 65102\n573-751-5331\nKansas City Regional Office\nNortheast Regional Office\nSoutheast Regional Office\nDepartment of Natural Resources\nDepartment of Natural Resources\nDepartment of Natural Resources\n500 NE Colbern Road\n1709 Prospect Drive\n2155 North Westwood Blvd. Lee's Summit,MO64086-4710\nMacon,MO63552-1930\nPoplar Bluff,MO 63901-1420\n816)251-0700\n660385-6000\n(573840-9750\nSouthwest Regional Office\nSt. Louis Regional Office\nDepartment of Natural Resources\nDepartment of Natural Resources\n2040 West Woodland\n7545 South Lindbergh,Suite 210\nSpringfield,MO65807-5912\nSt. Louis,MO 63125\n417891-4300\n314)416-2960\nPage4of4\nLAB 34 Public Water (R10-2015)",
+    "page_start": 7,
+    "page_end": 8,
+    "tables": [],
+    "figures": [],
+    "token_count": 304,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "206f507a-c917-4472-8450-93e2c2b83c3e",
+      "previous_chunk_id": "8236b547-8303-4274-ad36-64de4e5331d6",
+      "next_chunk_id": "206f507a-c917-4472-8450-93e2c2b83c3e"
+    }
+  },
+  {
+    "document_id": "c8b4014d-6369-4105-933c-21f67d79f000",
+    "document_name": "PublicWaterMassMailing.pdf",
+    "document_type": "scanned",
+    "domain": "general",
+    "chunk_id": "206f507a-c917-4472-8450-93e2c2b83c3e",
+    "chunk_index": 19,
+    "section": "INSTRUCTIONS FOR COMPLETING ENVIRONMENTAL SAMPLE COLLECTION FORM",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "INSTRUCTIONS FOR COMPLETING ENVIRONMENTAL SAMPLE COLLECTION FORM",
+    "content": "Public Drinking Water Bacterial Analysis\nPRINT LEGIBLY using water proof ink. A standard ink pen is sufficient.Complete ALL sample information lines on the form.\nSome sections of the form may already be completed by the laboratory computer system when the forms are printed.To make\ncorrections, please draw a single line through the inaccurate information and print the corrected information behind it.The\nsections of the form and directions for completing each line are as follows:\nforms and sample bottles shipped in the sample kit order.\nREPORT TO:Public water system's name and shipping address on file with Missouri Department of Natural Resources (MDNR).\nPlease review and correct if necessary. Result reports will be mailed to this address.\nBILL TO: Section defaulted to the MDNR.There are no charges for public water testing at the MSPHL.\nRequested Analysis/Tests:\nThis section will state PUBLIC DRINKING WATER BACTERIAL ANALYSIS. If it does not, you may have the wrong collection\nform.Please contact the MSPHL or MDNR for the proper form.Do not use forms from a local county health agency as those forms are\nfor private well water samples.Your MDNR Regional Office can provide blank forms for your use.\nComplete or correct the following information:\nAll lines are considered required information. Failure to complete a line may result in an invalid sample.\nCollected Date: Enter the date of sample collection in the format YYYY-MM-DD.Use 4 digits for year and 2 digits for month and date\nNovember 1,2015 would be written as 2015-11-01.\nCollected Time: Enter the time of sample collection using 24-hour military format hh:mm.\nPWS ID:If blank, enter your 7-digit Public Water System ID number as assigned by MDNR MO####.\nFacility ID:Defaulted to DS (Distribution System) for routine samples.If submitting a sample type other than Routine, enter the Facility\nID number from your system's MDNR approved sample site plan (for example DS#, WL#, WT#).\nSample Type: Enter one of the following options:\nRoutine-Regular monthly monitoring samples.\nRepeat-A series of 3 or 4 repeat samples (4 if you only take 1 routine per month) must be taken for each routine sample that tests\npositive (Present) for coliform bacteria.All repeats must be taken on the same day, within 24 hours of being notified of the\ncoliform positive sample.Site locations are based on the approved site sampling plan. Typically these samples will consist of one\nfrom the site of the original unsafe sample location, one within 5 service connections upstream, one within 5 service connections\ndownstream, and one from a location specified or approved by MDNR.If your system is a ground water system serving less than\n1,000 people without 4 log virus inactivation, one repeat sample (the fourth repeat) may be collected from the source/well prior to\ntreatment.See Repeat Location below.\nReplacement-All samples which are not tested because they were invalid, incomplete information, outdated, broken in transit,\nfrozen, etc., must be replaced with a single sample from the same location within 24 hours of being notified.\nSource/Well-If your system is a ground water system without chlorine contact time (4 log virus inactivation or removal), one\nsample must be collected from each well/source, prior to any treatment, active at the time of the positive sample(s).\nSpecial-Any sample that does not count for compliance.These may include samples to check disinfection practices on repairs or\nnew construction or for seasonal public water systems prior to serving water to the public.\nSample Collection Point ID: Enter the sampling point ID number from your system's MDNR approved sample site plan.This number is\nrequired.DO NOT LEAVE BLANK.If you have questions about your Sample Collection Point ID, please contact the MDNR.\nLocation: Enter the address or name of the collection location associated with the Sample Collection Point ID above. (Important Note:\nThe Location is tied to the Sample Collection Point ID from the approved site sampling plan and will be the location printed on\nthe final analysis report. If the location entered on the collection form does not match the final report, contact MDNR.)\nCollector: Enter your last name, first name.\nCollector Phone: Enter your 10-digit day time phone number.\nSample Category: This will always be Bacterial and is already filled out for you.\nother.If other, please describe the location.\nBottle Number: Enter the number from the label on the bottle. This is used to match collection forms to samples.\nFree Chlorine: Enter the free chlorine test level in mg/L (if your system is chlorinated)\nTotal Chlorine: Enter the total chlorine test level in mg/L (if your system is chlorinated).\nCollector Signature: By signing you attest that the information provided is accurate to the best of your knowledge.\nCounty: Enter the county name for the collection point if it is not already filled out for you.\nAll other sections of the Environmental Sample Collection Form are for MsPHL use only. If you have any questions, please contact the\nMSPHL Environmental Bacteriology Unit at (573)751-3334 or your local MDNR Regional Office (see next page for phone numbers).\nPage 3 of4\nLAB34 Public Water (R10-2015)\nShipping Instructions\nPer U.S.Environmental Protection Agency requirements, public water samples must be received by the laboratory and tested\nwithin 30 hours of the date and time of collection.The MSPHL and MDNR recommend you use the free Department of Health\nand Senior Services (DHsS) contract courier for overnight delivery to the MSPHL. This courier picks up at most local public health\nagency offices and hospitals (Note: Not all hospitals will accept water samples for courier pick up).For sample drop off locations and\ntimes, please go to http://www.health.mo.gov/lab/courierservices.php and click on the interactive map or the listing of drop off locations\nby county;or you may call the MSPHL courier liaison at (573 751-4830,or the MDNR Public Drinking Water Branch (PDwB) at (573)\n526-1124.\nPlease note the courier is allowed to pick up samples within one hour of the scheduled time (before or after). The earliest pick up\ntime is at 10:30 a.m.To ensure your samples meet the transit time requirement of 30 hours, it is important that you collect your samples in\nthe morning and have them dropped off at the courier pickup point one hour prior to the scheduled time.\nUse of the U.S.Postal Service or other commercial carriers such as Fed Ex or UPS will require additional charges and may not meet the\n30 hour transit time requirement.\nSamples should not be en route to the laboratory over a weekend or state holiday (New Year's Day Martin Luther King Day,\nLincoln's Birthday,Washington's Birthday, Truman's Birthday,Memorial Day, Independence Day, Labor Day, Columbus Day, Veteran's\nDay, Thanksgiving Day,and Christmas.)\nPublic water supplies may use the new MsPHL Test Results Web Portal to retrieve preliminary test results on-line.For information on\nhow to register as a user for the web portal and to receive email notifications, please contact the MSPHL LIMS Administrator at\nshondra.johnson@health.mo.gov or call 573-751-3334. These preliminary test results are for informational purposes only. Official test\nresults are available on-line within 2 or 3 business days at the MDNR Drinking Water Watch website http:/dnr.mo.gov/Dww/\nIn addition, the official bacteriological sample reports will be mailed by MDNR within 4 or 5 business days.\nAdditional sample bottles can be ordered on-line at http://www.health.mo.gov/lab/specimentestforms.php or by calling the MsPHL\nCentral Services Unit at (573)751-4830.\nSometimes in spite of taking all of the precautions you may get a call from MDNR or results by mail notifying you that coliform or\nE. coli bacteria are present in your water.You will be given specific instructions that may include collection of repeat samples to confirm\nthat the first routine sample was not a sampling error.Please call the MDNR Regional Office staff and they will discuss the procedure\nwith you. See contact information below.\nFor more information about public water systems, contact the MDNR Public Drinking Water Branch at (573)751-5331 or your MDNR\nRegional Office (counties within each region are listed at http://dnr.mo.gov/regions/index.html) or visit www.dnr.mo.gov/env/wpp/dw-\nindex.html:\nMissouri Department of Natural Resources\nDivision of Environmental Quality\nWater Protection Program\nPublic Drinking Water Branch\nP.O.Box 176\nJefferson CityMissouri 65102\n573-751-5331\nKansas City Regional Office\nNortheast Regional Office\nSoutheast Regional Office\nDepartment of Natural Resources\nDepartment of Natural Resources\nDepartment of Natural Resources\n500 NE Colbern Road\n1709 Prospect Drive\n2155 North Westwood Blvd.\nLee's Summit,MO64086-4710\nMacon,MO63552-1930\nPoplar Bluff,MO 63901-1420\n816)251-0700\n660385-6000\n(573840-9750\nSouthwest Regional Office\nSt. Louis Regional Office\nDepartment of Natural Resources\nDepartment of Natural Resources\n2040 West Woodland\n7545 South Lindbergh,Suite 210\nSpringfield,MO65807-5912\nSt. Louis,MO 63125\n417891-4300\n314)416-2960\nPage4of4\nLAB 34 Public Water (R10-2015)",
+    "embedding_text": "Document: PublicWaterMassMailing.pdf\nSection Path: Cover > INSTRUCTIONS FOR COMPLETING ENVIRONMENTAL SAMPLE COLLECTION FORM\nPages: 7–8\n\nPublic Drinking Water Bacterial Analysis\nPRINT LEGIBLY using water proof ink. A standard ink pen is sufficient.Complete ALL sample information lines on the form.\nSome sections of the form may already be completed by the laboratory computer system when the forms are printed.To make\ncorrections, please draw a single line through the inaccurate information and print the corrected information behind it.The\nsections of the form and directions for completing each line are as follows:\nforms and sample bottles shipped in the sample kit order.\nREPORT TO:Public water system's name and shipping address on file with Missouri Department of Natural Resources (MDNR).\nPlease review and correct if necessary. Result reports will be mailed to this address.\nBILL TO: Section defaulted to the MDNR.There are no charges for public water testing at the MSPHL.\nRequested Analysis/Tests:\nThis section will state PUBLIC DRINKING WATER BACTERIAL ANALYSIS. If it does not, you may have the wrong collection\nform.Please contact the MSPHL or MDNR for the proper form.Do not use forms from a local county health agency as those forms are\nfor private well water samples.Your MDNR Regional Office can provide blank forms for your use.\nComplete or correct the following information:\nAll lines are considered required information. Failure to complete a line may result in an invalid sample.\nCollected Date: Enter the date of sample collection in the format YYYY-MM-DD.Use 4 digits for year and 2 digits for month and date\nNovember 1,2015 would be written as 2015-11-01.\nCollected Time: Enter the time of sample collection using 24-hour military format hh:mm.\nPWS ID:If blank, enter your 7-digit Public Water System ID number as assigned by MDNR MO####.\nFacility ID:Defaulted to DS (Distribution System) for routine samples.If submitting a sample type other than Routine, enter the Facility\nID number from your system's MDNR approved sample site plan (for example DS#, WL#, WT#).\nSample Type: Enter one of the following options:\nRoutine-Regular monthly monitoring samples.\nRepeat-A series of 3 or 4 repeat samples (4 if you only take 1 routine per month) must be taken for each routine sample that tests\npositive (Present) for coliform bacteria.All repeats must be taken on the same day, within 24 hours of being notified of the\ncoliform positive sample.Site locations are based on the approved site sampling plan. Typically these samples will consist of one\nfrom the site of the original unsafe sample location, one within 5 service connections upstream, one within 5 service connections\ndownstream, and one from a location specified or approved by MDNR.If your system is a ground water system serving less than\n1,000 people without 4 log virus inactivation, one repeat sample (the fourth repeat) may be collected from the source/well prior to\ntreatment.See Repeat Location below.\nReplacement-All samples which are not tested because they were invalid, incomplete information, outdated, broken in transit,\nfrozen, etc., must be replaced with a single sample from the same location within 24 hours of being notified.\nSource/Well-If your system is a ground water system without chlorine contact time (4 log virus inactivation or removal), one\nsample must be collected from each well/source, prior to any treatment, active at the time of the positive sample(s).\nSpecial-Any sample that does not count for compliance.These may include samples to check disinfection practices on repairs or\nnew construction or for seasonal public water systems prior to serving water to the public.\nSample Collection Point ID: Enter the sampling point ID number from your system's MDNR approved sample site plan.This number is\nrequired.DO NOT LEAVE BLANK.If you have questions about your Sample Collection Point ID, please contact the MDNR.\nLocation: Enter the address or name of the collection location associated with the Sample Collection Point ID above. (Important Note:\nThe Location is tied to the Sample Collection Point ID from the approved site sampling plan and will be the location printed on\nthe final analysis report. If the location entered on the collection form does not match the final report, contact MDNR.)\nCollector: Enter your last name, first name.\nCollector Phone: Enter your 10-digit day time phone number.\nSample Category: This will always be Bacterial and is already filled out for you.\nother.If other, please describe the location.\nBottle Number: Enter the number from the label on the bottle. This is used to match collection forms to samples.\nFree Chlorine: Enter the free chlorine test level in mg/L (if your system is chlorinated)\nTotal Chlorine: Enter the total chlorine test level in mg/L (if your system is chlorinated).\nCollector Signature: By signing you attest that the information provided is accurate to the best of your knowledge.\nCounty: Enter the county name for the collection point if it is not already filled out for you.\nAll other sections of the Environmental Sample Collection Form are for MsPHL use only. If you have any questions, please contact the\nMSPHL Environmental Bacteriology Unit at (573)751-3334 or your local MDNR Regional Office (see next page for phone numbers).\nPage 3 of4\nLAB34 Public Water (R10-2015)\nShipping Instructions\nPer U.S.Environmental Protection Agency requirements, public water samples must be received by the laboratory and tested\nwithin 30 hours of the date and time of collection.The MSPHL and MDNR recommend you use the free Department of Health\nand Senior Services (DHsS) contract courier for overnight delivery to the MSPHL. This courier picks up at most local public health\nagency offices and hospitals (Note: Not all hospitals will accept water samples for courier pick up).For sample drop off locations and\ntimes, please go to http://www.health.mo.gov/lab/courierservices.php and click on the interactive map or the listing of drop off locations\nby county;or you may call the MSPHL courier liaison at (573 751-4830,or the MDNR Public Drinking Water Branch (PDwB) at (573)\n526-1124.\nPlease note the courier is allowed to pick up samples within one hour of the scheduled time (before or after). The earliest pick up\ntime is at 10:30 a.m.To ensure your samples meet the transit time requirement of 30 hours, it is important that you collect your samples in\nthe morning and have them dropped off at the courier pickup point one hour prior to the scheduled time.\nUse of the U.S.Postal Service or other commercial carriers such as Fed Ex or UPS will require additional charges and may not meet the\n30 hour transit time requirement.\nSamples should not be en route to the laboratory over a weekend or state holiday (New Year's Day Martin Luther King Day,\nLincoln's Birthday,Washington's Birthday, Truman's Birthday,Memorial Day, Independence Day, Labor Day, Columbus Day, Veteran's\nDay, Thanksgiving Day,and Christmas.)\nPublic water supplies may use the new MsPHL Test Results Web Portal to retrieve preliminary test results on-line.For information on\nhow to register as a user for the web portal and to receive email notifications, please contact the MSPHL LIMS Administrator at\nshondra.johnson@health.mo.gov or call 573-751-3334. These preliminary test results are for informational purposes only. Official test\nresults are available on-line within 2 or 3 business days at the MDNR Drinking Water Watch website http:/dnr.mo.gov/Dww/\nIn addition, the official bacteriological sample reports will be mailed by MDNR within 4 or 5 business days.\nAdditional sample bottles can be ordered on-line at http://www.health.mo.gov/lab/specimentestforms.php or by calling the MsPHL\nCentral Services Unit at (573)751-4830.\nSometimes in spite of taking all of the precautions you may get a call from MDNR or results by mail notifying you that coliform or\nE. coli bacteria are present in your water.You will be given specific instructions that may include collection of repeat samples to confirm\nthat the first routine sample was not a sampling error.Please call the MDNR Regional Office staff and they will discuss the procedure\nwith you. See contact information below.\nFor more information about public water systems, contact the MDNR Public Drinking Water Branch at (573)751-5331 or your MDNR\nRegional Office (counties within each region are listed at http://dnr.mo.gov/regions/index.html) or visit www.dnr.mo.gov/env/wpp/dw-\nindex.html:\nMissouri Department of Natural Resources\nDivision of Environmental Quality\nWater Protection Program\nPublic Drinking Water Branch\nP.O.Box 176\nJefferson CityMissouri 65102\n573-751-5331\nKansas City Regional Office\nNortheast Regional Office\nSoutheast Regional Office\nDepartment of Natural Resources\nDepartment of Natural Resources\nDepartment of Natural Resources\n500 NE Colbern Road\n1709 Prospect Drive\n2155 North Westwood Blvd.\nLee's Summit,MO64086-4710\nMacon,MO63552-1930\nPoplar Bluff,MO 63901-1420\n816)251-0700\n660385-6000\n(573840-9750\nSouthwest Regional Office\nSt. Louis Regional Office\nDepartment of Natural Resources\nDepartment of Natural Resources\n2040 West Woodland\n7545 South Lindbergh,Suite 210\nSpringfield,MO65807-5912\nSt. Louis,MO 63125\n417891-4300\n314)416-2960\nPage4of4\nLAB 34 Public Water (R10-2015)",
+    "page_start": 7,
+    "page_end": 8,
+    "tables": [],
+    "figures": [],
+    "token_count": 2003,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "INSTRUCTIONS FOR COMPLETING ENVIRONMENTAL SAMPLE COLLECTION FORM"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "928594d9-0caf-4a52-acbd-f152396cf348",
+      "next_chunk_id": null
+    }
+  }
+]

@@ -1,12 +1,29 @@
-pymupdf==1.23.8
-pdf2image==1.16.3
+# Core PDF Processing
+pymupdf==1.24.9
+pdf2image==1.17.0
 pytesseract==0.3.10
-google-genai==0.6.0
-qdrant-client==1.9.1
-pillow==10.2.0
+
+# AI / Vision
+google-genai==0.8.0
+paddlepaddle==2.6.2
+paddleocr==2.7.3
+ultralytics==8.3.0
+
+# Image Processing
+pillow==10.4.0
+opencv-python==4.6.0.66
+numpy==1.26.4
+
+# Protobuf (locked for paddlepaddle)
+protobuf==3.20.2
+
+# Utils
+setuptools>=68.0.0
+
+# Document Parsing
 unstructured==0.12.5
 unstructured[pdf]
 unstructured[local-inference]
+
+# Testing
 pytest==8.0.0
-numpy==1.24.3
-opencv-python-headless==4.9.0.80

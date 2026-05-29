@@ -1,288 +1,434 @@
-"""
-core/ingestion/handlers/scanned_handler.py
+# core/ingestion/handlers/scanned_handler.py
 
-Simplified handler for scanned PDFs using only PaddleOCR + embedded image extraction.
-- No Unstructured, no torch – avoids Windows DLL issues.
-- Extracts text, groups into paragraphs, detects headings.
-- Extracts embedded images (logos, diagrams) and describes them via Gemma.
-- Builds hierarchical sections identical to digital handler.
+"""
+Scanned PDF Handler – Production Pipeline with Gemma enabled by default.
+
+Flow:
+1. PaddleOCR → extract all text
+2. YOLO + OpenCV contours → detect visual/diagram regions
+3. Filter regions by size, aspect ratio
+4. **If use_gemma=True (default)**, send each region to Gemma for description
+5. Combine OCR text + diagram descriptions
+6. Build hierarchical sections
 """
 
 import os
 import io
-import hashlib
+import cv2
+import fitz
 import numpy as np
-from typing import List, Dict, Any, Tuple, Optional
+
 from PIL import Image
-import fitz  # pymupdf
+from ultralytics import YOLO
 from paddleocr import PaddleOCR
+from typing import List, Optional, Tuple
 
 from core.schemas.models import (
-    ContentBlock, TableBlock, ImageBlock, BlockType,
-    NormalizedDocument, Section
+    ContentBlock, TableBlock, ImageBlock,
+    BlockType, NormalizedDocument, Section
 )
 from core.ingestion.gemma_client import describe_image_with_gemma
 
-# ------------------------------------------------------------------
-# Global OCR engine and image registry
-# ------------------------------------------------------------------
+
+# ============================================================
+# GLOBAL MODELS (loaded once)
+# ============================================================
+
 _ocr_engine = None
-_image_registry: Dict[str, ImageBlock] = {}
+_yolo_model = None
+
 
 def get_ocr_engine():
     global _ocr_engine
     if _ocr_engine is None:
-        _ocr_engine = PaddleOCR(lang='en', use_angle_cls=True, enable_mkldnn=False)
+        _ocr_engine = PaddleOCR(
+            lang='en',
+            use_angle_cls=True,
+            ocr_version='PP-OCRv4',
+            show_log=False
+        )
     return _ocr_engine
 
 
-def _get_or_create_image(image_bytes: bytes, page_num: int, use_gemma: bool) -> Tuple[str, ImageBlock]:
-    img_hash = hashlib.sha256(image_bytes).hexdigest()
-    if img_hash in _image_registry:
-        return img_hash, _image_registry[img_hash]
-    image_block = ImageBlock(
-        image_bytes=image_bytes,
-        mime_type="image/png",
-        page=page_num,
-        confidence=1.0
-    )
-    if use_gemma:
-        desc = describe_image_with_gemma(image_bytes)
-        if desc:
-            image_block.description = desc
-    _image_registry[img_hash] = image_block
-    return img_hash, image_block
+def get_yolo_model():
+    global _yolo_model
+    if _yolo_model is None:
+        _yolo_model = YOLO("yolov8n.pt")
+    return _yolo_model
 
 
-# ------------------------------------------------------------------
-# Helper: PDF page to PIL image
-# ------------------------------------------------------------------
-def page_to_pil(page, dpi=200) -> Image.Image:
+# ============================================================
+# PDF PAGE → PIL
+# ============================================================
+
+def page_to_pil(page, dpi: int = 200) -> Image.Image:
     pix = page.get_pixmap(dpi=dpi)
     img_data = pix.tobytes("png")
-    return Image.open(io.BytesIO(img_data))
+    return Image.open(io.BytesIO(img_data)).convert("RGB")
 
 
-# ------------------------------------------------------------------
-# Run PaddleOCR and return list of text blocks with bounding boxes
-# ------------------------------------------------------------------
-def run_ocr(img: Image.Image) -> List[Dict]:
+# ============================================================
+# STEP 1: OCR EXTRACTION
+# ============================================================
+
+def extract_ocr_text(
+    pil_image: Image.Image
+) -> Tuple[str, List[Tuple[int, int, int, int]]]:
     ocr = get_ocr_engine()
-    img_np = np.array(img)
+    img_np = np.array(pil_image)
     result = ocr.ocr(img_np)
-    blocks = []
+
+    text_lines = []
+    text_boxes = []
+
     if result and result[0]:
         for line in result[0]:
-            bbox = line[0]
+            box  = line[0]
             text = line[1][0]
-            conf = line[1][1]
-            x0 = min(p[0] for p in bbox)
-            y0 = min(p[1] for p in bbox)
-            x1 = max(p[0] for p in bbox)
-            y1 = max(p[1] for p in bbox)
-            blocks.append({
-                "bbox": (x0, y0, x1, y1),
-                "text": text,
-                "confidence": conf
-            })
-    return blocks
+            text_lines.append(text)
+
+            xs = [int(p[0]) for p in box]
+            ys = [int(p[1]) for p in box]
+            text_boxes.append((min(xs), min(ys), max(xs), max(ys)))
+
+    return "\n".join(text_lines), text_boxes
 
 
-# ------------------------------------------------------------------
-# Group OCR blocks into paragraphs (by vertical gaps)
-# ------------------------------------------------------------------
-def group_into_paragraphs(blocks: List[Dict]) -> List[Dict]:
-    if not blocks:
+# ============================================================
+# STEP 2A: YOLO OBJECT DETECTION
+# ============================================================
+
+def detect_yolo_regions(
+    pil_image: Image.Image,
+    confidence: float = 0.25
+) -> List[Tuple[int, int, int, int]]:
+    model   = get_yolo_model()
+    img_np  = np.array(pil_image)
+    img_bgr = cv2.cvtColor(img_np, cv2.COLOR_RGB2BGR)
+
+    results = model(img_bgr, conf=confidence, verbose=False)
+
+    boxes = []
+    for r in results:
+        if r.boxes is not None:
+            for box in r.boxes.xyxy.cpu().numpy():
+                x1, y1, x2, y2 = map(int, box)
+                boxes.append((x1, y1, x2, y2))
+
+    return boxes
+
+
+# ============================================================
+# STEP 2B: CONTOUR-BASED VISUAL REGION DETECTION
+# ============================================================
+
+def detect_contour_regions(
+    pil_image: Image.Image,
+    text_boxes: List[Tuple[int, int, int, int]],
+    min_area: int  = 5000,
+    min_side: int  = 40,
+    aspect_ratio_max: float = 10.0
+) -> List[Tuple[int, int, int, int]]:
+    img_np       = np.array(pil_image)
+    img_h, img_w = img_np.shape[:2]
+
+    gray = cv2.cvtColor(img_np, cv2.COLOR_RGB2GRAY)
+    _, thresh = cv2.threshold(gray, 240, 255, cv2.THRESH_BINARY_INV)
+
+    # Mask out text regions
+    for (x1, y1, x2, y2) in text_boxes:
+        pad = 4
+        cv2.rectangle(
+            thresh,
+            (max(0, x1 - pad), max(0, y1 - pad)),
+            (min(img_w, x2 + pad), min(img_h, y2 + pad)),
+            0, -1
+        )
+
+    kernel  = np.ones((7, 7), np.uint8)
+    dilated = cv2.dilate(thresh, kernel, iterations=4)
+
+    contours, _ = cv2.findContours(
+        dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE
+    )
+
+    regions = []
+    for cnt in contours:
+        x, y, w, h = cv2.boundingRect(cnt)
+        area   = w * h
+        aspect = max(w, h) / (min(w, h) + 1e-5)
+
+        if area   < min_area:        continue
+        if w      < min_side:        continue
+        if h      < min_side:        continue
+        if aspect > aspect_ratio_max: continue
+
+        regions.append((x, y, x + w, y + h))
+
+    return regions
+
+
+# ============================================================
+# FILTER: KEEP ONLY REAL IMAGE REGIONS
+# ============================================================
+
+def filter_real_image_regions(
+    regions: List[Tuple[int, int, int, int]],
+    img_w: int,
+    img_h: int,
+    min_width: int  = 80,
+    min_height: int = 100,
+    min_area: int   = 10000,
+    page_fraction_max: float = 0.30
+) -> List[Tuple[int, int, int, int]]:
+    page_area    = img_w * img_h
+    real_regions = []
+
+    for (x1, y1, x2, y2) in regions:
+        w    = x2 - x1
+        h    = y2 - y1
+        area = w * h
+
+        if w < min_width or h < min_height:
+            continue
+
+        if area < min_area:
+            continue
+
+        # Skip near-full-page regions (borders, backgrounds)
+        if area > page_fraction_max * page_area:
+            continue
+
+        # Skip wide thin header/footer bars
+        if w > img_w * 0.7 and h < 200:
+            continue
+
+        # Skip extreme aspect ratios (thin lines, tall slivers)
+        aspect = w / (h + 1e-5)
+        if aspect > 8 or aspect < 0.15:
+            continue
+
+        real_regions.append((x1, y1, x2, y2))
+
+    return real_regions
+
+
+# ============================================================
+# MERGE OVERLAPPING BOXES
+# ============================================================
+
+def merge_boxes(
+    boxes: List[Tuple[int, int, int, int]],
+    iou_threshold: float = 0.05
+) -> List[Tuple[int, int, int, int]]:
+    if not boxes:
         return []
-    blocks.sort(key=lambda b: (b["bbox"][1], b["bbox"][0]))
-    paragraphs = []
-    current = []
-    last_y = None
-    for b in blocks:
-        y0 = b["bbox"][1]
-        y1 = b["bbox"][3]
-        height = y1 - y0
-        if last_y is None:
-            current.append(b)
-            last_y = y0
+
+    merged  = list(boxes)
+    changed = True
+
+    while changed:
+        changed = False
+        result  = []
+        used    = [False] * len(merged)
+
+        for i in range(len(merged)):
+            if used[i]:
+                continue
+
+            x1, y1, x2, y2 = merged[i]
+
+            for j in range(i + 1, len(merged)):
+                if used[j]:
+                    continue
+
+                bx1, by1, bx2, by2 = merged[j]
+
+                ix1 = max(x1, bx1);  iy1 = max(y1, by1)
+                ix2 = min(x2, bx2);  iy2 = min(y2, by2)
+
+                inter  = max(0, ix2 - ix1) * max(0, iy2 - iy1)
+                area_a = (x2 - x1) * (y2 - y1)
+                area_b = (bx2 - bx1) * (by2 - by1)
+                union  = area_a + area_b - inter
+                iou    = inter / union if union > 0 else 0
+
+                if iou > iou_threshold:
+                    x1 = min(x1, bx1);  y1 = min(y1, by1)
+                    x2 = max(x2, bx2);  y2 = max(y2, by2)
+                    used[j] = True
+                    changed  = True
+
+            result.append((x1, y1, x2, y2))
+            used[i] = True
+
+        merged = result
+
+    return merged
+
+
+# ============================================================
+# STEP 3: CROP REGIONS → GEMMA
+# ============================================================
+
+def analyze_regions_with_gemma(
+    pil_image: Image.Image,
+    regions:   List[Tuple[int, int, int, int]]
+) -> List[dict]:
+    explanations = []
+    img_w, img_h = pil_image.size
+
+    for idx, (x1, y1, x2, y2) in enumerate(regions):
+        x1 = max(0, x1);  y1 = max(0, y1)
+        x2 = min(img_w, x2);  y2 = min(img_h, y2)
+
+        if (x2 - x1) < 30 or (y2 - y1) < 30:
+            continue
+
+        cropped = pil_image.crop((x1, y1, x2, y2))
+        buf     = io.BytesIO()
+        cropped.save(buf, format="PNG")
+        img_bytes = buf.getvalue()
+
+        prompt = (
+            "You are analyzing a cropped region from a technical document. "
+            "This region contains a diagram, figure, chart, or technical drawing. "
+            "IGNORE any surrounding page text. "
+            "Describe ONLY what is visually present in this image:\n"
+            "- Type of diagram/figure (flowchart, bar chart, photo, engineering drawing, etc.)\n"
+            "- Main components or parts\n"
+            "- Relationships between components\n"
+            "- Any visible labels that are part of the diagram itself\n"
+            "Keep description under 150 words. Do not repeat page text."
+        )
+
+        response = describe_image_with_gemma(img_bytes, prompt=prompt)
+
+        if response and response.strip():
+            explanations.append({
+                "region":      [x1, y1, x2, y2],
+                "description": response.strip()
+            })
+            print(f"  Region {idx + 1}: Gemma described successfully")
         else:
-            gap = y0 - last_y
-            if gap < height * 1.5:
-                current.append(b)
-            else:
-                if current:
-                    paragraphs.append({
-                        "blocks": current,
-                        "text": " ".join([p["text"] for p in current]),
-                        "bbox": (
-                            min(p["bbox"][0] for p in current),
-                            min(p["bbox"][1] for p in current),
-                            max(p["bbox"][2] for p in current),
-                            max(p["bbox"][3] for p in current)
-                        ),
-                        "avg_height": np.mean([p["bbox"][3] - p["bbox"][1] for p in current])
-                    })
-                current = [b]
-                last_y = y0
-    if current:
-        paragraphs.append({
-            "blocks": current,
-            "text": " ".join([p["text"] for p in current]),
-            "bbox": (min(p["bbox"][0] for p in current),
-                     min(p["bbox"][1] for p in current),
-                     max(p["bbox"][2] for p in current),
-                     max(p["bbox"][3] for p in current)),
-            "avg_height": np.mean([p["bbox"][3] - p["bbox"][1] for p in current])
-        })
-    return paragraphs
+            print(f"  Region {idx + 1}: Gemma returned empty")
+
+    return explanations
 
 
-# ------------------------------------------------------------------
-# Classify paragraph as heading or normal text
-# ------------------------------------------------------------------
-def classify_paragraph(para: Dict) -> str:
-    text = para["text"].strip()
-    avg_height = para["avg_height"]
-    # Heading heuristics: larger font OR short all-caps OR ends with colon OR starts with number
-    if avg_height > 25:
-        return "heading"
-    if len(text) < 100 and (text.isupper() or text.endswith(':') or (text[0].isdigit() and '.' in text[:5])):
-        return "heading"
-    return "text"
+# ============================================================
+# OCR TEXT → CONTENT BLOCKS
+# ============================================================
 
-
-# ------------------------------------------------------------------
-# Convert paragraphs to ContentBlocks
-# ------------------------------------------------------------------
-def paragraphs_to_blocks(paragraphs: List[Dict], page_num: int, doc_name: str) -> List[ContentBlock]:
+def parse_ocr_text_to_blocks(
+    text:     str,
+    page_num: int
+) -> List[ContentBlock]:
     blocks = []
-    for para in paragraphs:
-        if classify_paragraph(para) == "heading":
+
+    for line in text.split('\n'):
+        line = line.strip()
+        if not line:
+            continue
+
+        if line.isupper() and len(line) < 100:
             blocks.append(ContentBlock(
                 type=BlockType.HEADING,
-                text=para["text"],
-                level=2,  # could be refined by avg_height
+                text=line,
+                level=2,
                 page=page_num,
-                metadata={"source": "ocr", "avg_font_height": para["avg_height"]}
+                metadata={"source": "paddleocr"}
             ))
         else:
             blocks.append(ContentBlock(
                 type=BlockType.PARAGRAPH,
-                text=para["text"],
+                text=line,
                 page=page_num,
-                metadata={"source": "ocr", "avg_font_height": para["avg_height"]}
+                metadata={"source": "paddleocr"}
             ))
+
     return blocks
 
 
-# ------------------------------------------------------------------
-# Extract embedded raster images from a PDF page
-# ------------------------------------------------------------------
-def extract_embedded_images(page, page_num: int, doc: fitz.Document, use_gemma: bool) -> List[ContentBlock]:
-    image_blocks = []
-    img_list = page.get_images(full=True)
-    for img in img_list:
-        xref = img[0]
-        try:
-            base_image = doc.extract_image(xref)
-            image_bytes = base_image["image"]
-            # Get image rectangle(s) – usually one
-            rects = page.get_image_rects(img)
-            bbox = rects[0] if rects else (0, 0, 0, 0)
-            img_hash, img_block = _get_or_create_image(image_bytes, page_num, use_gemma)
-            image_blocks.append(ContentBlock(
-                type=BlockType.IMAGE,
-                text=img_block.description or "",
-                page=page_num,
-                image=img_block,
-                metadata={"document_name": doc.name, "bbox": bbox}
-            ))
-        except Exception:
-            continue
-    return image_blocks
+# ============================================================
+# BUILD SECTION TREE
+# ============================================================
 
-
-# ------------------------------------------------------------------
-# Build section tree (identical to digital handler)
-# ------------------------------------------------------------------
-def build_sections(blocks: List[ContentBlock], total_pages: int) -> List[Section]:
-    sections = []
+def build_sections(
+    blocks:      List[ContentBlock],
+    total_pages: int
+) -> List[Section]:
+    sections      = []
     section_stack = []
 
     current_section = Section(
-        title="Cover",
-        level=0,
+        title="Cover", level=0,
         section_path=["Cover"],
-        page_start=1,
-        page_end=1,
-        content="",
-        tables=[],
-        figures=[]
+        page_start=1, page_end=1,
+        content="", tables=[], figures=[]
     )
     section_stack.append(current_section)
 
     current_content_parts = []
-    current_tables = []
-    current_figures = []
+    current_tables        = []
+    current_figures       = []
 
     for block in blocks:
+
         if block.type == BlockType.HEADING:
             level = block.level or 2
-            heading_text = block.text
 
-            # Finalize previous section
             if current_section is not None:
                 current_section.content = "\n".join(current_content_parts).strip()
-                current_section.tables = current_tables[:]
+                current_section.tables  = current_tables[:]
                 current_section.figures = current_figures[:]
                 current_section.page_end = block.page
+
                 if len(section_stack) > 1:
                     section_stack[-2].children.append(current_section)
                 else:
                     sections.append(current_section)
 
-            # Start new section
             current_section = Section(
-                title=heading_text,
-                level=level,
-                section_path=[heading_text],
-                page_start=block.page,
-                page_end=block.page,
-                content="",
-                tables=[],
-                figures=[]
+                title=block.text, level=level,
+                section_path=[block.text],
+                page_start=block.page, page_end=block.page,
+                content="", tables=[], figures=[]
             )
             current_content_parts = []
-            current_tables = []
-            current_figures = []
+            current_tables        = []
+            current_figures       = []
 
-            while len(section_stack) > 0 and section_stack[-1].level >= level:
+            while section_stack and section_stack[-1].level >= level:
                 section_stack.pop()
             section_stack.append(current_section)
             current_section.section_path = [s.title for s in section_stack]
-        else:
-            if block.type == BlockType.PARAGRAPH:
-                current_content_parts.append(block.text)
-            elif block.type == BlockType.TABLE and block.table:
-                current_tables.append(block.table)
-                current_content_parts.append(block.text)
-            elif block.type == BlockType.IMAGE and block.image:
-                # Deduplicate within section (by bytes)
-                if not any(f.image_bytes == block.image.image_bytes for f in current_figures):
-                    current_figures.append(block.image)
-                    if block.image.description:
-                        current_content_parts.append(f"[Image: {block.image.description}]")
-                    elif block.image.caption:
-                        current_content_parts.append(f"[Image: {block.image.caption}]")
-                    else:
-                        current_content_parts.append("[Image]")
+
+        elif block.type == BlockType.PARAGRAPH:
+            current_content_parts.append(block.text)
+
+        elif block.type == BlockType.TABLE and block.table:
+            current_tables.append(block.table)
+            current_content_parts.append(block.text)
+
+        elif block.type == BlockType.IMAGE and block.image:
+            if not any(
+                f.image_bytes == block.image.image_bytes
+                for f in current_figures
+            ):
+                current_figures.append(block.image)
+                desc = block.image.description
+                current_content_parts.append(
+                    f"[Diagram: {desc}]" if desc else "[Diagram]"
+                )
 
     # Finalize last section
     if current_section is not None:
-        current_section.content = "\n".join(current_content_parts).strip()
-        current_section.tables = current_tables[:]
-        current_section.figures = current_figures[:]
+        current_section.content  = "\n".join(current_content_parts).strip()
+        current_section.tables   = current_tables[:]
+        current_section.figures  = current_figures[:]
         current_section.page_end = total_pages
+
         if len(section_stack) > 1:
             section_stack[-2].children.append(current_section)
         else:
@@ -291,45 +437,140 @@ def build_sections(blocks: List[ContentBlock], total_pages: int) -> List[Section
     return sections
 
 
-# ------------------------------------------------------------------
-# Main extraction function
-# ------------------------------------------------------------------
-def extract_scanned(file_path: str, use_gemma: bool = True) -> NormalizedDocument:
-    # Reset image registry for this document
-    global _image_registry
-    _image_registry = {}
+# ============================================================
+# MAIN EXTRACTION FUNCTION
+# ============================================================
 
-    doc = fitz.open(file_path)
-    file_name = os.path.basename(file_path)
+def extract_scanned(
+    file_path:      str,
+    use_gemma:      bool = True,        # ← Changed: default True
+    save_images_dir: Optional[str] = None
+) -> NormalizedDocument:
+
+    doc        = fitz.open(file_path)
+    file_name  = os.path.basename(file_path)
     total_pages = len(doc)
+    all_blocks: List[ContentBlock] = []
 
-    all_blocks = []
+    page_image_counts = {}
 
     for page_num in range(total_pages):
-        page = doc[page_num]
+        page        = doc[page_num]
         page_number = page_num + 1
 
-        # Render page to image for OCR
-        pil_img = page_to_pil(page)
+        print(f"\n[Page {page_number}/{total_pages}]")
 
-        # 1. OCR and paragraph grouping
-        ocr_blocks = run_ocr(pil_img)
-        paragraphs = group_into_paragraphs(ocr_blocks)
-        text_blocks = paragraphs_to_blocks(paragraphs, page_number, file_name)
+        # ── Render ──────────────────────────────────────────
+        pil_img      = page_to_pil(page, dpi=200)
+        img_w, img_h = pil_img.size
 
-        # 2. Extract embedded images
-        image_blocks = extract_embedded_images(page, page_number, doc, use_gemma)
+        # ── STEP 1: OCR ─────────────────────────────────────
+        ocr_text, text_boxes = extract_ocr_text(pil_img)
+        print(f"  OCR       : {len(ocr_text.splitlines())} lines")
 
-        # 3. Merge text and image blocks (preserve reading order? images are separate)
-        # For simplicity, add all text blocks first, then images after (or interlace by y-coordinate if needed)
-        # To keep order, we can sort all blocks by their bounding box y-position (for images, use bbox)
-        # But images from get_images have bbox, so we can combine and sort.
-        combined = text_blocks + image_blocks
-        # Sort by page, then by bbox y (images have bbox)
-        combined.sort(key=lambda b: (b.page, b.metadata.get("bbox", (0,0,0,0))[1] if b.type == BlockType.IMAGE else 0))
-        all_blocks.extend(combined)
+        # ── STEP 2: Visual Region Detection ─────────────────
+        yolo_boxes    = detect_yolo_regions(pil_img)
+        contour_boxes = detect_contour_regions(pil_img, text_boxes)
 
-        # Add page break marker
+        all_regions    = yolo_boxes + contour_boxes
+        merged_regions = merge_boxes(all_regions, iou_threshold=0.05)
+
+        real_regions = filter_real_image_regions(
+            merged_regions, img_w, img_h
+        )
+
+        # ── Debug print ──────────────────────────────────────
+        if real_regions:
+            for i, (x1, y1, x2, y2) in enumerate(real_regions):
+                w, h = x2 - x1, y2 - y1
+                print(f"  Image {i+1:<3}: ({x1},{y1})→({x2},{y2})  size=({w}x{h})")
+        else:
+            print(f"  Images    : 0 detected")
+
+        print(
+            f"  YOLO:{len(yolo_boxes)} | "
+            f"Contours:{len(contour_boxes)} | "
+            f"Merged:{len(merged_regions)} | "
+            f"Real images:{len(real_regions)}"
+        )
+
+        # Store per-page count
+        page_image_counts[page_number] = len(real_regions)
+
+        # ── STEP 3: Add image blocks (Gemma or placeholder) ──
+        if use_gemma and real_regions:
+            print(f"  Gemma     : sending {len(real_regions)} region(s) for analysis...")
+            explanations = analyze_regions_with_gemma(pil_img, real_regions)
+
+            for exp in explanations:
+                image_block = ImageBlock(
+                    description=exp["description"],
+                    page=page_number
+                )
+                all_blocks.append(ContentBlock(
+                    type=BlockType.IMAGE,
+                    text=exp["description"],
+                    page=page_number,
+                    image=image_block,
+                    metadata={
+                        "source":     "gemma",
+                        "has_images": True,
+                        "region":     exp["region"],
+                        "gemma_done": True
+                    }
+                ))
+            # If no descriptions were obtained, fallback to placeholder
+            if not explanations:
+                print(f"  Gemma     : no descriptions received, adding placeholder")
+                image_block = ImageBlock(
+                    description=f"Page {page_number} has {len(real_regions)} detected image region(s) but Gemma did not return descriptions.",
+                    page=page_number
+                )
+                all_blocks.append(ContentBlock(
+                    type=BlockType.IMAGE,
+                    text=f"[Page {page_number} contains {len(real_regions)} image/diagram region(s) – description unavailable]",
+                    page=page_number,
+                    image=image_block,
+                    metadata={
+                        "source":      "detection",
+                        "has_images":  True,
+                        "image_count": len(real_regions),
+                        "regions":     [[x1, y1, x2, y2] for x1, y1, x2, y2 in real_regions],
+                        "gemma_done":  False
+                    }
+                ))
+        elif not use_gemma and real_regions:
+            # Placeholder only (Gemma disabled)
+            image_block = ImageBlock(
+                description=f"Page {page_number} has {len(real_regions)} detected image region(s). Gemma analysis pending.",
+                page=page_number
+            )
+            all_blocks.append(ContentBlock(
+                type=BlockType.IMAGE,
+                text=f"[Page {page_number} contains {len(real_regions)} image/diagram region(s)]",
+                page=page_number,
+                image=image_block,
+                metadata={
+                    "source":      "detection",
+                    "has_images":  True,
+                    "image_count": len(real_regions),
+                    "regions":     [[x1, y1, x2, y2] for x1, y1, x2, y2 in real_regions],
+                    "gemma_done":  False
+                }
+            ))
+            print(
+                f"  Gemma     : disabled — "
+                f"{len(real_regions)} region(s) stored in metadata, "
+                f"set use_gemma=True to analyse"
+            )
+        else:
+            print(f"  Gemma     : skipped (no image regions)")
+
+        # ── STEP 4: OCR Text Blocks ──────────────────────────
+        text_blocks = parse_ocr_text_to_blocks(ocr_text, page_number)
+        all_blocks.extend(text_blocks)
+
+        # ── Page break ───────────────────────────────────────
         all_blocks.append(ContentBlock(
             type=BlockType.PAGE_BREAK,
             text=f"--- Page {page_number} ---",
@@ -339,7 +580,28 @@ def extract_scanned(file_path: str, use_gemma: bool = True) -> NormalizedDocumen
 
     doc.close()
 
-    # Build section hierarchy
+    # ── Image summary ────────────────────────────────────────
+    print("\n" + "─" * 45)
+    print("IMAGE DETECTION SUMMARY")
+    print("─" * 45)
+    total_images = 0
+    pages_with_images = []
+    for pg, count in page_image_counts.items():
+        status = f"{count} image(s)" if count > 0 else "no images"
+        print(f"  Page {pg:2d} : {status}")
+        total_images += count
+        if count > 0:
+            pages_with_images.append(pg)
+    print("─" * 45)
+    print(f"  Total images : {total_images}")
+    print(f"  Pages with images : {pages_with_images if pages_with_images else 'None'}")
+    print(f"  Gemma enabled     : {use_gemma}")
+    if use_gemma and pages_with_images:
+        print(f"  ✓ Gemma analysis performed for pages {pages_with_images}")
+    elif not use_gemma and pages_with_images:
+        print(f"  → Set use_gemma=True to describe images on pages {pages_with_images}")
+    print("─" * 45)
+
     sections = build_sections(all_blocks, total_pages)
 
     return NormalizedDocument(
