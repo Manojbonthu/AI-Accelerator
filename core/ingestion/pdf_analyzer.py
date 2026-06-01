@@ -22,7 +22,7 @@ from core.schemas.models import (
 )
 from core.ingestion.pdf_detector import detect_pdf_type
 from core.ingestion.handlers.digital_handler import extract_digital
-from core.ingestion.handlers.scanned_handler import extract_scanned
+from core.ingestion.handlers.mixed_handler import extract_mixed  # <-- NEW: per‑page routing
 from core.ingestion.gemma_client import describe_image_with_gemma
 from core.ingestion.chunker import chunk_document
 
@@ -71,12 +71,11 @@ def analyze_pdf(
 
     # Route to appropriate handler
     if pdf_type == "digital":
+        # Pure digital → fast direct extraction
         normalized_doc = extract_digital(file_path, use_gemma=use_gemma)
-    elif pdf_type == "scanned":
-        normalized_doc = extract_scanned(file_path, use_gemma=use_gemma)
-    else:  # mixed
-        # TODO: implement mixed handler
-        normalized_doc = None
+    else:
+        # Scanned or mixed → per‑page routing (digital pages go to digital handler, scanned to OCR)
+        normalized_doc = extract_mixed(file_path, use_gemma=use_gemma)
 
     if normalized_doc is None:
         # Return empty result if unsupported type
@@ -92,8 +91,6 @@ def analyze_pdf(
 
     # ------------------------------------------------------------------
     # Build detailed page summary from the NormalizedDocument
-    # Supports both new sections‑based and legacy blocks‑based documents
-    # and includes production‑level metrics from page break blocks.
     # ------------------------------------------------------------------
     page_text_flags = {}
     page_image_flags = {}
@@ -166,21 +163,16 @@ def analyze_pdf(
         metrics = page_metrics.get(page_num, {})
         summary_entry = {
             "page": page_num,
-            "type": pdf_type,   # use actual PDF type (digital, scanned, mixed)
+            "type": pdf_type,   # overall type (digital, scanned, mixed)
             "digital_text": "✅" if page_text_flags.get(page_num) else "❌",
             "image": "✅" if page_image_flags.get(page_num) else "❌",
             "table": "✅" if page_table_flags.get(page_num) else "❌",
-            "blank": "❌" if (page_text_flags.get(page_num) or page_image_flags.get(page_num) or page_table_flags.get(page_num)) else "✅",
+            "blank": "✅" if not (page_text_flags.get(page_num) or page_image_flags.get(page_num) or page_table_flags.get(page_num)) else "❌",
             "description": page_descriptions.get(page_num, "")
         }
         # Add production metrics if available
         if metrics:
-            summary_entry["raster_images"] = metrics.get("raster_images", 0)
-            summary_entry["vector_drawings"] = metrics.get("vector_drawings", 0)
-            summary_entry["image_coverage_ratio"] = metrics.get("image_coverage_ratio", 0.0)
-            summary_entry["text_length"] = metrics.get("text_length", 0)
-            summary_entry["annotations"] = metrics.get("annotations", 0)
-            summary_entry["links"] = metrics.get("links", 0)
+            summary_entry.update(metrics)
         detailed_summary.append(summary_entry)
 
     # Chunk the document using the new chunker (which handles sections)

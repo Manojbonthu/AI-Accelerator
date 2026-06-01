@@ -479,3 +479,93 @@ def _table_to_markdown(headers: List[str], rows: List[List[str]]) -> str:
     for row in rows:
         lines.append("| " + " | ".join(row) + " |")
     return "\n".join(lines)
+
+
+# ============================================================
+# NEW FUNCTION for mixed_handler – extracts a single digital page
+# ============================================================
+def extract_digital_page_content(page: fitz.Page, page_num: int, doc: fitz.Document, use_gemma: bool = True) -> List[ContentBlock]:
+    """
+    Extract content from a single digital page.
+    Returns a list of ContentBlock (paragraphs, headings, tables, images).
+    """
+    from core.ingestion.gemma_client import describe_image_with_gemma
+
+    blocks = []
+    
+    # Extract text blocks
+    blocks_data = page.get_text("dict")["blocks"]
+    for block in blocks_data:
+        if block["type"] == 0:  # text
+            for line in block.get("lines", []):
+                for span in line.get("spans", []):
+                    text = span["text"].strip()
+                    if not text:
+                        continue
+                    font_size = span["size"]
+                    font = span.get("font", "")
+                    is_bold = "Bold" in font or "bold" in font.lower()
+                    
+                    if font_size >= 14 or (font_size >= 12 and is_bold):
+                        level = 1 if font_size >= 18 else 2
+                        blocks.append(ContentBlock(
+                            type=BlockType.HEADING,
+                            text=text,
+                            level=level,
+                            page=page_num,
+                            metadata={"source": "digital"}
+                        ))
+                    else:
+                        blocks.append(ContentBlock(
+                            type=BlockType.PARAGRAPH,
+                            text=text,
+                            page=page_num,
+                            metadata={"source": "digital"}
+                        ))
+        elif block["type"] == 1:  # image
+            try:
+                xref = block.get("image", 0)
+                if xref:
+                    img_dict = doc.extract_image(xref)
+                    img_bytes = img_dict["image"]
+                    image_block = ImageBlock(
+                        image_bytes=img_bytes,
+                        mime_type="image/png",
+                        page=page_num,
+                        confidence=1.0
+                    )
+                    if use_gemma:
+                        desc = describe_image_with_gemma(img_bytes)
+                        if desc:
+                            image_block.description = desc
+                    blocks.append(ContentBlock(
+                        type=BlockType.IMAGE,
+                        text=image_block.description or "[Image]",
+                        page=page_num,
+                        image=image_block,
+                        metadata={"source": "digital"}
+                    ))
+            except Exception:
+                pass
+
+    # Extract tables
+    tables = page.find_tables()
+    for table in tables.tables:
+        if not table.header or not table.extract():
+            continue
+        headers = [str(h) for h in table.header.names]
+        rows = [[str(cell) for cell in row] for row in table.extract()]
+        table_block = TableBlock(headers=headers, rows=rows, page=page_num)
+        md = "| " + " | ".join(headers) + " |\n"
+        md += "|" + "|".join(["---"] * len(headers)) + "|\n"
+        for row in rows:
+            md += "| " + " | ".join(row) + " |\n"
+        blocks.append(ContentBlock(
+            type=BlockType.TABLE,
+            text=md,
+            page=page_num,
+            table=table_block,
+            metadata={"source": "digital"}
+        ))
+
+    return blocks

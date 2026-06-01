@@ -1,0 +1,1207 @@
+[
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "087f43dd-7033-4cb8-83a5-49546135b2c4",
+    "chunk_index": 0,
+    "section": "Cover",
+    "subsection": "",
+    "section_level": 0,
+    "chunk_type": "child",
+    "chunk_title": "Cover (part 1)",
+    "content": "--- Page 1 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover\nPages: 1–1\n\n--- Page 1 ---",
+    "page_start": 1,
+    "page_end": 1,
+    "tables": [],
+    "figures": [],
+    "token_count": 5,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "c5071462-a67e-47ab-aa57-eda9cdb380aa",
+      "previous_chunk_id": null,
+      "next_chunk_id": "c5071462-a67e-47ab-aa57-eda9cdb380aa"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "c5071462-a67e-47ab-aa57-eda9cdb380aa",
+    "chunk_index": 0,
+    "section": "Cover",
+    "subsection": "",
+    "section_level": 0,
+    "chunk_type": "parent",
+    "chunk_title": "Cover",
+    "content": "--- Page 1 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover\nPages: 1–1\n\n--- Page 1 ---",
+    "page_start": 1,
+    "page_end": 1,
+    "tables": [],
+    "figures": [],
+    "token_count": 5,
+    "metadata": {
+      "section_path": [
+        "Cover"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "087f43dd-7033-4cb8-83a5-49546135b2c4",
+      "next_chunk_id": "1315854c-d953-498d-8225-971b1e34087f"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "1315854c-d953-498d-8225-971b1e34087f",
+    "chunk_index": 0,
+    "section": "iCube II",
+    "subsection": "",
+    "section_level": 1,
+    "chunk_type": "child",
+    "chunk_title": "iCube II (part 1)",
+    "content": "[Image]\n[Image]\nUser Guide\n--- Page 2 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II\nPages: 1–2\n\n[Image]\n[Image]\nUser Guide\n--- Page 2 ---",
+    "page_start": 1,
+    "page_end": 2,
+    "tables": [],
+    "figures": [
+      {
+        "description": null,
+        "caption": null,
+        "page": 1,
+        "mime_type": "image/png",
+        "confidence": 1.0
+      },
+      {
+        "description": null,
+        "caption": null,
+        "page": 1,
+        "mime_type": "image/png",
+        "confidence": 1.0
+      }
+    ],
+    "token_count": 14,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "7c5607c1-70f3-43d6-93e7-bbec1e6ee17c",
+      "previous_chunk_id": "c5071462-a67e-47ab-aa57-eda9cdb380aa",
+      "next_chunk_id": "7c5607c1-70f3-43d6-93e7-bbec1e6ee17c"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "7c5607c1-70f3-43d6-93e7-bbec1e6ee17c",
+    "chunk_index": 1,
+    "section": "iCube II",
+    "subsection": "",
+    "section_level": 1,
+    "chunk_type": "parent",
+    "chunk_title": "iCube II",
+    "content": "[Image]\n[Image]\nUser Guide\n--- Page 2 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II\nPages: 1–2\n\n[Image]\n[Image]\nUser Guide\n--- Page 2 ---",
+    "page_start": 1,
+    "page_end": 2,
+    "tables": [],
+    "figures": [
+      {
+        "description": null,
+        "caption": null,
+        "page": 1,
+        "mime_type": "image/png",
+        "confidence": 1.0
+      },
+      {
+        "description": null,
+        "caption": null,
+        "page": 1,
+        "mime_type": "image/png",
+        "confidence": 1.0
+      }
+    ],
+    "token_count": 14,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "iCube II"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "1315854c-d953-498d-8225-971b1e34087f",
+      "next_chunk_id": "72dc3928-96e1-4664-b814-2449781e2cb8"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "72dc3928-96e1-4664-b814-2449781e2cb8",
+    "chunk_index": 0,
+    "section": "Contents",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "Contents (part 1)",
+    "content": "1. Welcome 4\n2. Description 5\n3. iCube II accessories (optional) 6\n4. Getting started 7\n4.1 Setting up the power supply\n4.2 Charging the battery\n4.3 Operating time\n4.4 Switching iCube II On and Off\n4.5 Target fitting software requirements\n5. Connecting iCube II to your computer 11\n5.1 Connecting wirelessly\n5.2 Connecting via USB cable\n--- Page 3 ---\n6. Using iCube II 14\n6.1 Wearing iCube II\n6.2 Detecting and programming\nhearing instruments 15\n6.3 Programming hearing instruments\non your desk 16\n7. Indicator lights 17\n8. Troubleshooting 20\n9. Service and warranty 22\n9.1 Local warranty\n9.2 International warranty\n9.3 Warranty limitation\n10. Compliance information 23\n11. Information and description of symbols 28\n12. Important safety information 32\n--- Page 4 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > Contents\nPages: 2–4\n\n1. Welcome 4\n2. Description 5\n3. iCube II accessories (optional) 6\n4. Getting started 7\n4.1 Setting up the power supply\n4.2 Charging the battery\n4.3 Operating time\n4.4 Switching iCube II On and Off\n4.5 Target fitting software requirements\n5. Connecting iCube II to your computer 11\n5.1 Connecting wirelessly\n5.2 Connecting via USB cable\n--- Page 3 ---\n6. Using iCube II 14\n6.1 Wearing iCube II\n6.2 Detecting and programming\nhearing instruments 15\n6.3 Programming hearing instruments\non your desk 16\n7. Indicator lights 17\n8. Troubleshooting 20\n9. Service and warranty 22\n9.1 Local warranty\n9.2 International warranty\n9.3 Warranty limitation\n10. Compliance information 23\n11. Information and description of symbols 28\n12. Important safety information 32\n--- Page 4 ---",
+    "page_start": 2,
+    "page_end": 4,
+    "tables": [],
+    "figures": [],
+    "token_count": 222,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "69d7bb62-88c0-499d-9ab0-823a7e932d00",
+      "previous_chunk_id": "7c5607c1-70f3-43d6-93e7-bbec1e6ee17c",
+      "next_chunk_id": "69d7bb62-88c0-499d-9ab0-823a7e932d00"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "69d7bb62-88c0-499d-9ab0-823a7e932d00",
+    "chunk_index": 2,
+    "section": "Contents",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "Contents",
+    "content": "1. \tWelcome 4\n2. \tDescription 5\n3. \tiCube II accessories (optional) 6\n4. \tGetting started 7\n4.1 Setting up the power supply\n4.2 Charging the battery\n4.3 Operating time\n4.4 Switching iCube II On and Off\n4.5 Target fitting software requirements\n5. \tConnecting iCube II to your computer 11\n5.1 Connecting wirelessly\n5.2 Connecting via USB cable\n--- Page 3 ---\n6. \tUsing iCube II 14\n6.1 Wearing iCube II\n6.2 Detecting and programming\nhearing instruments 15\n6.3 Programming hearing instruments\non your desk 16\n7.\t Indicator lights 17\n8. \tTroubleshooting 20\n9. \tService and warranty 22\n9.1 Local warranty\n9.2 International warranty\n9.3 Warranty limitation\n10. \tCompliance information 23\n11. \tInformation and description of symbols 28\n12.\t Important safety information 32\n--- Page 4 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > Contents\nPages: 2–4\n\n1. \tWelcome 4\n2. \tDescription 5\n3. \tiCube II accessories (optional) 6\n4. \tGetting started 7\n4.1 Setting up the power supply\n4.2 Charging the battery\n4.3 Operating time\n4.4 Switching iCube II On and Off\n4.5 Target fitting software requirements\n5. \tConnecting iCube II to your computer 11\n5.1 Connecting wirelessly\n5.2 Connecting via USB cable\n--- Page 3 ---\n6. \tUsing iCube II 14\n6.1 Wearing iCube II\n6.2 Detecting and programming\nhearing instruments 15\n6.3 Programming hearing instruments\non your desk 16\n7.\t Indicator lights 17\n8. \tTroubleshooting 20\n9. \tService and warranty 22\n9.1 Local warranty\n9.2 International warranty\n9.3 Warranty limitation\n10. \tCompliance information 23\n11. \tInformation and description of symbols 28\n12.\t Important safety information 32\n--- Page 4 ---",
+    "page_start": 2,
+    "page_end": 4,
+    "tables": [],
+    "figures": [],
+    "token_count": 241,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "iCube II",
+        "Contents"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "72dc3928-96e1-4664-b814-2449781e2cb8",
+      "next_chunk_id": "ec64efd9-ffbd-47b6-a3ae-cbdb92c2e4f6"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "ec64efd9-ffbd-47b6-a3ae-cbdb92c2e4f6",
+    "chunk_index": 0,
+    "section": "1. Welcome",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "1. Welcome (part 1)",
+    "content": "iCube II is designed specifically for use by the hearing\ncare professional. Please read this user guide carefully to benefit from all\nthe features of the iCube II . For further information, please visit the Phonak website\nwww.phonak-us.com\nPhonak – life is on\nwww.phonak-us.com\nCE mark applied: 2014\n--- Page 5 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 1. Welcome\nPages: 4–5\n\niCube II is designed specifically for use by the hearing\ncare professional. Please read this user guide carefully to benefit from all\nthe features of the iCube II . For further information, please visit the Phonak website\nwww.phonak-us.com\nPhonak – life is on\nwww.phonak-us.com\nCE mark applied: 2014\n--- Page 5 ---",
+    "page_start": 4,
+    "page_end": 5,
+    "tables": [],
+    "figures": [],
+    "token_count": 80,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "59433659-f6e7-4326-b872-dc4582a67ca9",
+      "previous_chunk_id": "69d7bb62-88c0-499d-9ab0-823a7e932d00",
+      "next_chunk_id": "59433659-f6e7-4326-b872-dc4582a67ca9"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "59433659-f6e7-4326-b872-dc4582a67ca9",
+    "chunk_index": 3,
+    "section": "1. Welcome",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "1. Welcome",
+    "content": "iCube II is designed specifically for use by the hearing\ncare professional.\nPlease read this user guide carefully to benefit from all\nthe features of the iCube II .\nFor further information, please visit the Phonak website\nwww.phonak-us.com\nPhonak – life is on\nwww.phonak-us.com\nCE mark applied: 2014\n--- Page 5 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 1. Welcome\nPages: 4–5\n\niCube II is designed specifically for use by the hearing\ncare professional.\nPlease read this user guide carefully to benefit from all\nthe features of the iCube II .\nFor further information, please visit the Phonak website\nwww.phonak-us.com\nPhonak – life is on\nwww.phonak-us.com\nCE mark applied: 2014\n--- Page 5 ---",
+    "page_start": 4,
+    "page_end": 5,
+    "tables": [],
+    "figures": [],
+    "token_count": 80,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "iCube II",
+        "1. Welcome"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "ec64efd9-ffbd-47b6-a3ae-cbdb92c2e4f6",
+      "next_chunk_id": "8b91e8ec-1b5a-476e-b34f-4e814742a885"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "8b91e8ec-1b5a-476e-b34f-4e814742a885",
+    "chunk_index": 0,
+    "section": "2. Description",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "2. Description (part 1)",
+    "content": "The intended use of this device is the wireless transfer\nof fitting data from the PC to the client’s hearing\ninstruments. Rear neckloop\nopening\nNeckloop plugs\nMiddle indicator\nlight (battery\nstate and PC data\ntransfer)\nPairing\nOn/Off\nbutton\nRight indicator\nLeft indicator\nlight (data\nlight (data\ntransfer)\ntransfer)\nMini USB\ncharging input\nWireless iCube II USB adapter\n--- Page 6 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 2. Description\nPages: 5–6\n\nThe intended use of this device is the wireless transfer\nof fitting data from the PC to the client’s hearing\ninstruments. Rear neckloop\nopening\nNeckloop plugs\nMiddle indicator\nlight (battery\nstate and PC data\ntransfer)\nPairing\nOn/Off\nbutton\nRight indicator\nLeft indicator\nlight (data\nlight (data\ntransfer)\ntransfer)\nMini USB\ncharging input\nWireless iCube II USB adapter\n--- Page 6 ---",
+    "page_start": 5,
+    "page_end": 6,
+    "tables": [],
+    "figures": [],
+    "token_count": 98,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "98b4d16f-e1cc-4492-b7f0-25dbc993a25a",
+      "previous_chunk_id": "59433659-f6e7-4326-b872-dc4582a67ca9",
+      "next_chunk_id": "98b4d16f-e1cc-4492-b7f0-25dbc993a25a"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "98b4d16f-e1cc-4492-b7f0-25dbc993a25a",
+    "chunk_index": 4,
+    "section": "2. Description",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "2. Description",
+    "content": "The intended use of this device is the wireless transfer\nof fitting data from the PC to the client’s hearing\ninstruments.\nRear neckloop\nopening\nNeckloop plugs\nMiddle indicator\nlight (battery\nstate and PC data\ntransfer)\nPairing\nOn/Off\nbutton\nRight indicator\nLeft indicator\nlight (data\nlight (data\ntransfer)\ntransfer)\nMini USB\ncharging input\nWireless iCube II USB adapter\n--- Page 6 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 2. Description\nPages: 5–6\n\nThe intended use of this device is the wireless transfer\nof fitting data from the PC to the client’s hearing\ninstruments.\nRear neckloop\nopening\nNeckloop plugs\nMiddle indicator\nlight (battery\nstate and PC data\ntransfer)\nPairing\nOn/Off\nbutton\nRight indicator\nLeft indicator\nlight (data\nlight (data\ntransfer)\ntransfer)\nMini USB\ncharging input\nWireless iCube II USB adapter\n--- Page 6 ---",
+    "page_start": 5,
+    "page_end": 6,
+    "tables": [],
+    "figures": [],
+    "token_count": 98,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "iCube II",
+        "2. Description"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "8b91e8ec-1b5a-476e-b34f-4e814742a885",
+      "next_chunk_id": "2c239759-13f5-4ae3-9907-db3ac89880b1"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "2c239759-13f5-4ae3-9907-db3ac89880b1",
+    "chunk_index": 0,
+    "section": "3. iCube II accessories (optional)",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "3. iCube II accessories (optional) (part 1)",
+    "content": "J USB cable, 3 m (10 ft)\nJ iCube II desktop stand\nJ USB hub\nContents may vary depending on country. --- Page 7 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 3. iCube II accessories (optional)\nPages: 6–7\n\nJ USB cable, 3 m (10 ft)\nJ iCube II desktop stand\nJ USB hub\nContents may vary depending on country. --- Page 7 ---",
+    "page_start": 6,
+    "page_end": 7,
+    "tables": [],
+    "figures": [],
+    "token_count": 38,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "7a51a225-469c-4898-b61e-395bf153c045",
+      "previous_chunk_id": "98b4d16f-e1cc-4492-b7f0-25dbc993a25a",
+      "next_chunk_id": "7a51a225-469c-4898-b61e-395bf153c045"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "7a51a225-469c-4898-b61e-395bf153c045",
+    "chunk_index": 5,
+    "section": "3. iCube II accessories (optional)",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "3. iCube II accessories (optional)",
+    "content": "J USB cable, 3 m (10 ft)\nJ iCube II desktop stand\nJ USB hub\nContents may vary depending on country.\n--- Page 7 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 3. iCube II accessories (optional)\nPages: 6–7\n\nJ USB cable, 3 m (10 ft)\nJ iCube II desktop stand\nJ USB hub\nContents may vary depending on country.\n--- Page 7 ---",
+    "page_start": 6,
+    "page_end": 7,
+    "tables": [],
+    "figures": [],
+    "token_count": 38,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "iCube II",
+        "3. iCube II accessories (optional)"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "2c239759-13f5-4ae3-9907-db3ac89880b1",
+      "next_chunk_id": "f343407f-6e18-4151-83d5-ff60cb31f3e0"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "f343407f-6e18-4151-83d5-ff60cb31f3e0",
+    "chunk_index": 0,
+    "section": "4. Getting started",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "4. Getting started (part 1)",
+    "content": "4.1 Setting up the power supply\nSelect the adapter for your country. US EU\n1. 1. Insert the top round end of the\nadapter into the round corner\nof the power supply. 2. Click the tail of the adapter in\n2. to lock it into place. 1. To remove, pull back the tab on\nthe power supply. 2. Pull the adapter upwards to\nremove it. 2. 1. --- Page 8 ---\n4. Getting started\n4.2 Charging the battery\nPlug a mini-USB plug into the\niCube II and plug the power\nsupply into a power outlet. If you use the iCube II desktop stand,\ninstall it as shown below. It is recommended to charge iCube II whenever it is\nnot in use. This way it will be sufficiently charged and\nready for the next fitting session. --- Page 9 ---\niCube II desktop stand is available as an option\nBattery notes\nWhen charging iCube II for the first time, leave it\nto charge for at least three hours (even if the middle\nindicator light changes to green color earlier). Charging a depleted battery will take approx. 2 hours. It is safe to leave iCube II connected for longer\nperiods, even if not in use. A new battery’s full performance is achieved only\nafter three complete charge and discharge cycles. The iCube II battery can be charged several hundred\ntimes. If the operating time of your iCube II reduces\nsubstantially, please contact your local Phonak\nrepresentative. --- Page 10 ---\n4. Getting started\n4.3 Operating time\nFully charged, your iCube II will operate for up to twelve\nhours of continuous fitting. 4.4 Switching iCube II on and off\nSlide the switch as\nshown to switch iCube II\non or off. Off           On\nOnce iCube II is fully operational, the middle\nindicator light will blink slowly. Switch iCube II off when not in use and while\ncharging. The middle indicator light will stop\nblinking. 4.5 Target fitting software requirements\nBefore using iCube II , ensure that Phonak Target™ 4.0\nor a later version is installed on the fitting PC. --- Page 11 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 4. Getting started\nPages: 7–11\n\n4.1 Setting up the power supply\nSelect the adapter for your country. US EU\n1. 1. Insert the top round end of the\nadapter into the round corner\nof the power supply. 2. Click the tail of the adapter in\n2. to lock it into place. 1. To remove, pull back the tab on\nthe power supply. 2. Pull the adapter upwards to\nremove it. 2. 1. --- Page 8 ---\n4. Getting started\n4.2 Charging the battery\nPlug a mini-USB plug into the\niCube II and plug the power\nsupply into a power outlet. If you use the iCube II desktop stand,\ninstall it as shown below. It is recommended to charge iCube II whenever it is\nnot in use. This way it will be sufficiently charged and\nready for the next fitting session. --- Page 9 ---\niCube II desktop stand is available as an option\nBattery notes\nWhen charging iCube II for the first time, leave it\nto charge for at least three hours (even if the middle\nindicator light changes to green color earlier). Charging a depleted battery will take approx. 2 hours. It is safe to leave iCube II connected for longer\nperiods, even if not in use. A new battery’s full performance is achieved only\nafter three complete charge and discharge cycles. The iCube II battery can be charged several hundred\ntimes. If the operating time of your iCube II reduces\nsubstantially, please contact your local Phonak\nrepresentative. --- Page 10 ---\n4. Getting started\n4.3 Operating time\nFully charged, your iCube II will operate for up to twelve\nhours of continuous fitting. 4.4 Switching iCube II on and off\nSlide the switch as\nshown to switch iCube II\non or off. Off           On\nOnce iCube II is fully operational, the middle\nindicator light will blink slowly. Switch iCube II off when not in use and while\ncharging. The middle indicator light will stop\nblinking. 4.5 Target fitting software requirements\nBefore using iCube II , ensure that Phonak Target™ 4.0\nor a later version is installed on the fitting PC. --- Page 11 ---",
+    "page_start": 7,
+    "page_end": 11,
+    "tables": [],
+    "figures": [],
+    "token_count": 469,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "4a7d0c35-0573-46c1-ba77-0c1bb7f82f52",
+      "previous_chunk_id": "7a51a225-469c-4898-b61e-395bf153c045",
+      "next_chunk_id": "4a7d0c35-0573-46c1-ba77-0c1bb7f82f52"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "4a7d0c35-0573-46c1-ba77-0c1bb7f82f52",
+    "chunk_index": 6,
+    "section": "4. Getting started",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "4. Getting started",
+    "content": "4.1 Setting up the power supply\nSelect the adapter for your country.\nUS EU\n1.\n1.\tInsert the top round end of the\nadapter into the round corner\nof the power supply.\n2.\tClick the tail of the adapter in\n2.\nto lock it into place.\n1.\tTo remove, pull back the tab on\nthe power supply.\n2.\tPull the adapter upwards to\nremove it.\n2.\n1.\n--- Page 8 ---\n4. Getting started\n4.2 Charging the battery\nPlug a mini-USB plug into the\niCube II and plug the power\nsupply into a power outlet.\nIf you use the iCube II desktop stand,\ninstall it as shown below.\nIt is recommended to charge iCube II whenever it is\nnot in use. This way it will be sufficiently charged and\nready for the next fitting session.\n--- Page 9 ---\niCube II desktop stand is available as an option\nBattery notes\nWhen charging iCube II for the first time, leave it\nto charge for at least three hours (even if the middle\nindicator light changes to green color earlier).\nCharging a depleted battery will take approx. 2 hours.\nIt is safe to leave iCube II connected for longer\nperiods, even if not in use.\nA new battery’s full performance is achieved only\nafter three complete charge and discharge cycles.\nThe iCube II battery can be charged several hundred\ntimes. If the operating time of your iCube II reduces\nsubstantially, please contact your local Phonak\nrepresentative.\n--- Page 10 ---\n4. Getting started\n4.3 Operating time\nFully charged, your iCube II will operate for up to twelve\nhours of continuous fitting.\n4.4 Switching iCube II on and off\nSlide the switch as\nshown to switch iCube II\non or off.\nOff           On\nOnce iCube II is fully operational, the middle\nindicator light will blink slowly.\nSwitch iCube II off when not in use and while\ncharging. The middle indicator light will stop\nblinking.\n4.5 Target fitting software requirements\nBefore using iCube II , ensure that Phonak Target™ 4.0\nor a later version is installed on the fitting PC.\n--- Page 11 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 4. Getting started\nPages: 7–11\n\n4.1 Setting up the power supply\nSelect the adapter for your country.\nUS EU\n1.\n1.\tInsert the top round end of the\nadapter into the round corner\nof the power supply.\n2.\tClick the tail of the adapter in\n2.\nto lock it into place.\n1.\tTo remove, pull back the tab on\nthe power supply.\n2.\tPull the adapter upwards to\nremove it.\n2.\n1.\n--- Page 8 ---\n4. Getting started\n4.2 Charging the battery\nPlug a mini-USB plug into the\niCube II and plug the power\nsupply into a power outlet.\nIf you use the iCube II desktop stand,\ninstall it as shown below.\nIt is recommended to charge iCube II whenever it is\nnot in use. This way it will be sufficiently charged and\nready for the next fitting session.\n--- Page 9 ---\niCube II desktop stand is available as an option\nBattery notes\nWhen charging iCube II for the first time, leave it\nto charge for at least three hours (even if the middle\nindicator light changes to green color earlier).\nCharging a depleted battery will take approx. 2 hours.\nIt is safe to leave iCube II connected for longer\nperiods, even if not in use.\nA new battery’s full performance is achieved only\nafter three complete charge and discharge cycles.\nThe iCube II battery can be charged several hundred\ntimes. If the operating time of your iCube II reduces\nsubstantially, please contact your local Phonak\nrepresentative.\n--- Page 10 ---\n4. Getting started\n4.3 Operating time\nFully charged, your iCube II will operate for up to twelve\nhours of continuous fitting.\n4.4 Switching iCube II on and off\nSlide the switch as\nshown to switch iCube II\non or off.\nOff           On\nOnce iCube II is fully operational, the middle\nindicator light will blink slowly.\nSwitch iCube II off when not in use and while\ncharging. The middle indicator light will stop\nblinking.\n4.5 Target fitting software requirements\nBefore using iCube II , ensure that Phonak Target™ 4.0\nor a later version is installed on the fitting PC.\n--- Page 11 ---",
+    "page_start": 7,
+    "page_end": 11,
+    "tables": [],
+    "figures": [],
+    "token_count": 474,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "iCube II",
+        "4. Getting started"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "f343407f-6e18-4151-83d5-ff60cb31f3e0",
+      "next_chunk_id": "c5a71db1-a371-4d91-b005-2e7f84f01703"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "c5a71db1-a371-4d91-b005-2e7f84f01703",
+    "chunk_index": 0,
+    "section": "5. Connecting iCube II to your computer",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "5. Connecting iCube II to your computer (part 1)",
+    "content": "iCube II is shipped with a pre-paired wireless\nUSB adapter to ensure a quick and easy\nset-up of the wireless connection with your\nfitting PC. iCube II may also be connected with any Bluetooth\ncapable PC if a USB socket is not available at all or via a\nUSB cable if a wireless connection is not possible. 5.1 Connecting wirelessly\nAutomatic connection\nTo connect iCube II with the fitting PC make sure\nthat Phonak Target 4.0 and newer is installed. Plug the\nUSB adapter into a free USB port on your fitting PC. Make sure the USB adapter is plugged in a USB\nport on the fitting PC. Do not use a USB extension\ncable to connect it. --- Page 12 ---\n5. Connecting iCube II to your computer\nSwitch iCube II on and the connection will be\nestablished automatically as soon as Phonak Target is\nstarted. The USB adapter is pre-paired with iCube II . After\nreplacement of either the adapter or iCube II ,\na manual pairing is required as described below. Manual pairing\nSwitch iCube II on and press the pairing button\nfor 2 seconds to start the pairing mode. When in pairing mode, all indicator lights will rapidly\nblink back and forth. In Phonak Target, go to Settings ,\nselect Fitting device and check Enable iCube II . Go to iCube II via USB adapter and start the Pairing\nassistant . It will guide you through the pairing process. A manual pairing is also required after a reset to\nfactory settings. --- Page 13 ---\n5.2 Connecting via USB cable\nTo connect iCube II via USB cable,\ninsert the mini-USB plug into\niCube II and the other end into a\nfree USB port on the fitting PC. Phonak Target 4.0 or newer will\nautomatically detect iCube II and\nit can be selected as the fitting\ndevice. Use the optional USB hub if there are no free USB\nports on your computer. --- Page 14 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 5. Connecting iCube II to your computer\nPages: 11–14\n\niCube II is shipped with a pre-paired wireless\nUSB adapter to ensure a quick and easy\nset-up of the wireless connection with your\nfitting PC. iCube II may also be connected with any Bluetooth\ncapable PC if a USB socket is not available at all or via a\nUSB cable if a wireless connection is not possible. 5.1 Connecting wirelessly\nAutomatic connection\nTo connect iCube II with the fitting PC make sure\nthat Phonak Target 4.0 and newer is installed. Plug the\nUSB adapter into a free USB port on your fitting PC. Make sure the USB adapter is plugged in a USB\nport on the fitting PC. Do not use a USB extension\ncable to connect it. --- Page 12 ---\n5. Connecting iCube II to your computer\nSwitch iCube II on and the connection will be\nestablished automatically as soon as Phonak Target is\nstarted. The USB adapter is pre-paired with iCube II . After\nreplacement of either the adapter or iCube II ,\na manual pairing is required as described below. Manual pairing\nSwitch iCube II on and press the pairing button\nfor 2 seconds to start the pairing mode. When in pairing mode, all indicator lights will rapidly\nblink back and forth. In Phonak Target, go to Settings ,\nselect Fitting device and check Enable iCube II . Go to iCube II via USB adapter and start the Pairing\nassistant . It will guide you through the pairing process. A manual pairing is also required after a reset to\nfactory settings. --- Page 13 ---\n5.2 Connecting via USB cable\nTo connect iCube II via USB cable,\ninsert the mini-USB plug into\niCube II and the other end into a\nfree USB port on the fitting PC. Phonak Target 4.0 or newer will\nautomatically detect iCube II and\nit can be selected as the fitting\ndevice. Use the optional USB hub if there are no free USB\nports on your computer. --- Page 14 ---",
+    "page_start": 11,
+    "page_end": 14,
+    "tables": [],
+    "figures": [],
+    "token_count": 422,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "0343869c-0309-479c-8502-f57e5922206a",
+      "previous_chunk_id": "4a7d0c35-0573-46c1-ba77-0c1bb7f82f52",
+      "next_chunk_id": "0343869c-0309-479c-8502-f57e5922206a"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "0343869c-0309-479c-8502-f57e5922206a",
+    "chunk_index": 7,
+    "section": "5. Connecting iCube II to your computer",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "5. Connecting iCube II to your computer",
+    "content": "iCube II is shipped with a pre-paired wireless\nUSB adapter to ensure a quick and easy\nset-up of the wireless connection with your\nfitting PC.\niCube II may also be connected with any Bluetooth\ncapable PC if a USB socket is not available at all or via a\nUSB cable if a wireless connection is not possible.\n5.1 Connecting wirelessly\nAutomatic connection\nTo connect iCube II with the fitting PC make sure\nthat Phonak Target 4.0 and newer is installed. Plug the\nUSB adapter into a free USB port on your fitting PC.\nMake sure the USB adapter is plugged in a USB\nport on the fitting PC. Do not use a USB extension\ncable to connect it.\n--- Page 12 ---\n5. Connecting iCube II to your computer\nSwitch iCube II on and the connection will be\nestablished automatically as soon as Phonak Target is\nstarted.\nThe USB adapter is pre-paired with iCube II . After\nreplacement of either the adapter or iCube II ,\na manual pairing is required as described below.\nManual pairing\nSwitch iCube II on and press the pairing button\nfor 2 seconds to start the pairing mode.\nWhen in pairing mode, all indicator lights will rapidly\nblink back and forth. In Phonak Target, go to Settings ,\nselect Fitting device and check Enable iCube II .\nGo to iCube II via USB adapter and start the Pairing\nassistant . It will guide you through the pairing process.\nA manual pairing is also required after a reset to\nfactory settings.\n--- Page 13 ---\n5.2 Connecting via USB cable\nTo connect iCube II via USB cable,\ninsert the mini-USB plug into\niCube II and the other end into a\nfree USB port on the fitting PC.\nPhonak Target 4.0 or newer will\nautomatically detect iCube II and\nit can be selected as the fitting\ndevice.\nUse the optional USB hub if there are no free USB\nports on your computer.\n--- Page 14 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 5. Connecting iCube II to your computer\nPages: 11–14\n\niCube II is shipped with a pre-paired wireless\nUSB adapter to ensure a quick and easy\nset-up of the wireless connection with your\nfitting PC.\niCube II may also be connected with any Bluetooth\ncapable PC if a USB socket is not available at all or via a\nUSB cable if a wireless connection is not possible.\n5.1 Connecting wirelessly\nAutomatic connection\nTo connect iCube II with the fitting PC make sure\nthat Phonak Target 4.0 and newer is installed. Plug the\nUSB adapter into a free USB port on your fitting PC.\nMake sure the USB adapter is plugged in a USB\nport on the fitting PC. Do not use a USB extension\ncable to connect it.\n--- Page 12 ---\n5. Connecting iCube II to your computer\nSwitch iCube II on and the connection will be\nestablished automatically as soon as Phonak Target is\nstarted.\nThe USB adapter is pre-paired with iCube II . After\nreplacement of either the adapter or iCube II ,\na manual pairing is required as described below.\nManual pairing\nSwitch iCube II on and press the pairing button\nfor 2 seconds to start the pairing mode.\nWhen in pairing mode, all indicator lights will rapidly\nblink back and forth. In Phonak Target, go to Settings ,\nselect Fitting device and check Enable iCube II .\nGo to iCube II via USB adapter and start the Pairing\nassistant . It will guide you through the pairing process.\nA manual pairing is also required after a reset to\nfactory settings.\n--- Page 13 ---\n5.2 Connecting via USB cable\nTo connect iCube II via USB cable,\ninsert the mini-USB plug into\niCube II and the other end into a\nfree USB port on the fitting PC.\nPhonak Target 4.0 or newer will\nautomatically detect iCube II and\nit can be selected as the fitting\ndevice.\nUse the optional USB hub if there are no free USB\nports on your computer.\n--- Page 14 ---",
+    "page_start": 11,
+    "page_end": 14,
+    "tables": [],
+    "figures": [],
+    "token_count": 422,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "iCube II",
+        "5. Connecting iCube II to your computer"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "c5a71db1-a371-4d91-b005-2e7f84f01703",
+      "next_chunk_id": "2b86cfe4-f354-4713-b7cb-4108974ad5c5"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "2b86cfe4-f354-4713-b7cb-4108974ad5c5",
+    "chunk_index": 0,
+    "section": "6. Using iCube II",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "6. Using iCube II (part 1)",
+    "content": "Before using iCube II , make sure the battery is\nsufficiently charged. If the middle indicator light is\norange, please charge iCube II . Make sure that iCube II is selected and shown as the\nfitting device in Phonak Target. 6.1 Wearing iCube II\nMake sure both ends of the\nneckloop are firmly plugged\ninto the iCube II . Open the neckloop by\nunplugging the connector\nin the middle of the\nneckloop and place\niCube II around your\nclient’s neck. Close the neckloop to allow the built-in antenna to\noperate correctly. --- Page 15 ---\n6.2\tDetecting and programming hearing instruments\nFor a wireless fitting, the assignment of the left/right\nhearing aid is done in Phonak Target. Make sure that\niCube II is selected as fitting device and click Connect . The detected devices will be shown to assign (or reassign)\neach hearing instrument to the desired side (left or right). Click Continue . Follow the instructions on the screen to finish the\ndetection. --- Page 16 ---\n6. Using iCube II\n6.3\tProgramming hearing instruments on your desk\nIf you need to program hearing instruments outside\nof the client’s ears (e.g. to prepare the hearing\ninstuments before a fitting\nsession), place the hearing\ninstruments on a flat\nsurface and put the\nneckloop of iCube II\naround them as shown\nin the picture. --- Page 17 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 6. Using iCube II\nPages: 14–17\n\nBefore using iCube II , make sure the battery is\nsufficiently charged. If the middle indicator light is\norange, please charge iCube II . Make sure that iCube II is selected and shown as the\nfitting device in Phonak Target. 6.1 Wearing iCube II\nMake sure both ends of the\nneckloop are firmly plugged\ninto the iCube II . Open the neckloop by\nunplugging the connector\nin the middle of the\nneckloop and place\niCube II around your\nclient’s neck. Close the neckloop to allow the built-in antenna to\noperate correctly. --- Page 15 ---\n6.2\tDetecting and programming hearing instruments\nFor a wireless fitting, the assignment of the left/right\nhearing aid is done in Phonak Target. Make sure that\niCube II is selected as fitting device and click Connect . The detected devices will be shown to assign (or reassign)\neach hearing instrument to the desired side (left or right). Click Continue . Follow the instructions on the screen to finish the\ndetection. --- Page 16 ---\n6. Using iCube II\n6.3\tProgramming hearing instruments on your desk\nIf you need to program hearing instruments outside\nof the client’s ears (e.g. to prepare the hearing\ninstuments before a fitting\nsession), place the hearing\ninstruments on a flat\nsurface and put the\nneckloop of iCube II\naround them as shown\nin the picture. --- Page 17 ---",
+    "page_start": 14,
+    "page_end": 17,
+    "tables": [],
+    "figures": [],
+    "token_count": 314,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "d435b4f4-b1b5-4ebb-a65f-2209953098d3",
+      "previous_chunk_id": "0343869c-0309-479c-8502-f57e5922206a",
+      "next_chunk_id": "d435b4f4-b1b5-4ebb-a65f-2209953098d3"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "d435b4f4-b1b5-4ebb-a65f-2209953098d3",
+    "chunk_index": 8,
+    "section": "6. Using iCube II",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "6. Using iCube II",
+    "content": "Before using iCube II , make sure the battery is\nsufficiently charged. If the middle indicator light is\norange, please charge iCube II .\nMake sure that iCube II is selected and shown as the\nfitting device in Phonak Target.\n6.1 Wearing iCube II\nMake sure both ends of the\nneckloop are firmly plugged\ninto the iCube II .\nOpen the neckloop by\nunplugging the connector\nin the middle of the\nneckloop and place\niCube II around your\nclient’s neck.\nClose the neckloop to allow the built-in antenna to\noperate correctly.\n--- Page 15 ---\n6.2\tDetecting and programming hearing instruments\nFor a wireless fitting, the assignment of the left/right\nhearing aid is done in Phonak Target. Make sure that\niCube II is selected as fitting device and click Connect .\nThe detected devices will be shown to assign (or reassign)\neach hearing instrument to the desired side (left or right).\nClick Continue .\nFollow the instructions on the screen to finish the\ndetection.\n--- Page 16 ---\n6. Using iCube II\n6.3\tProgramming hearing instruments on your desk\nIf you need to program hearing instruments outside\nof the client’s ears (e.g. to prepare the hearing\ninstuments before a fitting\nsession), place the hearing\ninstruments on a flat\nsurface and put the\nneckloop of iCube II\naround them as shown\nin the picture.\n--- Page 17 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 6. Using iCube II\nPages: 14–17\n\nBefore using iCube II , make sure the battery is\nsufficiently charged. If the middle indicator light is\norange, please charge iCube II .\nMake sure that iCube II is selected and shown as the\nfitting device in Phonak Target.\n6.1 Wearing iCube II\nMake sure both ends of the\nneckloop are firmly plugged\ninto the iCube II .\nOpen the neckloop by\nunplugging the connector\nin the middle of the\nneckloop and place\niCube II around your\nclient’s neck.\nClose the neckloop to allow the built-in antenna to\noperate correctly.\n--- Page 15 ---\n6.2\tDetecting and programming hearing instruments\nFor a wireless fitting, the assignment of the left/right\nhearing aid is done in Phonak Target. Make sure that\niCube II is selected as fitting device and click Connect .\nThe detected devices will be shown to assign (or reassign)\neach hearing instrument to the desired side (left or right).\nClick Continue .\nFollow the instructions on the screen to finish the\ndetection.\n--- Page 16 ---\n6. Using iCube II\n6.3\tProgramming hearing instruments on your desk\nIf you need to program hearing instruments outside\nof the client’s ears (e.g. to prepare the hearing\ninstuments before a fitting\nsession), place the hearing\ninstruments on a flat\nsurface and put the\nneckloop of iCube II\naround them as shown\nin the picture.\n--- Page 17 ---",
+    "page_start": 14,
+    "page_end": 17,
+    "tables": [],
+    "figures": [],
+    "token_count": 314,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "iCube II",
+        "6. Using iCube II"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "2b86cfe4-f354-4713-b7cb-4108974ad5c5",
+      "next_chunk_id": "fabc7782-2808-4e9c-a72f-df871afe2c70"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "fabc7782-2808-4e9c-a72f-df871afe2c70",
+    "chunk_index": 0,
+    "section": "7. Indicator lights",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "7. Indicator lights (part 1)",
+    "content": "There are 3 indicator lights on iCube II for an easy\nindication of the battery, connection and fitting status. Middle indicator Charging\nremains solid\norange\nMiddle indicator Charging\nremains solid complete\ngreen\nMiddle indicator iCube II\n2 sec\nis solid green starting up\nfor 2 s\nMiddle indicator iCube II\n3 x\nslowly blinking switching off\n3 times\n--- Page 18 ---\n7. Indicator lights\nMiddle indicator On, no active\nslowly blinking connection to\nfitting PC\nMiddle indicator\nActive connection\nregularly blinking\nto fitting PC\nRight and\nProgramming\nmiddle indicator\nright hearing\nrapidly blinking\ninstrument\nLeft and\nProgramming\nmiddle indicator\nleft hearing\nRight PC Left\nrapidly blinking\ninstrument\nAll indicators\nPairing mode\nrapidly blinking\nenabled\nback and forth\nAll three indicators\nUpdating\nrapidly blinking\nfirmware on\n--- Page 19 ---\n|  |  |  |\n|---|---|---|\n|  |  |  |\n| The middle indicator light will change to orange\ncolor when the battery gets low. Make sure to\ncharge iCube II after the fitting session. | None | None |\n|  | None | None |\n| Phonak Target will display a notification when a\nnew firmware version for iCube II is available. | None | None |\n| Middle indicator Malfunction,\nremains solid red please refer to\ntroubleshooting\nsection | None | None |\nThe middle indicator light will change to orange\ncolor when the battery gets low. Make sure to\ncharge iCube II after the fitting session. Phonak Target will display a notification when a\nnew firmware version for iCube II is available. Middle indicator Malfunction,\nremains solid red please refer to\ntroubleshooting\nsection\n--- Page 20 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 7. Indicator lights\nPages: 17–20\n\nThere are 3 indicator lights on iCube II for an easy\nindication of the battery, connection and fitting status. Middle indicator Charging\nremains solid\norange\nMiddle indicator Charging\nremains solid complete\ngreen\nMiddle indicator iCube II\n2 sec\nis solid green starting up\nfor 2 s\nMiddle indicator iCube II\n3 x\nslowly blinking switching off\n3 times\n--- Page 18 ---\n7. Indicator lights\nMiddle indicator On, no active\nslowly blinking connection to\nfitting PC\nMiddle indicator\nActive connection\nregularly blinking\nto fitting PC\nRight and\nProgramming\nmiddle indicator\nright hearing\nrapidly blinking\ninstrument\nLeft and\nProgramming\nmiddle indicator\nleft hearing\nRight PC Left\nrapidly blinking\ninstrument\nAll indicators\nPairing mode\nrapidly blinking\nenabled\nback and forth\nAll three indicators\nUpdating\nrapidly blinking\nfirmware on\n--- Page 19 ---\n|  |  |  |\n|---|---|---|\n|  |  |  |\n| The middle indicator light will change to orange\ncolor when the battery gets low. Make sure to\ncharge iCube II after the fitting session. | None | None |\n|  | None | None |\n| Phonak Target will display a notification when a\nnew firmware version for iCube II is available. | None | None |\n| Middle indicator Malfunction,\nremains solid red please refer to\ntroubleshooting\nsection | None | None |\nThe middle indicator light will change to orange\ncolor when the battery gets low. Make sure to\ncharge iCube II after the fitting session. Phonak Target will display a notification when a\nnew firmware version for iCube II is available. Middle indicator Malfunction,\nremains solid red please refer to\ntroubleshooting\nsection\n--- Page 20 ---",
+    "page_start": 17,
+    "page_end": 20,
+    "tables": [
+      {
+        "headers": [
+          "",
+          "",
+          ""
+        ],
+        "rows": [
+          [
+            "",
+            "",
+            ""
+          ],
+          [
+            "The middle indicator light will change to orange\ncolor when the battery gets low. Make sure to\ncharge iCube II after the fitting session.",
+            "None",
+            "None"
+          ],
+          [
+            "",
+            "None",
+            "None"
+          ],
+          [
+            "Phonak Target will display a notification when a\nnew firmware version for iCube II is available.",
+            "None",
+            "None"
+          ],
+          [
+            "Middle indicator Malfunction,\nremains solid red please refer to\ntroubleshooting\nsection",
+            "None",
+            "None"
+          ]
+        ],
+        "caption": null,
+        "page": 19,
+        "note": null
+      }
+    ],
+    "figures": [],
+    "token_count": 390,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "305bb3eb-07ec-4725-afef-5925e910acfb",
+      "previous_chunk_id": "d435b4f4-b1b5-4ebb-a65f-2209953098d3",
+      "next_chunk_id": "305bb3eb-07ec-4725-afef-5925e910acfb"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "305bb3eb-07ec-4725-afef-5925e910acfb",
+    "chunk_index": 9,
+    "section": "7. Indicator lights",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "7. Indicator lights",
+    "content": "There are 3 indicator lights on iCube II for an easy\nindication of the battery, connection and fitting status.\nMiddle indicator Charging\nremains solid\norange\nMiddle indicator Charging\nremains solid complete\ngreen\nMiddle indicator iCube II\n2 sec\nis solid green starting up\nfor 2 s\nMiddle indicator iCube II\n3 x\nslowly blinking switching off\n3 times\n--- Page 18 ---\n7. Indicator lights\nMiddle indicator On, no active\nslowly blinking connection to\nfitting PC\nMiddle indicator\nActive connection\nregularly blinking\nto fitting PC\nRight and\nProgramming\nmiddle indicator\nright hearing\nrapidly blinking\ninstrument\nLeft and\nProgramming\nmiddle indicator\nleft hearing\nRight PC Left\nrapidly blinking\ninstrument\nAll indicators\nPairing mode\nrapidly blinking\nenabled\nback and forth\nAll three indicators\nUpdating\nrapidly blinking\nfirmware on\n--- Page 19 ---\n|  |  |  |\n|---|---|---|\n|  |  |  |\n| The middle indicator light will change to orange\ncolor when the battery gets low. Make sure to\ncharge iCube II after the fitting session. | None | None |\n|  | None | None |\n| Phonak Target will display a notification when a\nnew firmware version for iCube II is available. | None | None |\n| Middle indicator Malfunction,\nremains solid red please refer to\ntroubleshooting\nsection | None | None |\nThe middle indicator light will change to orange\ncolor when the battery gets low. Make sure to\ncharge iCube II after the fitting session.\nPhonak Target will display a notification when a\nnew firmware version for iCube II is available.\nMiddle indicator Malfunction,\nremains solid red please refer to\ntroubleshooting\nsection\n--- Page 20 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 7. Indicator lights\nPages: 17–20\n\nThere are 3 indicator lights on iCube II for an easy\nindication of the battery, connection and fitting status.\nMiddle indicator Charging\nremains solid\norange\nMiddle indicator Charging\nremains solid complete\ngreen\nMiddle indicator iCube II\n2 sec\nis solid green starting up\nfor 2 s\nMiddle indicator iCube II\n3 x\nslowly blinking switching off\n3 times\n--- Page 18 ---\n7. Indicator lights\nMiddle indicator On, no active\nslowly blinking connection to\nfitting PC\nMiddle indicator\nActive connection\nregularly blinking\nto fitting PC\nRight and\nProgramming\nmiddle indicator\nright hearing\nrapidly blinking\ninstrument\nLeft and\nProgramming\nmiddle indicator\nleft hearing\nRight PC Left\nrapidly blinking\ninstrument\nAll indicators\nPairing mode\nrapidly blinking\nenabled\nback and forth\nAll three indicators\nUpdating\nrapidly blinking\nfirmware on\n--- Page 19 ---\n|  |  |  |\n|---|---|---|\n|  |  |  |\n| The middle indicator light will change to orange\ncolor when the battery gets low. Make sure to\ncharge iCube II after the fitting session. | None | None |\n|  | None | None |\n| Phonak Target will display a notification when a\nnew firmware version for iCube II is available. | None | None |\n| Middle indicator Malfunction,\nremains solid red please refer to\ntroubleshooting\nsection | None | None |\nThe middle indicator light will change to orange\ncolor when the battery gets low. Make sure to\ncharge iCube II after the fitting session.\nPhonak Target will display a notification when a\nnew firmware version for iCube II is available.\nMiddle indicator Malfunction,\nremains solid red please refer to\ntroubleshooting\nsection\n--- Page 20 ---",
+    "page_start": 17,
+    "page_end": 20,
+    "tables": [
+      {
+        "headers": [
+          "",
+          "",
+          ""
+        ],
+        "rows": [
+          [
+            "",
+            "",
+            ""
+          ],
+          [
+            "The middle indicator light will change to orange\ncolor when the battery gets low. Make sure to\ncharge iCube II after the fitting session.",
+            "None",
+            "None"
+          ],
+          [
+            "",
+            "None",
+            "None"
+          ],
+          [
+            "Phonak Target will display a notification when a\nnew firmware version for iCube II is available.",
+            "None",
+            "None"
+          ],
+          [
+            "Middle indicator Malfunction,\nremains solid red please refer to\ntroubleshooting\nsection",
+            "None",
+            "None"
+          ]
+        ],
+        "caption": null,
+        "page": 19,
+        "note": null
+      }
+    ],
+    "figures": [],
+    "token_count": 390,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "iCube II",
+        "7. Indicator lights"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "fabc7782-2808-4e9c-a72f-df871afe2c70",
+      "next_chunk_id": "8567d86d-ea30-416b-bf65-03d26ad8f324"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "8567d86d-ea30-416b-bf65-03d26ad8f324",
+    "chunk_index": 0,
+    "section": "8. Troubleshooting",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "8. Troubleshooting (part 1)",
+    "content": "Causes What to do\n| iCube II is no longer recognized\npreviously paired. | by the computer to which it was |\n|---|---|\n| iCube II is no longer recognized\npreviously paired. | by the computer to which it was |\niCube II is no longer recognized by the computer to which it was\npreviously paired. J Plug in the iCube II USB\nJ The iCube II USB adapter is\nadapter. disconnected from the fitting\ncomputer. J Move iCube II closer to your\nJ iCube II is out of range. computer. | iCube II turns off. |  |\n|---|---|\n| iCube II turns off. |  |\niCube II turns off. J Charge iCube II . J The battery is empty. | iCube II is unresponsive and the | middle indicator is lit solid red. |\n|---|---|\n| iCube II is unresponsive and the | middle indicator is lit solid red. |\niCube II is unresponsive and the middle indicator is lit solid red. J Switch iCube II off and\nJ This may indicate a\nwait for 20 seconds before\nmalfunction. switching on again. J If iCube II is connected to the\nfitting PC via cable, disconnect\nit from the cable and perform\nreboot as described above. --- Page 21 ---\nCauses What to do\n| A second or different iCube II ca\nfitting PC. | nnot be connected to the |\n|---|---|\n| A second or different iCube II ca\nfitting PC. | nnot be connected to the |\nA second or different iCube II cannot be connected to the\nfitting PC. J If you use the USB adapter,\nJ Only one iCube II can be\npress the pairing button on\npaired with the fitting PC. iCube II to connect it with\nyour computer. J If you do not use the USB\nadapter, make sure your\nBluetooth device is switched\non and in pairing mode to\nestablish the connection. --- Page 22 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 8. Troubleshooting\nPages: 20–22\n\nCauses What to do\n| iCube II is no longer recognized\npreviously paired. | by the computer to which it was |\n|---|---|\n| iCube II is no longer recognized\npreviously paired. | by the computer to which it was |\niCube II is no longer recognized by the computer to which it was\npreviously paired. J Plug in the iCube II USB\nJ The iCube II USB adapter is\nadapter. disconnected from the fitting\ncomputer. J Move iCube II closer to your\nJ iCube II is out of range. computer. | iCube II turns off. |  |\n|---|---|\n| iCube II turns off. |  |\niCube II turns off. J Charge iCube II . J The battery is empty. | iCube II is unresponsive and the | middle indicator is lit solid red. |\n|---|---|\n| iCube II is unresponsive and the | middle indicator is lit solid red. |\niCube II is unresponsive and the middle indicator is lit solid red. J Switch iCube II off and\nJ This may indicate a\nwait for 20 seconds before\nmalfunction. switching on again. J If iCube II is connected to the\nfitting PC via cable, disconnect\nit from the cable and perform\nreboot as described above. --- Page 21 ---\nCauses What to do\n| A second or different iCube II ca\nfitting PC. | nnot be connected to the |\n|---|---|\n| A second or different iCube II ca\nfitting PC. | nnot be connected to the |\nA second or different iCube II cannot be connected to the\nfitting PC. J If you use the USB adapter,\nJ Only one iCube II can be\npress the pairing button on\npaired with the fitting PC. iCube II to connect it with\nyour computer. J If you do not use the USB\nadapter, make sure your\nBluetooth device is switched\non and in pairing mode to\nestablish the connection. --- Page 22 ---",
+    "page_start": 20,
+    "page_end": 22,
+    "tables": [
+      {
+        "headers": [
+          "iCube II is no longer recognized\npreviously paired.",
+          "by the computer to which it was"
+        ],
+        "rows": [
+          [
+            "iCube II is no longer recognized\npreviously paired.",
+            "by the computer to which it was"
+          ]
+        ],
+        "caption": null,
+        "page": 20,
+        "note": null
+      },
+      {
+        "headers": [
+          "iCube II turns off.",
+          ""
+        ],
+        "rows": [
+          [
+            "iCube II turns off.",
+            ""
+          ]
+        ],
+        "caption": null,
+        "page": 20,
+        "note": null
+      },
+      {
+        "headers": [
+          "iCube II is unresponsive and the",
+          "middle indicator is lit solid red."
+        ],
+        "rows": [
+          [
+            "iCube II is unresponsive and the",
+            "middle indicator is lit solid red."
+          ]
+        ],
+        "caption": null,
+        "page": 20,
+        "note": null
+      },
+      {
+        "headers": [
+          "A second or different iCube II ca\nfitting PC.",
+          "nnot be connected to the"
+        ],
+        "rows": [
+          [
+            "A second or different iCube II ca\nfitting PC.",
+            "nnot be connected to the"
+          ]
+        ],
+        "caption": null,
+        "page": 21,
+        "note": null
+      }
+    ],
+    "figures": [],
+    "token_count": 434,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "f5745682-0d38-40dd-9f43-c952687c3de0",
+      "previous_chunk_id": "305bb3eb-07ec-4725-afef-5925e910acfb",
+      "next_chunk_id": "f5745682-0d38-40dd-9f43-c952687c3de0"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "f5745682-0d38-40dd-9f43-c952687c3de0",
+    "chunk_index": 10,
+    "section": "8. Troubleshooting",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "8. Troubleshooting",
+    "content": "Causes What to do\n| iCube II is no longer recognized\npreviously paired. | by the computer to which it was |\n|---|---|\n| iCube II is no longer recognized\npreviously paired. | by the computer to which it was |\niCube II is no longer recognized by the computer to which it was\npreviously paired.\nJ Plug in the iCube II USB\nJ The iCube II USB adapter is\nadapter.\ndisconnected from the fitting\ncomputer.\nJ Move iCube II closer to your\nJ iCube II is out of range.\ncomputer.\n| iCube II turns off. |  |\n|---|---|\n| iCube II turns off. |  |\niCube II turns off.\nJ Charge iCube II .\nJ The battery is empty.\n| iCube II is unresponsive and the | middle indicator is lit solid red. |\n|---|---|\n| iCube II is unresponsive and the | middle indicator is lit solid red. |\niCube II is unresponsive and the middle indicator is lit solid red.\nJ Switch iCube II off and\nJ This may indicate a\nwait for 20 seconds before\nmalfunction.\nswitching on again.\nJ If iCube II is connected to the\nfitting PC via cable, disconnect\nit from the cable and perform\nreboot as described above.\n--- Page 21 ---\nCauses What to do\n| A second or different iCube II ca\nfitting PC. | nnot be connected to the |\n|---|---|\n| A second or different iCube II ca\nfitting PC. | nnot be connected to the |\nA second or different iCube II cannot be connected to the\nfitting PC.\nJ If you use the USB adapter,\nJ Only one iCube II can be\npress the pairing button on\npaired with the fitting PC.\niCube II to connect it with\nyour computer.\nJ If you do not use the USB\nadapter, make sure your\nBluetooth device is switched\non and in pairing mode to\nestablish the connection.\n--- Page 22 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 8. Troubleshooting\nPages: 20–22\n\nCauses What to do\n| iCube II is no longer recognized\npreviously paired. | by the computer to which it was |\n|---|---|\n| iCube II is no longer recognized\npreviously paired. | by the computer to which it was |\niCube II is no longer recognized by the computer to which it was\npreviously paired.\nJ Plug in the iCube II USB\nJ The iCube II USB adapter is\nadapter.\ndisconnected from the fitting\ncomputer.\nJ Move iCube II closer to your\nJ iCube II is out of range.\ncomputer.\n| iCube II turns off. |  |\n|---|---|\n| iCube II turns off. |  |\niCube II turns off.\nJ Charge iCube II .\nJ The battery is empty.\n| iCube II is unresponsive and the | middle indicator is lit solid red. |\n|---|---|\n| iCube II is unresponsive and the | middle indicator is lit solid red. |\niCube II is unresponsive and the middle indicator is lit solid red.\nJ Switch iCube II off and\nJ This may indicate a\nwait for 20 seconds before\nmalfunction.\nswitching on again.\nJ If iCube II is connected to the\nfitting PC via cable, disconnect\nit from the cable and perform\nreboot as described above.\n--- Page 21 ---\nCauses What to do\n| A second or different iCube II ca\nfitting PC. | nnot be connected to the |\n|---|---|\n| A second or different iCube II ca\nfitting PC. | nnot be connected to the |\nA second or different iCube II cannot be connected to the\nfitting PC.\nJ If you use the USB adapter,\nJ Only one iCube II can be\npress the pairing button on\npaired with the fitting PC.\niCube II to connect it with\nyour computer.\nJ If you do not use the USB\nadapter, make sure your\nBluetooth device is switched\non and in pairing mode to\nestablish the connection.\n--- Page 22 ---",
+    "page_start": 20,
+    "page_end": 22,
+    "tables": [
+      {
+        "headers": [
+          "iCube II is no longer recognized\npreviously paired.",
+          "by the computer to which it was"
+        ],
+        "rows": [
+          [
+            "iCube II is no longer recognized\npreviously paired.",
+            "by the computer to which it was"
+          ]
+        ],
+        "caption": null,
+        "page": 20,
+        "note": null
+      },
+      {
+        "headers": [
+          "iCube II turns off.",
+          ""
+        ],
+        "rows": [
+          [
+            "iCube II turns off.",
+            ""
+          ]
+        ],
+        "caption": null,
+        "page": 20,
+        "note": null
+      },
+      {
+        "headers": [
+          "iCube II is unresponsive and the",
+          "middle indicator is lit solid red."
+        ],
+        "rows": [
+          [
+            "iCube II is unresponsive and the",
+            "middle indicator is lit solid red."
+          ]
+        ],
+        "caption": null,
+        "page": 20,
+        "note": null
+      },
+      {
+        "headers": [
+          "A second or different iCube II ca\nfitting PC.",
+          "nnot be connected to the"
+        ],
+        "rows": [
+          [
+            "A second or different iCube II ca\nfitting PC.",
+            "nnot be connected to the"
+          ]
+        ],
+        "caption": null,
+        "page": 21,
+        "note": null
+      }
+    ],
+    "figures": [],
+    "token_count": 434,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "iCube II",
+        "8. Troubleshooting"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "8567d86d-ea30-416b-bf65-03d26ad8f324",
+      "next_chunk_id": "fe0ee47b-cf58-4308-bc05-cce4b4858698"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "fe0ee47b-cf58-4308-bc05-cce4b4858698",
+    "chunk_index": 0,
+    "section": "9. Service and warranty",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "9. Service and warranty (part 1)",
+    "content": "9.1 Local warranty\nPlease ask your local Phonak representative, where you\npurchased your device, about the terms of the local\nwarranty. 9.2 International warranty\nPhonak offers a one year limited international warranty,\nvalid as of the date of purchase. This limited warranty\ncovers manufacturing and material defects. The warran­\nty only comes into force if proof of purchase is shown. The international warranty does not affect any legal\nrights that you might have under applicable national\nlegislation governing sale of consumer goods. --- Page 23 ---\n9.3 Warranty limitation\nThis warranty does not cover damage from improper\nhandling or care, exposure to chemicals, immersion in\nwater or undue stress. Damage caused by third parties\nor non-authorized service centers renders the warranty\nnull and void. Serial number:\nDate of purchase:\n--- Page 24 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 9. Service and warranty\nPages: 22–24\n\n9.1 Local warranty\nPlease ask your local Phonak representative, where you\npurchased your device, about the terms of the local\nwarranty. 9.2 International warranty\nPhonak offers a one year limited international warranty,\nvalid as of the date of purchase. This limited warranty\ncovers manufacturing and material defects. The warran­\nty only comes into force if proof of purchase is shown. The international warranty does not affect any legal\nrights that you might have under applicable national\nlegislation governing sale of consumer goods. --- Page 23 ---\n9.3 Warranty limitation\nThis warranty does not cover damage from improper\nhandling or care, exposure to chemicals, immersion in\nwater or undue stress. Damage caused by third parties\nor non-authorized service centers renders the warranty\nnull and void. Serial number:\nDate of purchase:\n--- Page 24 ---",
+    "page_start": 22,
+    "page_end": 24,
+    "tables": [],
+    "figures": [],
+    "token_count": 179,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "35428486-b3b6-47d3-b65f-b8903b36cc94",
+      "previous_chunk_id": "f5745682-0d38-40dd-9f43-c952687c3de0",
+      "next_chunk_id": "35428486-b3b6-47d3-b65f-b8903b36cc94"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "35428486-b3b6-47d3-b65f-b8903b36cc94",
+    "chunk_index": 11,
+    "section": "9. Service and warranty",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "9. Service and warranty",
+    "content": "9.1 Local warranty\nPlease ask your local Phonak representative, where you\npurchased your device, about the terms of the local\nwarranty.\n9.2 International warranty\nPhonak offers a one year limited international warranty,\nvalid as of the date of purchase. This limited warranty\ncovers manufacturing and material defects. The warran­\nty only comes into force if proof of purchase is shown.\nThe international warranty does not affect any legal\nrights that you might have under applicable national\nlegislation governing sale of consumer goods.\n--- Page 23 ---\n9.3 Warranty limitation\nThis warranty does not cover damage from improper\nhandling or care, exposure to chemicals, immersion in\nwater or undue stress. Damage caused by third parties\nor non-authorized service centers renders the warranty\nnull and void.\nSerial number:\nDate of purchase:\n--- Page 24 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 9. Service and warranty\nPages: 22–24\n\n9.1 Local warranty\nPlease ask your local Phonak representative, where you\npurchased your device, about the terms of the local\nwarranty.\n9.2 International warranty\nPhonak offers a one year limited international warranty,\nvalid as of the date of purchase. This limited warranty\ncovers manufacturing and material defects. The warran­\nty only comes into force if proof of purchase is shown.\nThe international warranty does not affect any legal\nrights that you might have under applicable national\nlegislation governing sale of consumer goods.\n--- Page 23 ---\n9.3 Warranty limitation\nThis warranty does not cover damage from improper\nhandling or care, exposure to chemicals, immersion in\nwater or undue stress. Damage caused by third parties\nor non-authorized service centers renders the warranty\nnull and void.\nSerial number:\nDate of purchase:\n--- Page 24 ---",
+    "page_start": 22,
+    "page_end": 24,
+    "tables": [],
+    "figures": [],
+    "token_count": 179,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "iCube II",
+        "9. Service and warranty"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "fe0ee47b-cf58-4308-bc05-cce4b4858698",
+      "next_chunk_id": "600d5f98-22bc-47b0-a824-999620d288d3"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "600d5f98-22bc-47b0-a824-999620d288d3",
+    "chunk_index": 0,
+    "section": "10. Compliance information",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "10. Compliance information (part 1)",
+    "content": "Europe:\nDeclaration of conformity\nHereby Phonak AG declares that this Phonak product is\nin compliance with the essential requirements of the\nMedical Devices Directive 93/42/EEC as well as the Radio\nand Telecommunications Terminal Equipment Directive\n1999/5/EC. The full text of the Declaration of Conformity\ncan be obtained from the manufacturer or the local\nPhonak representative whose address can be taken\nfrom the list on http://www.phonak-us.com (worldwide\nlocations). --- Page 25 ---\nAustralia:\nSupplier Code Number N15398\nNew Zealand:\nSupplier Code Number Z1285\nThe Phonak iCube II is certified under:\nUSA FCC ID: KWC-iCube2\nCanada IC: 2262A-iCube2\nThe Phonak iCube II USB adapter is certified under:\nUSA FCC ID 079BT402\nCanada IC 11512A-BT403\n--- Page 26 ---\n10. Compliance information\nNotice 1:\nThis device complies with Part 15 of the FCC Rules and\nwith RSS-210 of Industry Canada. Operation is subject to\nthe following two conditions:\n1) this device may not cause harmful interference, and\n2) this device must accept any interference received,\nincluding interference that may cause undesired\noperation. Notice 2:\nChanges or modifications made to this device not\nexpressly approved by Phonak may void the FCC\nauthorization to operate this device. Notice 3:\nThis device has been tested and found to comply with the\nlimits for a Class B digital device, pursuant to Part 15\nof the FCC Rules and ICES-003 of Industry Canada. These\nlimits are designed to provide reasonable protection\nagainst harmful interference in a residential installation. This device  generates, uses and can radiate radio\nfrequency energy and, if not installed and used in\naccordance with the instructions, may cause harmful\ninterference to radio communications. --- Page 27 ---\nHowever, there is no guarantee that interference will not\noccur in a particular installation. If this device does\ncause harmful interference to radio or television reception,\nwhich can be determined by turning the equipment\noff and on, the user is encouraged to try to correct the\ninterference by one or more of the following measures:\nJ Reorient or relocate the receiving antenna. J Increase the separation between the device and\nreceiver.",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 10. Compliance information\nPages: 24–28\n\nEurope:\nDeclaration of conformity\nHereby Phonak AG declares that this Phonak product is\nin compliance with the essential requirements of the\nMedical Devices Directive 93/42/EEC as well as the Radio\nand Telecommunications Terminal Equipment Directive\n1999/5/EC. The full text of the Declaration of Conformity\ncan be obtained from the manufacturer or the local\nPhonak representative whose address can be taken\nfrom the list on http://www.phonak-us.com (worldwide\nlocations). --- Page 25 ---\nAustralia:\nSupplier Code Number N15398\nNew Zealand:\nSupplier Code Number Z1285\nThe Phonak iCube II is certified under:\nUSA FCC ID: KWC-iCube2\nCanada IC: 2262A-iCube2\nThe Phonak iCube II USB adapter is certified under:\nUSA FCC ID 079BT402\nCanada IC 11512A-BT403\n--- Page 26 ---\n10. Compliance information\nNotice 1:\nThis device complies with Part 15 of the FCC Rules and\nwith RSS-210 of Industry Canada. Operation is subject to\nthe following two conditions:\n1) this device may not cause harmful interference, and\n2) this device must accept any interference received,\nincluding interference that may cause undesired\noperation. Notice 2:\nChanges or modifications made to this device not\nexpressly approved by Phonak may void the FCC\nauthorization to operate this device. Notice 3:\nThis device has been tested and found to comply with the\nlimits for a Class B digital device, pursuant to Part 15\nof the FCC Rules and ICES-003 of Industry Canada. These\nlimits are designed to provide reasonable protection\nagainst harmful interference in a residential installation. This device  generates, uses and can radiate radio\nfrequency energy and, if not installed and used in\naccordance with the instructions, may cause harmful\ninterference to radio communications. --- Page 27 ---\nHowever, there is no guarantee that interference will not\noccur in a particular installation. If this device does\ncause harmful interference to radio or television reception,\nwhich can be determined by turning the equipment\noff and on, the user is encouraged to try to correct the\ninterference by one or more of the following measures:\nJ Reorient or relocate the receiving antenna. J Increase the separation between the device and\nreceiver.",
+    "page_start": 24,
+    "page_end": 28,
+    "tables": [],
+    "figures": [],
+    "token_count": 493,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "07459e60-2c20-4ab5-a356-4e403173db7e",
+      "previous_chunk_id": "35428486-b3b6-47d3-b65f-b8903b36cc94",
+      "next_chunk_id": "c220fd78-466f-486b-bf4f-8edc7a5dbfdb"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "c220fd78-466f-486b-bf4f-8edc7a5dbfdb",
+    "chunk_index": 1,
+    "section": "10. Compliance information",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "10. Compliance information (part 2)",
+    "content": "J Increase the separation between the device and\nreceiver. J Connect the device into an outlet on a circuit\ndifferent from that to which the receiver is\nconnected. J Consult the dealer or an experienced radio / TV\ntechnician for help. Notice 4:\nJapanese Radio Law and Japanese Telecommunications\nBusiness Law Compliance. This device is granted pursuant\nto the Japanese Radio Law ( 電波法 ) and the Japanese\nTelecommunications Business Law ( 電気通信事業法 ). This device should not be modified (otherwise the granted\ndesignation number will become invalid). --- Page 28 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 10. Compliance information\nPages: 24–28\n\nJ Increase the separation between the device and\nreceiver. J Connect the device into an outlet on a circuit\ndifferent from that to which the receiver is\nconnected. J Consult the dealer or an experienced radio / TV\ntechnician for help. Notice 4:\nJapanese Radio Law and Japanese Telecommunications\nBusiness Law Compliance. This device is granted pursuant\nto the Japanese Radio Law ( 電波法 ) and the Japanese\nTelecommunications Business Law ( 電気通信事業法 ). This device should not be modified (otherwise the granted\ndesignation number will become invalid). --- Page 28 ---",
+    "page_start": 24,
+    "page_end": 28,
+    "tables": [],
+    "figures": [],
+    "token_count": 130,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "07459e60-2c20-4ab5-a356-4e403173db7e",
+      "previous_chunk_id": "600d5f98-22bc-47b0-a824-999620d288d3",
+      "next_chunk_id": "07459e60-2c20-4ab5-a356-4e403173db7e"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "07459e60-2c20-4ab5-a356-4e403173db7e",
+    "chunk_index": 12,
+    "section": "10. Compliance information",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "10. Compliance information",
+    "content": "Europe:\nDeclaration of conformity\nHereby Phonak AG declares that this Phonak product is\nin compliance with the essential requirements of the\nMedical Devices Directive 93/42/EEC as well as the Radio\nand Telecommunications Terminal Equipment Directive\n1999/5/EC. The full text of the Declaration of Conformity\ncan be obtained from the manufacturer or the local\nPhonak representative whose address can be taken\nfrom the list on http://www.phonak-us.com (worldwide\nlocations).\n--- Page 25 ---\nAustralia:\nSupplier Code Number N15398\nNew Zealand:\nSupplier Code Number Z1285\nThe Phonak iCube II is certified under:\nUSA FCC ID: KWC-iCube2\nCanada IC: 2262A-iCube2\nThe Phonak iCube II USB adapter is certified under:\nUSA FCC ID 079BT402\nCanada IC 11512A-BT403\n--- Page 26 ---\n10. Compliance information\nNotice 1:\nThis device complies with Part 15 of the FCC Rules and\nwith RSS-210 of Industry Canada. Operation is subject to\nthe following two conditions:\n1) this device may not cause harmful interference, and\n2) this device must accept any interference received,\nincluding interference that may cause undesired\noperation.\nNotice 2:\nChanges or modifications made to this device not\nexpressly approved by Phonak may void the FCC\nauthorization to operate this device.\nNotice 3:\nThis device has been tested and found to comply with the\nlimits for a Class B digital device, pursuant to Part 15\nof the FCC Rules and ICES-003 of Industry Canada. These\nlimits are designed to provide reasonable protection\nagainst harmful interference in a residential installation.\nThis device  generates, uses and can radiate radio\nfrequency energy and, if not installed and used in\naccordance with the instructions, may cause harmful\ninterference to radio communications.\n--- Page 27 ---\nHowever, there is no guarantee that interference will not\noccur in a particular installation. If this device does\ncause harmful interference to radio or television reception,\nwhich can be determined by turning the equipment\noff and on, the user is encouraged to try to correct the\ninterference by one or more of the following measures:\nJ Reorient or relocate the receiving antenna.\nJ Increase the separation between the device and\nreceiver.\nJ Connect the device into an outlet on a circuit\ndifferent from that to which the receiver is\nconnected.\nJ Consult the dealer or an experienced radio / TV\ntechnician for help.\nNotice 4:\nJapanese Radio Law and Japanese Telecommunications\nBusiness Law Compliance. This device is granted pursuant\nto the Japanese Radio Law ( 電波法 ) and the Japanese\nTelecommunications Business Law ( 電気通信事業法 ).\nThis device should not be modified (otherwise the granted\ndesignation number will become invalid).\n--- Page 28 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 10. Compliance information\nPages: 24–28\n\nEurope:\nDeclaration of conformity\nHereby Phonak AG declares that this Phonak product is\nin compliance with the essential requirements of the\nMedical Devices Directive 93/42/EEC as well as the Radio\nand Telecommunications Terminal Equipment Directive\n1999/5/EC. The full text of the Declaration of Conformity\ncan be obtained from the manufacturer or the local\nPhonak representative whose address can be taken\nfrom the list on http://www.phonak-us.com (worldwide\nlocations).\n--- Page 25 ---\nAustralia:\nSupplier Code Number N15398\nNew Zealand:\nSupplier Code Number Z1285\nThe Phonak iCube II is certified under:\nUSA FCC ID: KWC-iCube2\nCanada IC: 2262A-iCube2\nThe Phonak iCube II USB adapter is certified under:\nUSA FCC ID 079BT402\nCanada IC 11512A-BT403\n--- Page 26 ---\n10. Compliance information\nNotice 1:\nThis device complies with Part 15 of the FCC Rules and\nwith RSS-210 of Industry Canada. Operation is subject to\nthe following two conditions:\n1) this device may not cause harmful interference, and\n2) this device must accept any interference received,\nincluding interference that may cause undesired\noperation.\nNotice 2:\nChanges or modifications made to this device not\nexpressly approved by Phonak may void the FCC\nauthorization to operate this device.\nNotice 3:\nThis device has been tested and found to comply with the\nlimits for a Class B digital device, pursuant to Part 15\nof the FCC Rules and ICES-003 of Industry Canada. These\nlimits are designed to provide reasonable protection\nagainst harmful interference in a residential installation.\nThis device  generates, uses and can radiate radio\nfrequency energy and, if not installed and used in\naccordance with the instructions, may cause harmful\ninterference to radio communications.\n--- Page 27 ---\nHowever, there is no guarantee that interference will not\noccur in a particular installation. If this device does\ncause harmful interference to radio or television reception,\nwhich can be determined by turning the equipment\noff and on, the user is encouraged to try to correct the\ninterference by one or more of the following measures:\nJ Reorient or relocate the receiving antenna.\nJ Increase the separation between the device and\nreceiver.\nJ Connect the device into an outlet on a circuit\ndifferent from that to which the receiver is\nconnected.\nJ Consult the dealer or an experienced radio / TV\ntechnician for help.\nNotice 4:\nJapanese Radio Law and Japanese Telecommunications\nBusiness Law Compliance. This device is granted pursuant\nto the Japanese Radio Law ( 電波法 ) and the Japanese\nTelecommunications Business Law ( 電気通信事業法 ).\nThis device should not be modified (otherwise the granted\ndesignation number will become invalid).\n--- Page 28 ---",
+    "page_start": 24,
+    "page_end": 28,
+    "tables": [],
+    "figures": [],
+    "token_count": 611,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "iCube II",
+        "10. Compliance information"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "c220fd78-466f-486b-bf4f-8edc7a5dbfdb",
+      "next_chunk_id": "064a4383-e01b-479c-a600-70950fb00d1d"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "064a4383-e01b-479c-a600-70950fb00d1d",
+    "chunk_index": 0,
+    "section": "11. Information and description of symbols",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "11. Information and description of symbols (part 1)",
+    "content": "With the CE symbol, Phonak AG\nconfirms that this Phonak product\nmeets the requirements of the\nMedical Devices Directive 93/42/EEC as\nwell as the R&TTE Directive 1999/5/EC\non radio and telecommunications\nequipment. This symbol indicates that the products\ndescribed in these user instructions\nadhere to the requirements for an\napplied part of Type B of EN 60601-1. The surface of the device is specified\nas an applied part of Type B. This symbol indicates that it is\nimportant for the user to read and\ntake into account the relevant\ninformation in this user guide. --- Page 29 ---\nThis symbol indicates that it is\nimportant for the user to pay attention\nto the relevant warning notices in\nthese user guides. Important information for handling\nand product safety. EMC and radio communications\ncompliance label Australia. Operating\nThe device is designed such that\nconditions\nit functions without problems or\nrestrictions if used as intended, unless\notherwise noted in this user guide. Temperature transport and storage:\n–20° to +60° Celsius\n(–4° to +140° Fahrenheit). Temperature operation:\n0° to 40° Celsius\n(+32° to +104° Fahrenheit)\n--- Page 30 ---\n11. Information and description of symbols\nKeep dry\nHumidity transportation and storage:\n<90% (non-condensing). Humidity operation:\n<95% (non condensing). Atmospheric pressure: 200 hPA to\n1500 hPA. The symbol with the crossed-out\ngarbage bin is to make you aware\nthat this device may not be thrown\naway as normal household waste. Please dispose of old or unused device,\nat waste disposal sites intended for\nelectronic waste, or return it to your\ngroup company for disposal. Proper\ndisposal protects the environment and\nhealth. --- Page 31 ---\nT he Bluetooth® word mark and logos\nare registered trademarks owned\nby Bluetooth SIG, Inc. and any use\nof such marks by Phonak is under\nlicense. Other trademarks and trade\nnames are those of their respective\nowners. Japanese mark for certified radio\nequipment. Indicates the medical device\nmanufacturer, as defined in EU\nDirective 93/42/EEC. --- Page 32 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 11. Information and description of symbols\nPages: 28–32\n\nWith the CE symbol, Phonak AG\nconfirms that this Phonak product\nmeets the requirements of the\nMedical Devices Directive 93/42/EEC as\nwell as the R&TTE Directive 1999/5/EC\non radio and telecommunications\nequipment. This symbol indicates that the products\ndescribed in these user instructions\nadhere to the requirements for an\napplied part of Type B of EN 60601-1. The surface of the device is specified\nas an applied part of Type B. This symbol indicates that it is\nimportant for the user to read and\ntake into account the relevant\ninformation in this user guide. --- Page 29 ---\nThis symbol indicates that it is\nimportant for the user to pay attention\nto the relevant warning notices in\nthese user guides. Important information for handling\nand product safety. EMC and radio communications\ncompliance label Australia. Operating\nThe device is designed such that\nconditions\nit functions without problems or\nrestrictions if used as intended, unless\notherwise noted in this user guide. Temperature transport and storage:\n–20° to +60° Celsius\n(–4° to +140° Fahrenheit). Temperature operation:\n0° to 40° Celsius\n(+32° to +104° Fahrenheit)\n--- Page 30 ---\n11. Information and description of symbols\nKeep dry\nHumidity transportation and storage:\n<90% (non-condensing). Humidity operation:\n<95% (non condensing). Atmospheric pressure: 200 hPA to\n1500 hPA. The symbol with the crossed-out\ngarbage bin is to make you aware\nthat this device may not be thrown\naway as normal household waste. Please dispose of old or unused device,\nat waste disposal sites intended for\nelectronic waste, or return it to your\ngroup company for disposal. Proper\ndisposal protects the environment and\nhealth. --- Page 31 ---\nT he Bluetooth® word mark and logos\nare registered trademarks owned\nby Bluetooth SIG, Inc. and any use\nof such marks by Phonak is under\nlicense. Other trademarks and trade\nnames are those of their respective\nowners. Japanese mark for certified radio\nequipment. Indicates the medical device\nmanufacturer, as defined in EU\nDirective 93/42/EEC. --- Page 32 ---",
+    "page_start": 28,
+    "page_end": 32,
+    "tables": [],
+    "figures": [],
+    "token_count": 494,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "c4304a92-7c31-4bee-a93e-4dce18654d49",
+      "previous_chunk_id": "07459e60-2c20-4ab5-a356-4e403173db7e",
+      "next_chunk_id": "c4304a92-7c31-4bee-a93e-4dce18654d49"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "c4304a92-7c31-4bee-a93e-4dce18654d49",
+    "chunk_index": 13,
+    "section": "11. Information and description of symbols",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "11. Information and description of symbols",
+    "content": "With the CE symbol, Phonak AG\nconfirms that this Phonak product\nmeets the requirements of the\nMedical Devices Directive 93/42/EEC as\nwell as the R&TTE Directive 1999/5/EC\non radio and telecommunications\nequipment.\nThis symbol indicates that the products\ndescribed in these user instructions\nadhere to the requirements for an\napplied part of Type B of EN 60601-1.\nThe surface of the device is specified\nas an applied part of Type B.\nThis symbol indicates that it is\nimportant for the user to read and\ntake into account the relevant\ninformation in this user guide.\n--- Page 29 ---\nThis symbol indicates that it is\nimportant for the user to pay attention\nto the relevant warning notices in\nthese user guides.\nImportant information for handling\nand product safety.\nEMC and radio communications\ncompliance label Australia.\nOperating\nThe device is designed such that\nconditions\nit functions without problems or\nrestrictions if used as intended, unless\notherwise noted in this user guide.\nTemperature transport and storage:\n–20° to +60° Celsius\n(–4° to +140° Fahrenheit).\nTemperature operation:\n0° to 40° Celsius\n(+32° to +104° Fahrenheit)\n--- Page 30 ---\n11. Information and description of symbols\nKeep dry\nHumidity transportation and storage:\n<90% (non-condensing).\nHumidity operation:\n<95% (non condensing).\nAtmospheric pressure: 200 hPA to\n1500 hPA.\nThe symbol with the crossed-out\ngarbage bin is to make you aware\nthat this device may not be thrown\naway as normal household waste.\nPlease dispose of old or unused device,\nat waste disposal sites intended for\nelectronic waste, or return it to your\ngroup company for disposal. Proper\ndisposal protects the environment and\nhealth.\n--- Page 31 ---\nT he Bluetooth® word mark and logos\nare registered trademarks owned\nby Bluetooth SIG, Inc. and any use\nof such marks by Phonak is under\nlicense. Other trademarks and trade\nnames are those of their respective\nowners.\nJapanese mark for certified radio\nequipment.\nIndicates the medical device\nmanufacturer, as defined in EU\nDirective 93/42/EEC.\n--- Page 32 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 11. Information and description of symbols\nPages: 28–32\n\nWith the CE symbol, Phonak AG\nconfirms that this Phonak product\nmeets the requirements of the\nMedical Devices Directive 93/42/EEC as\nwell as the R&TTE Directive 1999/5/EC\non radio and telecommunications\nequipment.\nThis symbol indicates that the products\ndescribed in these user instructions\nadhere to the requirements for an\napplied part of Type B of EN 60601-1.\nThe surface of the device is specified\nas an applied part of Type B.\nThis symbol indicates that it is\nimportant for the user to read and\ntake into account the relevant\ninformation in this user guide.\n--- Page 29 ---\nThis symbol indicates that it is\nimportant for the user to pay attention\nto the relevant warning notices in\nthese user guides.\nImportant information for handling\nand product safety.\nEMC and radio communications\ncompliance label Australia.\nOperating\nThe device is designed such that\nconditions\nit functions without problems or\nrestrictions if used as intended, unless\notherwise noted in this user guide.\nTemperature transport and storage:\n–20° to +60° Celsius\n(–4° to +140° Fahrenheit).\nTemperature operation:\n0° to 40° Celsius\n(+32° to +104° Fahrenheit)\n--- Page 30 ---\n11. Information and description of symbols\nKeep dry\nHumidity transportation and storage:\n<90% (non-condensing).\nHumidity operation:\n<95% (non condensing).\nAtmospheric pressure: 200 hPA to\n1500 hPA.\nThe symbol with the crossed-out\ngarbage bin is to make you aware\nthat this device may not be thrown\naway as normal household waste.\nPlease dispose of old or unused device,\nat waste disposal sites intended for\nelectronic waste, or return it to your\ngroup company for disposal. Proper\ndisposal protects the environment and\nhealth.\n--- Page 31 ---\nT he Bluetooth® word mark and logos\nare registered trademarks owned\nby Bluetooth SIG, Inc. and any use\nof such marks by Phonak is under\nlicense. Other trademarks and trade\nnames are those of their respective\nowners.\nJapanese mark for certified radio\nequipment.\nIndicates the medical device\nmanufacturer, as defined in EU\nDirective 93/42/EEC.\n--- Page 32 ---",
+    "page_start": 28,
+    "page_end": 32,
+    "tables": [],
+    "figures": [],
+    "token_count": 493,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "iCube II",
+        "11. Information and description of symbols"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "064a4383-e01b-479c-a600-70950fb00d1d",
+      "next_chunk_id": "ffa51677-1bbc-454a-a986-05b1a35acaa4"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "ffa51677-1bbc-454a-a986-05b1a35acaa4",
+    "chunk_index": 0,
+    "section": "12. Important safety information",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "12. Important safety information (part 1)",
+    "content": "The following pages contain important safety\ninformation. Hazard warnings\nPhonak devices may generate magnetic fields. Tests\nthat Phonak conducted showed that no interfe­\nrences with the implantable devices were caused\nthat would impact the safe and effective use of the\nimplantable devices. Users of implantable devices\nshould contact their doctor and/or the manufacturer\nof the implantable device before they start using a\nPhonak device. Stop using the Phonak device if any\ninfluence of the Phonak device on the implantable\ndevice is experienced and contact the manufacturer\nof the implantable device for advice. Keep this device out of reach of children under\n3 years. Changes or modifications to the device that were\nnot explicitly approved by Phonak are not permitted. Phonak is not responsible for situations resulting\nfrom a modified device. --- Page 33 ---\nOpening the device might damage it. If problems\noccur which cannot be resolved by following the\nremedy guidelines in the troubleshooting section\nof this user guide, consult your local Phonak\nrepresentative. This product has an embedded, non-replaceable\nbattery. Do not attempt to open the product or remove\nthe battery as this may cause injury and damage the\ndevice. Dispose of electrical components in accordance with\nyour local regulations by Phonak AG. Only use accessories approved by Phonak AG, to\navoid any electrical shock. Using the device, its connectors or cables in any way\ncontradictory to their intended purpose as described\nin this user guide (e.g. wearing the USB cable around\nthe neck) can cause injury. When operating machinery, ensure that no parts get\ncaught in the machine. --- Page 34 ---\n12. Important safety information\nThe mini-USB port is to be used for the described\npurpose only. For safety reasons, only use chargers supplied by\nPhonak or stabilized chargers with a rating of 5VDC,\nmin. 500 mA. Caution: electric shock. Do not insert plug alone into\nelectrical outlets. Do not use the device in explosive areas (mines or\nindustrial areas with danger of explosions, oxygen\nrich environments or areas where flammable\nanesthetics are handled) or where electronic\nequipment is prohibited.",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 12. Important safety information\nPages: 32–38\n\nThe following pages contain important safety\ninformation. Hazard warnings\nPhonak devices may generate magnetic fields. Tests\nthat Phonak conducted showed that no interfe­\nrences with the implantable devices were caused\nthat would impact the safe and effective use of the\nimplantable devices. Users of implantable devices\nshould contact their doctor and/or the manufacturer\nof the implantable device before they start using a\nPhonak device. Stop using the Phonak device if any\ninfluence of the Phonak device on the implantable\ndevice is experienced and contact the manufacturer\nof the implantable device for advice. Keep this device out of reach of children under\n3 years. Changes or modifications to the device that were\nnot explicitly approved by Phonak are not permitted. Phonak is not responsible for situations resulting\nfrom a modified device. --- Page 33 ---\nOpening the device might damage it. If problems\noccur which cannot be resolved by following the\nremedy guidelines in the troubleshooting section\nof this user guide, consult your local Phonak\nrepresentative. This product has an embedded, non-replaceable\nbattery. Do not attempt to open the product or remove\nthe battery as this may cause injury and damage the\ndevice. Dispose of electrical components in accordance with\nyour local regulations by Phonak AG. Only use accessories approved by Phonak AG, to\navoid any electrical shock. Using the device, its connectors or cables in any way\ncontradictory to their intended purpose as described\nin this user guide (e.g. wearing the USB cable around\nthe neck) can cause injury. When operating machinery, ensure that no parts get\ncaught in the machine. --- Page 34 ---\n12. Important safety information\nThe mini-USB port is to be used for the described\npurpose only. For safety reasons, only use chargers supplied by\nPhonak or stabilized chargers with a rating of 5VDC,\nmin. 500 mA. Caution: electric shock. Do not insert plug alone into\nelectrical outlets. Do not use the device in explosive areas (mines or\nindustrial areas with danger of explosions, oxygen\nrich environments or areas where flammable\nanesthetics are handled) or where electronic\nequipment is prohibited.",
+    "page_start": 32,
+    "page_end": 38,
+    "tables": [],
+    "figures": [],
+    "token_count": 473,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "367d710b-a1c4-4af0-a329-b7e6a95dc1ce",
+      "previous_chunk_id": "c4304a92-7c31-4bee-a93e-4dce18654d49",
+      "next_chunk_id": "c9c05eee-a8a9-4954-8140-8a3d0f137744"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "c9c05eee-a8a9-4954-8140-8a3d0f137744",
+    "chunk_index": 1,
+    "section": "12. Important safety information",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "12. Important safety information (part 2)",
+    "content": "Do not use the device in explosive areas (mines or\nindustrial areas with danger of explosions, oxygen\nrich environments or areas where flammable\nanesthetics are handled) or where electronic\nequipment is prohibited. --- Page 35 ---\nInformation on product safety\nProtect the device from excessive moisture (bathing,\nswimming), heat (radiator, car dashboard) or direct\nskin contact when sweating. Do not drop the device. Dropping it onto a hard\nsurface can damage the device. Do not disconnect the neckloop while the device is\ntransmitting signals to the hearing aids. Protect the device connectors, plugs, charging slot\nand power supply from dirt and debris. Clean the device using a damp cloth. Never use\nhousehold cleaning products (washing powder, soap,\netc.) or alcohol to clean the device. Never use a\nmicrowave or other heating devices to dry the device. --- Page 36 ---\n12. Important safety information\nThe digitally-coded, inductive transmission\ntechnology used in the device is highly reliable and\nexperiences virtually no interference from other\ndevices. It should be noted, however, that when\noperating the hearing system near computer\nequipment, larger electronic installation or other\nstrong electromagnetic fields, it may be necessary to\nbe at least 60 cm (24”) away from the interfering\ndevice to ensure proper operation. Keep the device of at least 10 cm away from any\nkind of magnets. Do not connect an USB cable exceeding 3 meters\n(9 feet) in length to the device. When the device is not in use, turn it off, keep the\nneckloop closed and store it safely. --- Page 37 ---\nOther important information\nIf you use several devices in the same building,\nbe aware that their inductive field can disturb one\nanother if within a range of 2 meters (6 feet). This may even occur when used in different rooms. High-powered electronic equipment, larger electronic\ninstallations and metallic structures may impair and\nsignificantly reduce the operating range. If the hearing aids do not respond to the device\nbecause of an unusual field disturbance, move away\nfrom the disturbing field. --- Page 38 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 12. Important safety information\nPages: 32–38\n\nDo not use the device in explosive areas (mines or\nindustrial areas with danger of explosions, oxygen\nrich environments or areas where flammable\nanesthetics are handled) or where electronic\nequipment is prohibited. --- Page 35 ---\nInformation on product safety\nProtect the device from excessive moisture (bathing,\nswimming), heat (radiator, car dashboard) or direct\nskin contact when sweating. Do not drop the device. Dropping it onto a hard\nsurface can damage the device. Do not disconnect the neckloop while the device is\ntransmitting signals to the hearing aids. Protect the device connectors, plugs, charging slot\nand power supply from dirt and debris. Clean the device using a damp cloth. Never use\nhousehold cleaning products (washing powder, soap,\netc.) or alcohol to clean the device. Never use a\nmicrowave or other heating devices to dry the device. --- Page 36 ---\n12. Important safety information\nThe digitally-coded, inductive transmission\ntechnology used in the device is highly reliable and\nexperiences virtually no interference from other\ndevices. It should be noted, however, that when\noperating the hearing system near computer\nequipment, larger electronic installation or other\nstrong electromagnetic fields, it may be necessary to\nbe at least 60 cm (24”) away from the interfering\ndevice to ensure proper operation. Keep the device of at least 10 cm away from any\nkind of magnets. Do not connect an USB cable exceeding 3 meters\n(9 feet) in length to the device. When the device is not in use, turn it off, keep the\nneckloop closed and store it safely. --- Page 37 ---\nOther important information\nIf you use several devices in the same building,\nbe aware that their inductive field can disturb one\nanother if within a range of 2 meters (6 feet). This may even occur when used in different rooms. High-powered electronic equipment, larger electronic\ninstallations and metallic structures may impair and\nsignificantly reduce the operating range. If the hearing aids do not respond to the device\nbecause of an unusual field disturbance, move away\nfrom the disturbing field. --- Page 38 ---",
+    "page_start": 32,
+    "page_end": 38,
+    "tables": [],
+    "figures": [],
+    "token_count": 450,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "367d710b-a1c4-4af0-a329-b7e6a95dc1ce",
+      "previous_chunk_id": "ffa51677-1bbc-454a-a986-05b1a35acaa4",
+      "next_chunk_id": "367d710b-a1c4-4af0-a329-b7e6a95dc1ce"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "367d710b-a1c4-4af0-a329-b7e6a95dc1ce",
+    "chunk_index": 14,
+    "section": "12. Important safety information",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "12. Important safety information",
+    "content": "The following pages contain important safety\ninformation.\nHazard warnings\nPhonak devices may generate magnetic fields. Tests\nthat Phonak conducted showed that no interfe­\nrences with the implantable devices were caused\nthat would impact the safe and effective use of the\nimplantable devices. Users of implantable devices\nshould contact their doctor and/or the manufacturer\nof the implantable device before they start using a\nPhonak device. Stop using the Phonak device if any\ninfluence of the Phonak device on the implantable\ndevice is experienced and contact the manufacturer\nof the implantable device for advice.\nKeep this device out of reach of children under\n3 years.\nChanges or modifications to the device that were\nnot explicitly approved by Phonak are not permitted.\nPhonak is not responsible for situations resulting\nfrom a modified device.\n--- Page 33 ---\nOpening the device might damage it. If problems\noccur which cannot be resolved by following the\nremedy guidelines in the troubleshooting section\nof this user guide, consult your local Phonak\nrepresentative.\nThis product has an embedded, non-replaceable\nbattery. Do not attempt to open the product or remove\nthe battery as this may cause injury and damage the\ndevice.\nDispose of electrical components in accordance with\nyour local regulations by Phonak AG.\nOnly use accessories approved by Phonak AG, to\navoid any electrical shock.\nUsing the device, its connectors or cables in any way\ncontradictory to their intended purpose as described\nin this user guide (e.g. wearing the USB cable around\nthe neck) can cause injury.\nWhen operating machinery, ensure that no parts get\ncaught in the machine.\n--- Page 34 ---\n12. Important safety information\nThe mini-USB port is to be used for the described\npurpose only.\nFor safety reasons, only use chargers supplied by\nPhonak or stabilized chargers with a rating of 5VDC,\nmin. 500 mA.\nCaution: electric shock. Do not insert plug alone into\nelectrical outlets.\nDo not use the device in explosive areas (mines or\nindustrial areas with danger of explosions, oxygen\nrich environments or areas where flammable\nanesthetics are handled) or where electronic\nequipment is prohibited.\n--- Page 35 ---\nInformation on product safety\nProtect the device from excessive moisture (bathing,\nswimming), heat (radiator, car dashboard) or direct\nskin contact when sweating.\nDo not drop the device. Dropping it onto a hard\nsurface can damage the device.\nDo not disconnect the neckloop while the device is\ntransmitting signals to the hearing aids.\nProtect the device connectors, plugs, charging slot\nand power supply from dirt and debris.\nClean the device using a damp cloth. Never use\nhousehold cleaning products (washing powder, soap,\netc.) or alcohol to clean the device. Never use a\nmicrowave or other heating devices to dry the device.\n--- Page 36 ---\n12. Important safety information\nThe digitally-coded, inductive transmission\ntechnology used in the device is highly reliable and\nexperiences virtually no interference from other\ndevices. It should be noted, however, that when\noperating the hearing system near computer\nequipment, larger electronic installation or other\nstrong electromagnetic fields, it may be necessary to\nbe at least 60 cm (24”) away from the interfering\ndevice to ensure proper operation.\nKeep the device of at least 10 cm away from any\nkind of magnets.\nDo not connect an USB cable exceeding 3 meters\n(9 feet) in length to the device.\nWhen the device is not in use, turn it off, keep the\nneckloop closed and store it safely.\n--- Page 37 ---\nOther important information\nIf you use several devices in the same building,\nbe aware that their inductive field can disturb one\nanother if within a range of 2 meters (6 feet).\nThis may even occur when used in different rooms.\nHigh-powered electronic equipment, larger electronic\ninstallations and metallic structures may impair and\nsignificantly reduce the operating range.\nIf the hearing aids do not respond to the device\nbecause of an unusual field disturbance, move away\nfrom the disturbing field.\n--- Page 38 ---",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > 12. Important safety information\nPages: 32–38\n\nThe following pages contain important safety\ninformation.\nHazard warnings\nPhonak devices may generate magnetic fields. Tests\nthat Phonak conducted showed that no interfe­\nrences with the implantable devices were caused\nthat would impact the safe and effective use of the\nimplantable devices. Users of implantable devices\nshould contact their doctor and/or the manufacturer\nof the implantable device before they start using a\nPhonak device. Stop using the Phonak device if any\ninfluence of the Phonak device on the implantable\ndevice is experienced and contact the manufacturer\nof the implantable device for advice.\nKeep this device out of reach of children under\n3 years.\nChanges or modifications to the device that were\nnot explicitly approved by Phonak are not permitted.\nPhonak is not responsible for situations resulting\nfrom a modified device.\n--- Page 33 ---\nOpening the device might damage it. If problems\noccur which cannot be resolved by following the\nremedy guidelines in the troubleshooting section\nof this user guide, consult your local Phonak\nrepresentative.\nThis product has an embedded, non-replaceable\nbattery. Do not attempt to open the product or remove\nthe battery as this may cause injury and damage the\ndevice.\nDispose of electrical components in accordance with\nyour local regulations by Phonak AG.\nOnly use accessories approved by Phonak AG, to\navoid any electrical shock.\nUsing the device, its connectors or cables in any way\ncontradictory to their intended purpose as described\nin this user guide (e.g. wearing the USB cable around\nthe neck) can cause injury.\nWhen operating machinery, ensure that no parts get\ncaught in the machine.\n--- Page 34 ---\n12. Important safety information\nThe mini-USB port is to be used for the described\npurpose only.\nFor safety reasons, only use chargers supplied by\nPhonak or stabilized chargers with a rating of 5VDC,\nmin. 500 mA.\nCaution: electric shock. Do not insert plug alone into\nelectrical outlets.\nDo not use the device in explosive areas (mines or\nindustrial areas with danger of explosions, oxygen\nrich environments or areas where flammable\nanesthetics are handled) or where electronic\nequipment is prohibited.\n--- Page 35 ---\nInformation on product safety\nProtect the device from excessive moisture (bathing,\nswimming), heat (radiator, car dashboard) or direct\nskin contact when sweating.\nDo not drop the device. Dropping it onto a hard\nsurface can damage the device.\nDo not disconnect the neckloop while the device is\ntransmitting signals to the hearing aids.\nProtect the device connectors, plugs, charging slot\nand power supply from dirt and debris.\nClean the device using a damp cloth. Never use\nhousehold cleaning products (washing powder, soap,\netc.) or alcohol to clean the device. Never use a\nmicrowave or other heating devices to dry the device.\n--- Page 36 ---\n12. Important safety information\nThe digitally-coded, inductive transmission\ntechnology used in the device is highly reliable and\nexperiences virtually no interference from other\ndevices. It should be noted, however, that when\noperating the hearing system near computer\nequipment, larger electronic installation or other\nstrong electromagnetic fields, it may be necessary to\nbe at least 60 cm (24”) away from the interfering\ndevice to ensure proper operation.\nKeep the device of at least 10 cm away from any\nkind of magnets.\nDo not connect an USB cable exceeding 3 meters\n(9 feet) in length to the device.\nWhen the device is not in use, turn it off, keep the\nneckloop closed and store it safely.\n--- Page 37 ---\nOther important information\nIf you use several devices in the same building,\nbe aware that their inductive field can disturb one\nanother if within a range of 2 meters (6 feet).\nThis may even occur when used in different rooms.\nHigh-powered electronic equipment, larger electronic\ninstallations and metallic structures may impair and\nsignificantly reduce the operating range.\nIf the hearing aids do not respond to the device\nbecause of an unusual field disturbance, move away\nfrom the disturbing field.\n--- Page 38 ---",
+    "page_start": 32,
+    "page_end": 38,
+    "tables": [],
+    "figures": [],
+    "token_count": 878,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "iCube II",
+        "12. Important safety information"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "c9c05eee-a8a9-4954-8140-8a3d0f137744",
+      "next_chunk_id": "4c9a3f47-2107-4ec9-a471-949ecf038cf7"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "4c9a3f47-2107-4ec9-a471-949ecf038cf7",
+    "chunk_index": 0,
+    "section": "Notes",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "child",
+    "chunk_title": "Notes (part 1)",
+    "content": "--- Page 39 ---\nPhonak LLC\n4520 Weaver Parkway\nWarrenville, IL 60555\nwww.phonak-us.com",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > Notes\nPages: 38–39\n\n--- Page 39 ---\nPhonak LLC\n4520 Weaver Parkway\nWarrenville, IL 60555\nwww.phonak-us.com",
+    "page_start": 38,
+    "page_end": 39,
+    "tables": [],
+    "figures": [],
+    "token_count": 30,
+    "metadata": {},
+    "relationships": {
+      "parent_chunk_id": "7009c4ee-5be8-4850-8a69-da4bbefe898c",
+      "previous_chunk_id": "367d710b-a1c4-4af0-a329-b7e6a95dc1ce",
+      "next_chunk_id": "7009c4ee-5be8-4850-8a69-da4bbefe898c"
+    }
+  },
+  {
+    "document_id": "f0d0f3dd-3392-4253-a8dc-d5e1882b7fac",
+    "document_name": "ano_digital_40pages.pdf",
+    "document_type": "digital",
+    "domain": "general",
+    "chunk_id": "7009c4ee-5be8-4850-8a69-da4bbefe898c",
+    "chunk_index": 15,
+    "section": "Notes",
+    "subsection": "",
+    "section_level": 2,
+    "chunk_type": "parent",
+    "chunk_title": "Notes",
+    "content": "--- Page 39 ---\nPhonak LLC\n4520 Weaver Parkway\nWarrenville, IL 60555\nwww.phonak-us.com",
+    "embedding_text": "Document: ano_digital_40pages.pdf\nSection Path: Cover > iCube II > Notes\nPages: 38–39\n\n--- Page 39 ---\nPhonak LLC\n4520 Weaver Parkway\nWarrenville, IL 60555\nwww.phonak-us.com",
+    "page_start": 38,
+    "page_end": 39,
+    "tables": [],
+    "figures": [],
+    "token_count": 30,
+    "metadata": {
+      "section_path": [
+        "Cover",
+        "iCube II",
+        "Notes"
+      ]
+    },
+    "relationships": {
+      "parent_chunk_id": null,
+      "previous_chunk_id": "4c9a3f47-2107-4ec9-a471-949ecf038cf7",
+      "next_chunk_id": null
+    }
+  }
+]

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Extractor – Digital / Scanned / Mixed</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9edf2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.2s;
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 0 0 0.5rem 0;
+            background: linear-gradient(135deg, #1e2b3c, #2c4c6e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .sub {
+            color: #5b6e8c;
+            margin-bottom: 1.8rem;
+            border-left: 4px solid #2c7da0;
+            padding-left: 1rem;
+        }
+        .upload-area {
+            border: 2px dashed #cbd5e1;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            background: #fafcff;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .upload-area:hover {
+            border-color: #2c7da0;
+            background: #f0f9ff;
+        }
+        .file-input {
+            display: none;
+        }
+        .file-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #1e2b3c;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+            border: none;
+            font-size: 1rem;
+        }
+        .file-label:hover {
+            background: #2c4c6e;
+            transform: translateY(-2px);
+        }
+        .filename {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #2c7da0;
+            font-weight: 500;
+        }
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f1f5f9;
+            padding: 1rem 1.5rem;
+            border-radius: 60px;
+            margin: 1.5rem 0;
+        }
+        .toggle-label {
+            font-weight: 600;
+            color: #1e2b3c;
+        }
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 52px;
+            height: 28px;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #cbd5e1;
+            transition: 0.3s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #2c7da0;
+        }
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+        button {
+            background: #2c7da0;
+            color: white;
+            border: none;
+            padding: 0.9rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 40px;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.2s;
+            margin-top: 0.5rem;
+        }
+        button:hover:not(:disabled) {
+            background: #1e5a73;
+            transform: translateY(-2px);
+        }
+        button:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+        }
+        .loader {
+            display: none;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        .loader-spinner {
+            border: 3px solid #e2e8f0;
+            border-top: 3px solid #2c7da0;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .result {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 1.5rem;
+            font-family: monospace;
+            font-size: 0.85rem;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            border: 1px solid #e2e8f0;
+        }
+        .download-btn {
+            background: #2d6a4f;
+            margin-top: 1rem;
+            width: auto;
+            padding: 0.6rem 1.5rem;
+            display: inline-block;
+        }
+        .flex-between {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        hr {
+            margin: 1.5rem 0;
+            border-color: #e2e8f0;
+        }
+        .error {
+            color: #b91c1c;
+            background: #fee2e2;
+            padding: 1rem;
+            border-radius: 16px;
+        }
+        .badge {
+            background: #e2e8f0;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #1e2b3c;
+        }
+        @media (max-width: 640px) {
+            .card { padding: 1.2rem; }
+            .toggle-container { flex-direction: column; gap: 0.8rem; align-items: stretch; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <h1>📄 PDF Extractor</h1>
+        <div class="sub">Digital · Scanned · Mixed — automatic detection + diagram descriptions (Gemma)</div>
+
+        <div class="upload-area" id="uploadArea">
+            <input type="file" id="fileInput" class="file-input" accept=".pdf" />
+            <label for="fileInput" class="file-label">📁 Choose PDF</label>
+            <div id="fileName" class="filename"></div>
+        </div>
+
+        <div class="toggle-container">
+            <span class="toggle-label">🤖 Gemma AI (describe diagrams)</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="gemmaToggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <button id="processBtn" disabled>🚀 Process PDF</button>
+
+        <div id="loader" class="loader">
+            <div class="loader-spinner"></div>
+            <div>Processing... (this may take a while)</div>
+        </div>
+    </div>
+
+    <div id="resultContainer" style="display: none;">
+        <div class="card">
+            <div class="flex-between">
+                <h2>📊 Extraction Summary</h2>
+                <span class="badge" id="pdfTypeBadge"></span>
+            </div>
+            <div id="summaryText" class="result"></div>
+            <hr>
+            <div class="flex-between">
+                <h2>📑 Detailed Page Info</h2>
+                <button id="downloadJsonBtn" class="download-btn">💾 Download JSON (chunks)</button>
+            </div>
+            <div id="detailedSummary" class="result" style="max-height: 400px; overflow-y: auto;"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const fileInput = document.getElementById('fileInput');
+    const fileNameSpan = document.getElementById('fileName');
+    const processBtn = document.getElementById('processBtn');
+    const gemmaToggle = document.getElementById('gemmaToggle');
+    const loader = document.getElementById('loader');
+    const resultContainer = document.getElementById('resultContainer');
+    const summaryTextDiv = document.getElementById('summaryText');
+    const detailedSummaryDiv = document.getElementById('detailedSummary');
+    const pdfTypeBadge = document.getElementById('pdfTypeBadge');
+    const downloadBtn = document.getElementById('downloadJsonBtn');
+
+    let currentChunks = null;
+    let currentFileName = null;
+
+    fileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            fileNameSpan.textContent = file.name;
+            processBtn.disabled = false;
+        } else {
+            fileNameSpan.textContent = '';
+            processBtn.disabled = true;
+        }
+    });
+
+    processBtn.addEventListener('click', async () => {
+        const file = fileInput.files[0];
+        if (!file) return;
+
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('use_gemma', gemmaToggle.checked);
+
+        processBtn.disabled = true;
+        loader.style.display = 'block';
+        resultContainer.style.display = 'none';
+
+        try {
+            const response = await fetch('/upload', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.json();
+
+            if (!response.ok || data.error) {
+                throw new Error(data.error || 'Processing failed');
+            }
+
+            currentChunks = data.chunks;
+            currentFileName = data.file_name;
+            pdfTypeBadge.textContent = `📄 ${data.pdf_type.toUpperCase()}`;
+            summaryTextDiv.textContent = data.summary_text;
+            
+            // Build detailed summary table
+            let tableHtml = '<table style="width:100%; border-collapse: collapse; font-size: 0.8rem;">';
+            tableHtml += '<thead><tr style="background:#e2e8f0;"><th>Page</th><th>Type</th><th>Text</th><th>Image</th><th>Table</th><th>Blank</th><th>Description</th></tr></thead><tbody>';
+            for (let p of data.detailed_summary) {
+                tableHtml += `<tr style="border-bottom:1px solid #cbd5e1;">
+                    <td style="padding:0.5rem;">${p.page}</td>
+                    <td>${p.type}</td>
+                    <td>${p.digital_text}</td>
+                    <td>${p.image}</td>
+                    <td>${p.table}</td>
+                    <td>${p.blank}</td>
+                    <td style="max-width:300px; overflow:hidden; text-overflow:ellipsis;">${p.description.substring(0, 80)}${p.description.length > 80 ? '…' : ''}</td>
+                </tr>`;
+            }
+            tableHtml += '</tbody></table>';
+            detailedSummaryDiv.innerHTML = tableHtml;
+
+            resultContainer.style.display = 'block';
+        } catch (err) {
+            alert('❌ Error: ' + err.message);
+            console.error(err);
+        } finally {
+            processBtn.disabled = false;
+            loader.style.display = 'none';
+        }
+    });
+
+    downloadBtn.addEventListener('click', async () => {
+        if (!currentChunks || !currentFileName) {
+            alert('No data to download. Process a PDF first.');
+            return;
+        }
+        const response = await fetch('/download_json', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chunks: currentChunks, file_name: currentFileName })
+        });
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${currentFileName.replace('.pdf', '')}_chunks.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    });
+
+    // Drag & drop enhancement
+    const uploadArea = document.getElementById('uploadArea');
+    uploadArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadArea.style.borderColor = '#2c7da0';
+        uploadArea.style.background = '#f0f9ff';
+    });
+    uploadArea.addEventListener('dragleave', () => {
+        uploadArea.style.borderColor = '#cbd5e1';
+        uploadArea.style.background = '#fafcff';
+    });
+    uploadArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        uploadArea.style.borderColor = '#cbd5e1';
+        uploadArea.style.background = '#fafcff';
+        const files = e.dataTransfer.files;
+        if (files.length && files[0].type === 'application/pdf') {
+            fileInput.files = files;
+            fileNameSpan.textContent = files[0].name;
+            processBtn.disabled = false;
+        } else {
+            alert('Please drop a PDF file.');
+        }
+    });
+</script>
+</body>
+</html>

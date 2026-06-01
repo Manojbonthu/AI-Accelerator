@@ -13,9 +13,9 @@ from core.ingestion.pdf_analyzer import analyze_pdf
 
 
 # ─── Configuration ─────────────────────────
-pdf_path    = "tests/sample_docs/PublicWaterMassMailing.pdf"
-use_gemma   = True        # set True only after OCR works correctly
-output_json = "new_water_new.json"
+pdf_path    = "tests/sample_docs/Scanned_3.pdf"
+use_gemma   = False      # set True only after OCR works correctly
+output_json = "mon_Scanned.json"
 domain      = "general"
 # ────────────────────────────────────────────
 

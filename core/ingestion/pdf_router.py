@@ -13,7 +13,6 @@ load_dotenv()
 from core.ingestion.pdf_detector import detect_pdf_type
 from core.ingestion.handlers.digital_handler import extract_digital
 from core.ingestion.handlers.scanned_handler import extract_scanned
-from core.ingestion.handlers.mixed_handler import extract_mixed
 from core.ingestion.chunker import chunk_document
 from core.ingestion.storage import QdrantStorage
 from core.schemas.models import Chunk
@@ -36,13 +35,11 @@ def extract_pdf(
     pdf_type, page_types = detect_pdf_type(file_path)
     print(f"Detected: {pdf_type}")
     
-    # Step 2: Extract
+    # Step 2: Extract (mixed PDFs are routed to scanned handler for simplicity)
     if pdf_type == "digital":
-        normalized_doc = extract_digital(file_path)
-    elif pdf_type == "scanned":
+        normalized_doc = extract_digital(file_path, use_gemma=use_gemma)
+    else:  # scanned or mixed – scanned_handler works for both
         normalized_doc = extract_scanned(file_path, use_gemma=use_gemma)
-    else:
-        normalized_doc = extract_mixed(file_path, use_gemma=use_gemma)
     
     # Step 3: Chunk
     chunks = chunk_document(normalized_doc)

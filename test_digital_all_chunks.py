@@ -11,8 +11,8 @@ from core.ingestion.pdf_analyzer import analyze_pdf
 
 # ─── Configuration ─────────────────────────
 pdf_path = "tests/sample_docs/ano_digital_40pages.pdf"
-use_gemma = True   # Set to True only if Gemini API is configured
-output_json = "all_chunks_40pagesssss.json"
+use_gemma = False   # Set to True only if Gemini API is configured
+output_json = "mon_digital.json"
 # ────────────────────────────────────────────
 
 print(f"Analyzing {pdf_path} (use_gemma={use_gemma})...")
