@@ -3,14 +3,14 @@ core/ingestion/handlers/digital_handler.py
 
 Extracts content from digital PDFs and builds a hierarchical section tree.
 Removes noise, deduplicates images, and prepares for section‑based chunking.
-Now includes comprehensive per‑page metrics for production‑grade PDF analysis.
-Also intelligently sends only truly valuable diagrams (vector‑rich pages) to Gemma.
+Now sends the **entire page** to Gemini only when vector drawings > 30.
 """
 
 import fitz
 import os
 import re
 import hashlib
+import logging
 from typing import List, Optional, Dict, Any, Tuple
 from core.schemas.models import (
     ContentBlock, TableBlock, ImageBlock, BlockType,
@@ -18,11 +18,12 @@ from core.schemas.models import (
 )
 from core.ingestion.gemma_client import describe_image_with_gemma
 
+logger = logging.getLogger(__name__)
 
 # ------------------------------------------------------------------
 # Configuration for Gemma decisions
 # ------------------------------------------------------------------
-VECTOR_THRESHOLD = 20   # pages with more vector drawings are considered diagram candidates
+VECTOR_THRESHOLD = 30   # send full page to Gemini only if more than 30 vector drawings
 
 SKIP_SECTION_KEYWORDS = [
     "indicator lights",
@@ -37,7 +38,8 @@ SKIP_SECTION_KEYWORDS = [
 
 def _should_send_page_to_gemma(vector_count: int, section_title: str) -> bool:
     """
-    Decide whether to send a page to Gemma for description.
+    Decide whether to send a full page to Gemini for description.
+    Only if vector count > VECTOR_THRESHOLD and section is not in skip list.
     """
     if vector_count <= VECTOR_THRESHOLD:
         return False
@@ -52,7 +54,6 @@ def extract_digital(file_path: str, use_gemma: bool = True) -> NormalizedDocumen
     """
     Extract a digital PDF and return a NormalizedDocument with a section hierarchy.
     """
-    # Reset image registry for this document (prevents cross‑document leaks)
     global _image_registry
     _image_registry = {}
 
@@ -60,12 +61,9 @@ def extract_digital(file_path: str, use_gemma: bool = True) -> NormalizedDocumen
     file_name = os.path.basename(file_path)
     total_pages = len(doc)
 
-    # Final top‑level sections
     sections: List[Section] = []
-    # Stack to track current hierarchy path
     section_stack: List[Section] = []
 
-    # Create a default "Cover" section to capture content before the first heading
     current_section = Section(
         title="Cover",
         level=0,
@@ -96,23 +94,22 @@ def extract_digital(file_path: str, use_gemma: bool = True) -> NormalizedDocumen
         annotations = len(list(page.annots())) if hasattr(page, 'annots') else 0
         links = len(page.get_links())
 
-        page_rect = page.rect
-        page_area = page_rect.width * page_rect.height
-        image_area = 0.0
-        if raster_images > 0:
-            img_list = page.get_images(full=True)
-            for img in img_list:
-                rects = page.get_image_rects(img)
-                for r in rects:
-                    image_area += r.width * r.height
-        image_coverage_ratio = image_area / page_area if page_area > 0 else 0.0
+        # ---- CLEAN METRIC PRINT ----
+        parts = []
+        if raster_images:
+            parts.append(f"{raster_images} raster")
+        if vector_drawings:
+            parts.append(f"{vector_drawings} vector")
+        if parts:
+            print(f"→ Page {page_number} (digital) – {', '.join(parts)}")
+        else:
+            print(f"→ Page {page_number} (digital)")
 
         # ----- Extract text, images, tables -----
         text_blocks = _extract_text_blocks_with_bbox(page, page_number, file_name)
         image_blocks = _extract_image_blocks_with_bbox(page, doc, page_number, use_gemma)
         table_blocks = _extract_table_blocks_with_bbox(page, page_number, file_name)
 
-        # Merge and sort
         all_elements = text_blocks + image_blocks + table_blocks
         all_elements.sort(key=lambda x: x['bbox'][1])
         all_elements = _merge_adjacent_headings(all_elements)
@@ -126,7 +123,7 @@ def extract_digital(file_path: str, use_gemma: bool = True) -> NormalizedDocumen
             "vector_drawings": vector_drawings,
             "annotations": annotations,
             "links": links,
-            "image_coverage_ratio": round(image_coverage_ratio, 4)
+            "image_coverage_ratio": 0.0   # we skip image_area calculation for simplicity
         }
         page_break_block = ContentBlock(
             type=BlockType.PAGE_BREAK,
@@ -136,15 +133,17 @@ def extract_digital(file_path: str, use_gemma: bool = True) -> NormalizedDocumen
         )
         current_content_parts.append(page_break_block.text)
 
-        # ----- Decide whether to send the page (as an image) to Gemma -----
+        # ----- RE‑ENABLED: Send full page to Gemini if vector drawings > 30 -----
         current_section_title = section_stack[-1].title if section_stack else "Cover"
         send_to_gemma = (use_gemma and
                          _should_send_page_to_gemma(vector_drawings, current_section_title))
         if send_to_gemma:
-            # Render the whole page at 2x resolution for better clarity
-            pix = page.get_pixmap(matrix=fitz.Matrix(2, 2))
+            pix = page.get_pixmap(dpi=150)          # moderate resolution
             img_bytes = pix.tobytes("png")
-            description = describe_image_with_gemma(img_bytes)
+            try:
+                description = describe_image_with_gemma(img_bytes)
+            except Exception:
+                description = None
             if description:
                 current_content_parts.append(f"[Full-page diagram description from Gemini: {description}]")
                 current_figures.append(ImageBlock(description=description, page=page_number))
@@ -164,7 +163,6 @@ def extract_digital(file_path: str, use_gemma: bool = True) -> NormalizedDocumen
                 level = elem.get('level', 2)
                 heading_text = _clean_heading(text)
 
-                # Finalize current section
                 if current_section is not None:
                     current_section.content = "\n".join(current_content_parts).strip()
                     current_section.tables = current_tables[:]
@@ -175,7 +173,6 @@ def extract_digital(file_path: str, use_gemma: bool = True) -> NormalizedDocumen
                     else:
                         sections.append(current_section)
 
-                # Start new section
                 current_section = Section(
                     title=heading_text,
                     level=level,
@@ -190,14 +187,12 @@ def extract_digital(file_path: str, use_gemma: bool = True) -> NormalizedDocumen
                 current_tables = []
                 current_figures = []
 
-                # Update section stack
                 while len(section_stack) > 0 and section_stack[-1].level >= level:
                     section_stack.pop()
                 section_stack.append(current_section)
                 current_section.section_path = [s.title for s in section_stack]
                 continue
 
-            # Non‑heading content
             if block_type == BlockType.PARAGRAPH:
                 current_content_parts.append(text)
             elif block_type == BlockType.TABLE and 'table_block' in elem:
@@ -216,7 +211,6 @@ def extract_digital(file_path: str, use_gemma: bool = True) -> NormalizedDocumen
                     else:
                         current_content_parts.append("[Image]")
 
-    # Finalize the last section
     if current_section is not None:
         current_section.content = "\n".join(current_content_parts).strip()
         current_section.tables = current_tables[:]
@@ -229,7 +223,6 @@ def extract_digital(file_path: str, use_gemma: bool = True) -> NormalizedDocumen
 
     doc.close()
 
-    # Post-process: remove page headers/footers from section content
     doc_title = os.path.splitext(file_name)[0]
     if sections and sections[0].children:
         first_heading = sections[0].children[0].title
@@ -247,7 +240,7 @@ def extract_digital(file_path: str, use_gemma: bool = True) -> NormalizedDocumen
 
 
 # ------------------------------------------------------------------
-# Global image registry (reset per call inside extract_digital)
+# Global image registry
 # ------------------------------------------------------------------
 _image_registry: Dict[str, ImageBlock] = {}
 
@@ -263,9 +256,12 @@ def _get_or_create_image(image_bytes: bytes, page_num: int, use_gemma: bool) -> 
         confidence=1.0
     )
     if use_gemma:
-        desc = describe_image_with_gemma(image_bytes)
-        if desc:
-            image_block.description = desc
+        try:
+            desc = describe_image_with_gemma(image_bytes)
+            if desc:
+                image_block.description = desc
+        except Exception:
+            pass
     _image_registry[img_hash] = image_block
     return img_hash, image_block
 
@@ -482,18 +478,39 @@ def _table_to_markdown(headers: List[str], rows: List[List[str]]) -> str:
 
 
 # ============================================================
-# NEW FUNCTION for mixed_handler – extracts a single digital page
+# Single‑page extractor for mixed_handler
 # ============================================================
 def extract_digital_page_content(page: fitz.Page, page_num: int, doc: fitz.Document, use_gemma: bool = True) -> List[ContentBlock]:
     """
     Extract content from a single digital page.
-    Returns a list of ContentBlock (paragraphs, headings, tables, images).
+    If vector drawings > 30, send the entire page to Gemini and skip individual images.
+    Otherwise extract text, images, and tables normally.
     """
-    from core.ingestion.gemma_client import describe_image_with_gemma
-
     blocks = []
-    
-    # Extract text blocks
+    raster_images = len(page.get_images(full=True))
+    vector_drawings = len(page.get_drawings())
+
+    # ---- Full page decision (same rule) ----
+    send_full_page = use_gemma and (vector_drawings > VECTOR_THRESHOLD)
+
+    if send_full_page:
+        pix = page.get_pixmap(dpi=150)
+        img_bytes = pix.tobytes("png")
+        try:
+            description = describe_image_with_gemma(img_bytes)
+        except Exception:
+            description = None
+        if description:
+            image_block = ImageBlock(description=description, page=page_num)
+            blocks.append(ContentBlock(
+                type=BlockType.IMAGE,
+                text=description,
+                page=page_num,
+                image=image_block,
+                metadata={"source": "gemma", "full_page": True}
+            ))
+
+    # Extract text blocks (always)
     blocks_data = page.get_text("dict")["blocks"]
     for block in blocks_data:
         if block["type"] == 0:  # text
@@ -505,7 +522,7 @@ def extract_digital_page_content(page: fitz.Page, page_num: int, doc: fitz.Docum
                     font_size = span["size"]
                     font = span.get("font", "")
                     is_bold = "Bold" in font or "bold" in font.lower()
-                    
+
                     if font_size >= 14 or (font_size >= 12 and is_bold):
                         level = 1 if font_size >= 18 else 2
                         blocks.append(ContentBlock(
@@ -522,7 +539,7 @@ def extract_digital_page_content(page: fitz.Page, page_num: int, doc: fitz.Docum
                             page=page_num,
                             metadata={"source": "digital"}
                         ))
-        elif block["type"] == 1:  # image
+        elif block["type"] == 1 and not send_full_page:  # individual images only if not sending full page
             try:
                 xref = block.get("image", 0)
                 if xref:
@@ -535,9 +552,12 @@ def extract_digital_page_content(page: fitz.Page, page_num: int, doc: fitz.Docum
                         confidence=1.0
                     )
                     if use_gemma:
-                        desc = describe_image_with_gemma(img_bytes)
-                        if desc:
-                            image_block.description = desc
+                        try:
+                            desc = describe_image_with_gemma(img_bytes)
+                            if desc:
+                                image_block.description = desc
+                        except Exception:
+                            pass
                     blocks.append(ContentBlock(
                         type=BlockType.IMAGE,
                         text=image_block.description or "[Image]",
@@ -548,7 +568,7 @@ def extract_digital_page_content(page: fitz.Page, page_num: int, doc: fitz.Docum
             except Exception:
                 pass
 
-    # Extract tables
+    # Extract tables (always)
     tables = page.find_tables()
     for table in tables.tables:
         if not table.header or not table.extract():

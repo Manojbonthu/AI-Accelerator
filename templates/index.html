@@ -173,16 +173,6 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        .result {
-            background: #f8fafc;
-            border-radius: 20px;
-            padding: 1.5rem;
-            font-family: monospace;
-            font-size: 0.85rem;
-            white-space: pre-wrap;
-            overflow-x: auto;
-            border: 1px solid #e2e8f0;
-        }
         .download-btn {
             background: #2d6a4f;
             margin-top: 1rem;
@@ -197,16 +187,6 @@
             flex-wrap: wrap;
             gap: 1rem;
         }
-        hr {
-            margin: 1.5rem 0;
-            border-color: #e2e8f0;
-        }
-        .error {
-            color: #b91c1c;
-            background: #fee2e2;
-            padding: 1rem;
-            border-radius: 16px;
-        }
         .badge {
             background: #e2e8f0;
             padding: 0.2rem 0.7rem;
@@ -214,6 +194,12 @@
             font-size: 0.75rem;
             font-weight: 600;
             color: #1e2b3c;
+        }
+        .success-msg {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2d6a4f;
+            margin-bottom: 1rem;
         }
         @media (max-width: 640px) {
             .card { padding: 1.2rem; }
@@ -252,16 +238,10 @@
     <div id="resultContainer" style="display: none;">
         <div class="card">
             <div class="flex-between">
-                <h2>📊 Extraction Summary</h2>
+                <span class="success-msg" id="successMsg">✅ Extraction complete</span>
                 <span class="badge" id="pdfTypeBadge"></span>
             </div>
-            <div id="summaryText" class="result"></div>
-            <hr>
-            <div class="flex-between">
-                <h2>📑 Detailed Page Info</h2>
-                <button id="downloadJsonBtn" class="download-btn">💾 Download JSON (chunks)</button>
-            </div>
-            <div id="detailedSummary" class="result" style="max-height: 400px; overflow-y: auto;"></div>
+            <button id="downloadJsonBtn" class="download-btn">💾 Download JSON (chunks)</button>
         </div>
     </div>
 </div>
@@ -273,9 +253,8 @@
     const gemmaToggle = document.getElementById('gemmaToggle');
     const loader = document.getElementById('loader');
     const resultContainer = document.getElementById('resultContainer');
-    const summaryTextDiv = document.getElementById('summaryText');
-    const detailedSummaryDiv = document.getElementById('detailedSummary');
     const pdfTypeBadge = document.getElementById('pdfTypeBadge');
+    const successMsg = document.getElementById('successMsg');
     const downloadBtn = document.getElementById('downloadJsonBtn');
 
     let currentChunks = null;
@@ -317,25 +296,9 @@
 
             currentChunks = data.chunks;
             currentFileName = data.file_name;
+
             pdfTypeBadge.textContent = `📄 ${data.pdf_type.toUpperCase()}`;
-            summaryTextDiv.textContent = data.summary_text;
-            
-            // Build detailed summary table
-            let tableHtml = '<table style="width:100%; border-collapse: collapse; font-size: 0.8rem;">';
-            tableHtml += '<thead><tr style="background:#e2e8f0;"><th>Page</th><th>Type</th><th>Text</th><th>Image</th><th>Table</th><th>Blank</th><th>Description</th></tr></thead><tbody>';
-            for (let p of data.detailed_summary) {
-                tableHtml += `<tr style="border-bottom:1px solid #cbd5e1;">
-                    <td style="padding:0.5rem;">${p.page}</td>
-                    <td>${p.type}</td>
-                    <td>${p.digital_text}</td>
-                    <td>${p.image}</td>
-                    <td>${p.table}</td>
-                    <td>${p.blank}</td>
-                    <td style="max-width:300px; overflow:hidden; text-overflow:ellipsis;">${p.description.substring(0, 80)}${p.description.length > 80 ? '…' : ''}</td>
-                </tr>`;
-            }
-            tableHtml += '</tbody></table>';
-            detailedSummaryDiv.innerHTML = tableHtml;
+            successMsg.textContent = `✅ Extraction complete – ${data.total_chunks} chunks from ${data.total_pages} pages`;
 
             resultContainer.style.display = 'block';
         } catch (err) {
@@ -368,7 +331,7 @@
         URL.revokeObjectURL(url);
     });
 
-    // Drag & drop enhancement
+    // Drag & drop
     const uploadArea = document.getElementById('uploadArea');
     uploadArea.addEventListener('dragover', (e) => {
         e.preventDefault();

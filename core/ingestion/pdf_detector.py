@@ -1,6 +1,7 @@
 """
 PDF detection module – checks if pages contain selectable text.
 Returns overall type ("digital", "scanned", "mixed") and per‑page types.
+(No console output – clean integration into pipelines.)
 """
 
 import fitz  # PyMuPDF
@@ -24,17 +25,14 @@ def detect_pdf_type(file_path: str) -> Tuple[str, List[str]]:
     total_pages = len(doc)
     page_types = []
 
-    print("\nPage-by-page classification:")
     for page_num in range(total_pages):
         page = doc[page_num]
         text = page.get_text().strip()
         # Lowered threshold – any page with at least 5 characters is considered digital
         if len(text) > 5:
             page_types.append("digital")
-            print(f"Page {page_num+1}: digital ({len(text)} chars)")
         else:
             page_types.append("scanned")
-            print(f"Page {page_num+1}: scanned (only {len(text)} chars)")
 
     doc.close()
 
@@ -45,5 +43,4 @@ def detect_pdf_type(file_path: str) -> Tuple[str, List[str]]:
     else:
         overall = "mixed"
 
-    print(f"\nOverall PDF type: {overall}")
     return overall, page_types

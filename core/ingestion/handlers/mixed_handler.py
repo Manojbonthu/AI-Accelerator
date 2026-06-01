@@ -51,17 +51,13 @@ def extract_mixed(file_path: str, use_gemma: bool = True) -> NormalizedDocument:
         ))
         
         if page_type == "digital":
-            # Use digital extraction for this page
             blocks = extract_digital_page_content(page, page_number, doc, use_gemma)
         else:
-            # Use scanned extraction for this page
             blocks = extract_scanned_page_content(page, page_number, use_gemma)
         
         all_blocks.extend(blocks)
     
     doc.close()
-    
-    # Build section hierarchy from blocks
     sections = build_sections_from_blocks(all_blocks, total_pages)
     
     return NormalizedDocument(
@@ -76,11 +72,35 @@ def extract_mixed(file_path: str, use_gemma: bool = True) -> NormalizedDocument:
 def extract_digital_page_content(page: fitz.Page, page_num: int, doc: fitz.Document, use_gemma: bool) -> List[ContentBlock]:
     """
     Extract content from a single digital page.
-    Uses the same logic as digital_handler but for one page only.
+    If the page contains ANY image (raster image or any vector drawing),
+    send the entire page as ONE image to Gemini and skip individual image extraction.
+    Otherwise, extract text, embedded images, and tables normally.
     """
     blocks = []
+    raster_images = len(page.get_images(full=True))
+    vector_drawings = len(page.get_drawings())
     
-    # Get text, images, tables from the page
+    # ONE call per page if there is any image at all (raster or vector)
+    send_full_page = use_gemma and (raster_images > 0 or vector_drawings > 0)
+    
+    if send_full_page:
+        # Render page at moderate resolution to avoid API limits
+        pix = page.get_pixmap(dpi=150)
+        img_bytes = pix.tobytes("png")
+        description = describe_image_with_gemma(img_bytes)
+        if description:
+            image_block = ImageBlock(description=description, page=page_num)
+            blocks.append(ContentBlock(
+                type=BlockType.IMAGE,
+                text=description,
+                page=page_num,
+                image=image_block,
+                metadata={"source": "gemma", "full_page": True}
+            ))
+        # Do NOT extract individual raster images (skip block type 1 later)
+        # We still need to extract text and tables, so we continue but ignore image blocks.
+    
+    # Extract text and tables (always)
     text_dict = page.get_text("dict")
     for block in text_dict["blocks"]:
         if block["type"] == 0:  # text
@@ -109,8 +129,7 @@ def extract_digital_page_content(page: fitz.Page, page_num: int, doc: fitz.Docum
                             page=page_num,
                             metadata={"source": "digital"}
                         ))
-        elif block["type"] == 1:  # image
-            # Extract image bytes
+        elif block["type"] == 1 and not send_full_page:  # image (raster) only if we didn't send full page
             try:
                 xref = block.get("image", 0)
                 if xref:
@@ -136,7 +155,7 @@ def extract_digital_page_content(page: fitz.Page, page_num: int, doc: fitz.Docum
             except Exception:
                 pass
     
-    # Extract tables
+    # Extract tables (always)
     tables = page.find_tables()
     for table in tables.tables:
         if not table.header or not table.extract():
@@ -144,7 +163,6 @@ def extract_digital_page_content(page: fitz.Page, page_num: int, doc: fitz.Docum
         headers = [str(h) for h in table.header.names]
         rows = [[str(cell) for cell in row] for row in table.extract()]
         table_block = TableBlock(headers=headers, rows=rows, page=page_num)
-        # Create markdown representation
         md = "| " + " | ".join(headers) + " |\n"
         md += "|" + "|".join(["---"] * len(headers)) + "|\n"
         for row in rows:
@@ -172,7 +190,6 @@ def extract_scanned_page_content(page: fitz.Page, page_num: int, use_gemma: bool
     
     pil_img = page_to_pil(page, dpi=200)
     ocr_text = extract_ocr_text(pil_img)
-    
     blocks = parse_ocr_text_to_blocks(ocr_text, page_num)
     
     has_image = detect_meaningful_images(pil_img)
@@ -197,13 +214,12 @@ def extract_scanned_page_content(page: fitz.Page, page_num: int, use_gemma: bool
                 image=image_block,
                 metadata={"source": "gemma", "full_page": True}
             ))
-    
     return blocks
 
 
 def build_sections_from_blocks(blocks: List[ContentBlock], total_pages: int) -> List[Section]:
     """
-    Build hierarchical sections from flat blocks (same as in scanned_handler).
+    Build hierarchical sections from flat blocks.
     """
     sections = []
     section_stack = []

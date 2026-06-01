@@ -1,5 +1,3 @@
-# core/ingestion/handlers/scanned_handler.py
-
 """
 Scanned PDF Handler – Final tuned version
 ──────────────────────────────────────────────────────────────────
@@ -8,6 +6,7 @@ Scanned PDF Handler – Final tuned version
 - Excludes only very large, text‑heavy tables (>40% page and >80 text lines).
 - Keeps diagrams, photos, drawings, and small tables.
 - Final: OCR text + optional Gemma description.
+(No console output – clean integration with mixed/digital handlers.)
 """
 
 import os
@@ -15,6 +14,7 @@ import io
 import cv2
 import fitz
 import numpy as np
+import logging
 
 from PIL import Image
 from ultralytics import YOLO
@@ -27,6 +27,7 @@ from core.schemas.models import (
 )
 from core.ingestion.gemma_client import describe_image_with_gemma
 
+logger = logging.getLogger(__name__)
 
 _ocr_engine = None
 _yolo_model = None
@@ -282,30 +283,21 @@ def extract_scanned(
     total_pages = len(doc)
     all_blocks: List[ContentBlock] = []
 
-    pages_with_images = []
-
     for page_num in range(total_pages):
         page = doc[page_num]
         page_number = page_num + 1
-        print(f"\n[Page {page_number}/{total_pages}]")
 
         pil_img = page_to_pil(page, dpi=200)
 
         # OCR always
         ocr_text = extract_ocr_text(pil_img)
-        print(f"  OCR       : {len(ocr_text.splitlines())} lines")
 
         # Detect meaningful images (diagrams, photos, tables)
         has_image = detect_meaningful_images(pil_img)
 
-        if has_image:
-            pages_with_images.append(page_number)
-            print(f"  ✓ Meaningful image(s) detected")
-
         # Gemma description for pages with images
         gemma_description = ""
         if use_gemma and has_image:
-            print(f"  Gemma     : sending full page for diagram description...")
             img_bytes = io.BytesIO()
             pil_img.save(img_bytes, format="PNG")
             img_bytes = img_bytes.getvalue()
@@ -316,11 +308,10 @@ def extract_scanned(
                 "For each diagram: explain its type, main components, relationships, and any visible labels. "
                 "Keep total description under 300 words."
             )
-            gemma_description = describe_image_with_gemma(img_bytes, prompt=prompt)
-            if gemma_description:
-                print(f"  Gemma     : description received")
-            else:
-                print(f"  Gemma     : ⚠ empty response")
+            try:
+                gemma_description = describe_image_with_gemma(img_bytes, prompt=prompt)
+            except Exception:
+                gemma_description = None
 
         # Add blocks
         text_blocks = parse_ocr_text_to_blocks(ocr_text, page_number)
@@ -345,16 +336,6 @@ def extract_scanned(
 
     doc.close()
 
-    print("\n" + "─" * 50)
-    print("FINAL SUMMARY")
-    print("─" * 50)
-    print(f"  Total pages        : {total_pages}")
-    print(f"  Pages with images  : {len(pages_with_images)}")
-    if pages_with_images:
-        print(f"  Pages: {pages_with_images}")
-    print(f"  Gemma enabled      : {use_gemma}")
-    print("─" * 50)
-
     sections = build_sections(all_blocks, total_pages)
 
     return NormalizedDocument(
@@ -367,23 +348,18 @@ def extract_scanned(
 
 
 # ============================================================
-# NEW FUNCTION for mixed_handler – extracts a single scanned page
+# Function for mixed_handler – extracts a single scanned page
 # ============================================================
 def extract_scanned_page_content(page: fitz.Page, page_num: int, use_gemma: bool = True) -> List[ContentBlock]:
     """
     Extract content from a single scanned page using OCR + YOLO + optional Gemma.
     Returns a list of ContentBlock.
     """
-    from core.ingestion.handlers.scanned_handler import (
-        page_to_pil, extract_ocr_text, detect_meaningful_images,
-        parse_ocr_text_to_blocks, describe_image_with_gemma as gemma_desc
-    )
-    
     pil_img = page_to_pil(page, dpi=200)
     ocr_text = extract_ocr_text(pil_img)
-    
+
     blocks = parse_ocr_text_to_blocks(ocr_text, page_num)
-    
+
     has_image = detect_meaningful_images(pil_img)
     if use_gemma and has_image:
         img_bytes = io.BytesIO()
@@ -396,7 +372,11 @@ def extract_scanned_page_content(page: fitz.Page, page_num: int, use_gemma: bool
             "For each diagram: explain its type, main components, relationships, and any visible labels. "
             "Keep total description under 300 words."
         )
-        gemma_description = gemma_desc(img_bytes, prompt=prompt)
+        try:
+            gemma_description = describe_image_with_gemma(img_bytes, prompt=prompt)
+        except Exception:
+            gemma_description = None
+
         if gemma_description:
             image_block = ImageBlock(description=gemma_description, page=page_num)
             blocks.append(ContentBlock(
@@ -406,5 +386,5 @@ def extract_scanned_page_content(page: fitz.Page, page_num: int, use_gemma: bool
                 image=image_block,
                 metadata={"source": "gemma", "full_page": True}
             ))
-    
+
     return blocks

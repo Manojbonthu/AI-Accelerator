@@ -22,7 +22,7 @@ from core.schemas.models import (
 )
 from core.ingestion.pdf_detector import detect_pdf_type
 from core.ingestion.handlers.digital_handler import extract_digital
-from core.ingestion.handlers.mixed_handler import extract_mixed  # <-- NEW: per‑page routing
+from core.ingestion.handlers.mixed_handler import extract_mixed
 from core.ingestion.gemma_client import describe_image_with_gemma
 from core.ingestion.chunker import chunk_document
 
@@ -71,14 +71,11 @@ def analyze_pdf(
 
     # Route to appropriate handler
     if pdf_type == "digital":
-        # Pure digital → fast direct extraction
         normalized_doc = extract_digital(file_path, use_gemma=use_gemma)
     else:
-        # Scanned or mixed → per‑page routing (digital pages go to digital handler, scanned to OCR)
         normalized_doc = extract_mixed(file_path, use_gemma=use_gemma)
 
     if normalized_doc is None:
-        # Return empty result if unsupported type
         return {
             "file_name": file_name,
             "pdf_type": pdf_type,
@@ -96,9 +93,8 @@ def analyze_pdf(
     page_image_flags = {}
     page_table_flags = {}
     page_descriptions = {}
-    page_metrics = {}   # page_num -> dict of metrics
+    page_metrics = {}
 
-    # Helper to process a section tree (for text/image/table flags)
     def process_section(section):
         # Tables
         for tbl in section.tables:
@@ -106,29 +102,27 @@ def analyze_pdf(
             page_table_flags[p] = True
             if p not in page_descriptions:
                 page_descriptions[p] = f"Table: {', '.join(tbl.headers)}"
-        # Figures (images)
+        # Figures
         for fig in section.figures:
             p = fig.page
             page_image_flags[p] = True
             if p not in page_descriptions:
                 desc = fig.description or fig.caption or "Image"
                 page_descriptions[p] = desc[:200]
-        # Text content (approximate: assume content spans from page_start to page_end)
+        # Text content
         if section.content:
             for p in range(section.page_start, section.page_end + 1):
                 page_text_flags[p] = True
                 if p not in page_descriptions:
                     page_descriptions[p] = section.content[:200]
-        # Recurse into children
         for child in section.children:
             process_section(child)
 
-    # Process sections if present
     if normalized_doc.sections:
         for section in normalized_doc.sections:
             process_section(section)
 
-    # Also process legacy blocks (fallback)
+    # Legacy blocks fallback
     for block in normalized_doc.blocks:
         p = block.page
         if block.type in (BlockType.PARAGRAPH, BlockType.HEADING):
@@ -144,7 +138,6 @@ def analyze_pdf(
             if p not in page_descriptions:
                 page_descriptions[p] = "Table: " + (block.text[:100] if block.text else "")
         elif block.type == BlockType.PAGE_BREAK:
-            # Extract production metrics from page break metadata (if present)
             meta = block.metadata
             if meta:
                 page_metrics[p] = {
@@ -157,30 +150,34 @@ def analyze_pdf(
                     "image_coverage_ratio": meta.get("image_coverage_ratio", 0.0)
                 }
 
-    # Build the detailed summary list for each page
     detailed_summary = []
     for page_num in range(1, normalized_doc.total_pages + 1):
         metrics = page_metrics.get(page_num, {})
         summary_entry = {
             "page": page_num,
-            "type": pdf_type,   # overall type (digital, scanned, mixed)
+            "type": pdf_type,
             "digital_text": "✅" if page_text_flags.get(page_num) else "❌",
             "image": "✅" if page_image_flags.get(page_num) else "❌",
             "table": "✅" if page_table_flags.get(page_num) else "❌",
             "blank": "✅" if not (page_text_flags.get(page_num) or page_image_flags.get(page_num) or page_table_flags.get(page_num)) else "❌",
             "description": page_descriptions.get(page_num, "")
         }
-        # Add production metrics if available
         if metrics:
             summary_entry.update(metrics)
         detailed_summary.append(summary_entry)
 
-    # Chunk the document using the new chunker (which handles sections)
+    # Chunk the document
     chunks = chunk_document(
         normalized_doc,
         document_id=document_id,
         domain=domain
     )
+
+    # ------------------------------------------------------------------
+    # ✨ NEW: Enrich each chunk’s figures with a compressed base64 image
+    #        so the frontend can display the actual image + description.
+    # ------------------------------------------------------------------
+    _enrich_chunks_with_images(chunks, normalized_doc)
 
     summary_text = generate_summary(detailed_summary)
 
@@ -193,6 +190,41 @@ def analyze_pdf(
         "summary_text": summary_text,
         "chunks": [c.to_dict() for c in chunks]
     }
+
+
+def _enrich_chunks_with_images(chunks: List[Chunk], doc: NormalizedDocument):
+    """
+    Walk through all ImageBlock objects in the document (sections tree)
+    and inject a 'base64' field into every chunk figure that matches
+    on page + description.
+    """
+    # Build a map: (page, description) -> ImageBlock (for quick lookup)
+    image_lookup: Dict[tuple, ImageBlock] = {}
+
+    def collect_images(section):
+        for fig in section.figures:
+            # Use (page, description) as key; empty description is fine
+            key = (fig.page, fig.description or fig.caption or "")
+            image_lookup[key] = fig
+        for child in section.children:
+            collect_images(child)
+
+    for section in doc.sections:
+        collect_images(section)
+
+    # For each chunk, try to match each figure and add base64
+    for chunk in chunks:
+        updated_figures = []
+        for fig_dict in chunk.figures:
+            page = fig_dict.get("page", 0)
+            desc = fig_dict.get("description", "") or ""
+            key = (page, desc)
+            img_block = image_lookup.get(key)
+            if img_block:
+                # Add the display base64 (compressed JPEG)
+                fig_dict["base64"] = img_block.to_display_base64(max_width=300)
+            updated_figures.append(fig_dict)
+        chunk.figures = updated_figures
 
 
 def generate_summary(page_data: List[Dict]) -> str:

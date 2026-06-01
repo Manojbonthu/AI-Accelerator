@@ -9,6 +9,10 @@ from dataclasses import dataclass, field
 from typing import List, Optional, Dict, Any
 from enum import Enum
 import uuid
+import base64
+import io
+
+from PIL import Image
 
 
 class BlockType(str, Enum):
@@ -45,6 +49,25 @@ class ImageBlock:
     description: Optional[str] = None
     page: int = 1
     confidence: float = 1.0
+
+    def to_display_base64(self, max_width: int = 300) -> str:
+        """
+        Return a compressed, base64-encoded JPEG version of the image
+        suitable for embedding in HTML. Returns empty string on error.
+        """
+        if not self.image_bytes:
+            return ""
+        try:
+            img = Image.open(io.BytesIO(self.image_bytes))
+            if img.width > max_width:
+                ratio = max_width / img.width
+                new_height = int(img.height * ratio)
+                img = img.resize((max_width, new_height), Image.Resampling.LANCZOS)
+            buf = io.BytesIO()
+            img.save(buf, format="JPEG", quality=70)
+            return base64.b64encode(buf.getvalue()).decode("utf-8")
+        except Exception:
+            return ""
 
 
 @dataclass
